@@ -1,0 +1,19 @@
+.layout-container {
+  display: flex;
+  height: 100vh; /* Full height of the viewport */
+}
+
+main {
+  width: 85vw;
+}
+
+.inset {
+  position: relative;
+  z-index: 1000;
+  left: -2rem;
+}
+
+.inset-closed {
+  position: absolute;
+  left: 0.25rem;
+}

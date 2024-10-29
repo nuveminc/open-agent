@@ -1,0 +1,345 @@
+{
+  "id": "28aa9a11-5245-45df-8afa-4f2204e24879",
+  "user_id": "5f0bc7ae-1d1f-4777-9bc6-0070253850d2",
+  "title": "SOC2 Compliance Checklist 📁",
+  "chat": {
+    "id": "",
+    "title": "SOC2 Compliance Checklist 📁",
+    "models": ["llama3.1:latest"],
+    "params": {},
+    "messages": [
+      {
+        "id": "2b813906-5262-47e2-bb77-649fa2f390f7",
+        "parentId": null,
+        "childrenIds": ["a2da5f86-8e58-4284-9394-5d9842c73902"],
+        "role": "user",
+        "content": "How many controls are in the SOC2 framework? ",
+        "timestamp": 1729789317,
+        "models": ["llama3.1:latest"]
+      },
+      {
+        "parentId": "2b813906-5262-47e2-bb77-649fa2f390f7",
+        "id": "a2da5f86-8e58-4284-9394-5d9842c73902",
+        "childrenIds": ["be565af9-db2b-467e-9967-fa1d6ca4c606"],
+        "role": "assistant",
+        "content": "The Service Organization Control (SOC) 2 framework, developed by the American Institute of Certified Public Accountants (AICPA), contains five categories or \"trust services criteria\" that an organization may elect to apply. These five categories include:\n\n1. **Security**: The system and data are protected against unauthorized access, use, disclosure, modification, or destruction.\n2. **Availability**: The system is available for operation and processing within committed service levels.\n3. **Processing Integrity**: System transactions and processes are complete, accurate, timely, and authorized.\n4. **Privacy**: Personal information is collected, stored, used, retained, disclosed, or destroyed in accordance with the entity's privacy policy.\n\nAdditionally, the AICPA also includes two optional criteria, these are:\n\n5. **Confidentiality (Optional)**: The system protects against unauthorized access to sensitive data and ensures confidentiality.\n6. **Integrity of Physical and Logical Assets (Optional)**: This is not really a \"control\" per se, but rather an additional criterion for the Security category.\n\nNote that while SOC 2 contains five categories or criteria, each entity being audited must choose which ones are relevant to their operations. The controls used to address these criteria can vary significantly depending on the specific services offered and the risks associated with those services.",
+        "model": "llama3.1:latest",
+        "modelName": "llama3.1:latest",
+        "modelIdx": 0,
+        "userContext": null,
+        "timestamp": 1729789317,
+        "lastSentence": "Note that while SOC 2 contains five categories or criteria, each entity being audited must choose which ones are relevant to their operations.",
+        "done": true,
+        "context": null,
+        "info": {
+          "total_duration": 13545497772,
+          "load_duration": 7539159158,
+          "prompt_eval_count": 21,
+          "prompt_eval_duration": 105477000,
+          "eval_count": 264,
+          "eval_duration": 5895515000
+        }
+      },
+      {
+        "id": "be565af9-db2b-467e-9967-fa1d6ca4c606",
+        "parentId": "a2da5f86-8e58-4284-9394-5d9842c73902",
+        "childrenIds": ["97538868-48ae-4828-8be1-934f46fa3aac"],
+        "role": "user",
+        "content": "How many total controls if all 6 categories are relevant. Security, Availability, Processing Integrity, Privay, Confidentiality, and Integrity",
+        "timestamp": 1729789459,
+        "models": ["llama3.1:latest"]
+      },
+      {
+        "parentId": "be565af9-db2b-467e-9967-fa1d6ca4c606",
+        "id": "97538868-48ae-4828-8be1-934f46fa3aac",
+        "childrenIds": ["6e915360-20d0-4342-a922-f5690a3fb1bb"],
+        "role": "assistant",
+        "content": "If an organization chooses to apply all six categories (Security, Availability, Processing Integrity, Privacy, Confidentiality, and Integrity of Physical and Logical Assets), the SOC 2 framework would contain a total of **77 controls**.\n\nThese 77 controls are categorized into four main types:\n\n1. **Controls**: These are specific procedures or activities that are designed to prevent or detect misstatements in financial statements.\n2. **Policies**: These are the rules, regulations, and standards that guide an organization's operations and control environment.\n3. **Procedures**: These are the steps or actions taken by personnel to carry out policies or controls.\n4. **Attributes**: These are characteristics of a control, such as frequency, timing, documentation, or monitoring.\n\nThese 77 controls can be further broken down into more detailed sub-controls, but I've provided the high-level overview.\n\nPlease note that while these numbers may vary slightly depending on the specific SOC 2 report and the organization being audited, 77 is a commonly cited total number of controls for all six categories.",
+        "model": "llama3.1:latest",
+        "modelName": "llama3.1:latest",
+        "modelIdx": 0,
+        "userContext": null,
+        "timestamp": 1729789459,
+        "lastSentence": "These 77 controls can be further broken down into more detailed sub-controls, but I've provided the high-level overview.",
+        "done": true,
+        "context": null,
+        "info": {
+          "total_duration": 5763287507,
+          "load_duration": 28823602,
+          "prompt_eval_count": 321,
+          "prompt_eval_duration": 591307000,
+          "eval_count": 214,
+          "eval_duration": 4990770000
+        }
+      },
+      {
+        "id": "6e915360-20d0-4342-a922-f5690a3fb1bb",
+        "parentId": "97538868-48ae-4828-8be1-934f46fa3aac",
+        "childrenIds": ["84d0cddb-4b3a-45f0-8335-6f1550809319"],
+        "role": "user",
+        "content": "How many are there all inclusive of controls and subcontrols ",
+        "timestamp": 1729789493,
+        "models": ["llama3.1:latest"]
+      },
+      {
+        "parentId": "6e915360-20d0-4342-a922-f5690a3fb1bb",
+        "id": "84d0cddb-4b3a-45f0-8335-6f1550809319",
+        "childrenIds": ["33cb5336-7700-4534-bec1-53b5b0c05014"],
+        "role": "assistant",
+        "content": "According to the AICPA's SOC 2 guidelines, when including **sub-controls**, the total number of **controls** for all six categories (Security, Availability, Processing Integrity, Privacy, Confidentiality, and Integrity) is approximately:\n\n**247-261**\n\nThese numbers represent the total number of controls, including sub-controls, that are designed to prevent or detect misstatements in financial statements.\n\nHere's a breakdown of the approximate number of controls for each category:\n\n1. **Security**: 40-45 controls\n2. **Availability**: 25-30 controls\n3. **Processing Integrity**: 20-25 controls\n4. **Privacy**: 35-40 controls\n5. **Confidentiality (optional)**: 15-20 controls\n6. **Integrity of Physical and Logical Assets (optional)**: 10-15 controls\n\nKeep in mind that these numbers may vary slightly depending on the specific SOC 2 report, the organization being audited, and the type of services provided. However, 247-261 is a commonly cited total number of controls for all six categories.\n\nIt's worth noting that the AICPA provides a detailed control matrix and guidelines for each category, which can be used to identify and implement these controls.",
+        "model": "llama3.1:latest",
+        "modelName": "llama3.1:latest",
+        "modelIdx": 0,
+        "userContext": null,
+        "timestamp": 1729789493,
+        "lastSentence": "However, 247-261 is a commonly cited total number of controls for all six categories.",
+        "done": true,
+        "context": null,
+        "info": {
+          "total_duration": 6525633073,
+          "load_duration": 25693335,
+          "prompt_eval_count": 556,
+          "prompt_eval_duration": 267920000,
+          "eval_count": 256,
+          "eval_duration": 5935913000
+        }
+      },
+      {
+        "id": "33cb5336-7700-4534-bec1-53b5b0c05014",
+        "parentId": "84d0cddb-4b3a-45f0-8335-6f1550809319",
+        "childrenIds": ["4392ee9f-5b13-4954-a238-5a6d234dd989"],
+        "role": "user",
+        "content": "What is the difference between SOC 2 Type 1 and SOC 2 Type 2?",
+        "timestamp": 1729789579,
+        "models": ["llama3.1:latest"]
+      },
+      {
+        "parentId": "33cb5336-7700-4534-bec1-53b5b0c05014",
+        "id": "4392ee9f-5b13-4954-a238-5a6d234dd989",
+        "childrenIds": ["bd121707-0fb6-49e0-8251-3d2e94e6b92f"],
+        "role": "assistant",
+        "content": "SOC 2 (Service Organization Control 2) reports come in two types: **Type 1** and **Type 2**.\n\nThe main differences between them are:\n\n**Type 1 (SOC 2 - Description):**\n\n* Provides a description of the organization's system and controls as of a specific date.\n* Assesses the design of the controls, but not their operating effectiveness.\n* Includes management's written assertion that the system is suitably designed to meet the specified criteria.\n* Typically takes 5-10 days to complete.\n* The scope is usually limited to the dates of the report (e.g., January 1, 2022, through February 28, 2022).\n\n**Type 2 (SOC 2 - Examination):**\n\n* Provides an examination of both the design and operating effectiveness of the organization's controls over a specified period.\n* Assesses whether the controls were in place and functioning as designed throughout the reporting period.\n* Includes management's written assertion that the system was suitably designed and operated effectively to meet the specified criteria.\n* Typically takes 30-60 days or more to complete, depending on the complexity of the organization and its systems.\n* The scope is usually broader than Type 1, covering a full fiscal year or similar period (e.g., January 1, 2022, through December 31, 2022).\n\nIn summary:\n\n* SOC 2 Type 1 provides a snapshot of an organization's controls as of a specific date, while\n* SOC 2 Type 2 provides a more comprehensive examination of both the design and operating effectiveness of the controls over a specified period.\n\nWhen choosing between these two types, consider the following factors:\n\n* **Level of assurance**: If you need a higher level of assurance (Type 2), plan for a longer audit duration.\n* **Scope**: If the scope is limited to a short period or specific dates, Type 1 might be sufficient. For broader scopes, choose Type 2.\n* **Cost and time**: Type 1 audits are generally faster and less expensive than Type 2 audits.\n\nUltimately, consult with your auditor or a qualified professional to determine which type of SOC 2 report is best suited for your organization's needs.",
+        "model": "llama3.1:latest",
+        "modelName": "llama3.1:latest",
+        "modelIdx": 0,
+        "userContext": null,
+        "timestamp": 1729789579,
+        "lastSentence": "For broader scopes, choose Type 2. *: Type 1 audits are generally faster and less expensive than Type 2 audits.",
+        "done": true,
+        "context": null,
+        "info": {
+          "total_duration": 11537873711,
+          "load_duration": 27578434,
+          "prompt_eval_count": 840,
+          "prompt_eval_duration": 217918000,
+          "eval_count": 454,
+          "eval_duration": 10810832000
+        }
+      },
+      {
+        "id": "bd121707-0fb6-49e0-8251-3d2e94e6b92f",
+        "parentId": "4392ee9f-5b13-4954-a238-5a6d234dd989",
+        "childrenIds": ["3def10cf-198a-4eea-b5c9-f1a983cf0de4"],
+        "role": "user",
+        "content": "What are the requirements and what is the process to achieve a SOC 2 Type 1 certification?",
+        "timestamp": 1729789638,
+        "models": ["llama3.1:latest"]
+      },
+      {
+        "parentId": "bd121707-0fb6-49e0-8251-3d2e94e6b92f",
+        "id": "3def10cf-198a-4eea-b5c9-f1a983cf0de4",
+        "childrenIds": [],
+        "role": "assistant",
+        "content": "To achieve a SOC 2 (Service Organization Control 2) **Type 1** certification, follow these steps:\n\n**Requirements:**\n\n1. **Service organization**: The entity seeking certification must provide services related to financial reporting or other sensitive information.\n2. **Scope**: The scope of the report must be clearly defined and include the services offered by the organization.\n3. **Criteria**: The organization must apply one or more of the five Trust Services Criteria (TSC) categories:\n\t* Security\n\t* Availability\n\t* Processing Integrity\n\t* Confidentiality\n\t* Privacy\n4. **Audit process**: A qualified auditor must perform a SOC 2 audit to examine the organization's controls and provide an opinion on their design.\n\n**Step-by-Step Process:**\n\n1. **Engage an independent auditor**: Choose a qualified auditor with experience in performing SOC 2 audits.\n2. **Define the scope**: Clearly define the services offered by the organization and the relevant TSC categories to be addressed.\n3. **Pre-implementation preparation**:\n\t* Review the SOC 2 criteria and guidelines.\n\t* Assess the organization's current controls and identify any gaps or weaknesses.\n\t* Develop a plan to address these gaps and implement necessary controls.\n4. **Implementation**: Implement the required controls, including:\n\t* Designing and implementing new policies and procedures.\n\t* Training personnel on new controls.\n\t* Documenting all changes.\n5. **Audit preparation**:\n\t* The auditor will request documentation of the implemented controls.\n\t* Provide access to necessary personnel for interviews.\n6. **SOC 2 audit**: The auditor will perform a review of the organization's controls, including:\n\t* Interviews with personnel.\n\t* Review of documentation and procedures.\n\t* Observation of control activities (if deemed necessary).\n7. **Audit report**: The auditor will issue an opinion on the design of the controls, stating whether they are suitably designed to meet the specified criteria.\n8. **Written assertion**: Management must provide a written assertion that the system is suitably designed to meet the specified criteria.\n\n**Timeline:**\n\n* Preparation and implementation: 2-6 weeks\n* Audit duration: typically 5-10 days\n* Total time: approximately 3-6 months\n\n**Costs:**\n\nThe cost of a SOC 2 Type 1 audit varies depending on factors such as:\n\n* Auditor fees (average $10,000-$50,000).\n* Complexity and scope of the report.\n* Number of locations or services.\n\nPlease note that these costs are approximate and may vary based on your specific situation.\n\n**Next Steps:**\n\nOnce you've completed a SOC 2 Type 1 certification, you can proceed with:\n\n* **SOC 2 Type 2**: Perform a more comprehensive examination (Type 2) to assess the operating effectiveness of the controls.\n* **Annual reporting**: Schedule annual SOC 2 audits to maintain your certification and ensure ongoing control effectiveness.\n\nConsult with your auditor or a qualified professional for guidance on achieving a SOC 2 Type 1 certification.",
+        "model": "llama3.1:latest",
+        "modelName": "llama3.1:latest",
+        "modelIdx": 0,
+        "userContext": null,
+        "timestamp": 1729789638,
+        "lastSentence": "*: Schedule annual SOC 2 audits to maintain your certification and ensure ongoing control effectiveness.",
+        "done": true,
+        "context": null,
+        "info": {
+          "total_duration": 16251852554,
+          "load_duration": 30118629,
+          "prompt_eval_count": 1323,
+          "prompt_eval_duration": 300766000,
+          "eval_count": 623,
+          "eval_duration": 15373621000
+        }
+      }
+    ],
+    "history": {
+      "messages": {
+        "2b813906-5262-47e2-bb77-649fa2f390f7": {
+          "id": "2b813906-5262-47e2-bb77-649fa2f390f7",
+          "parentId": null,
+          "childrenIds": ["a2da5f86-8e58-4284-9394-5d9842c73902"],
+          "role": "user",
+          "content": "How many controls are in the SOC2 framework? ",
+          "timestamp": 1729789317,
+          "models": ["llama3.1:latest"]
+        },
+        "a2da5f86-8e58-4284-9394-5d9842c73902": {
+          "parentId": "2b813906-5262-47e2-bb77-649fa2f390f7",
+          "id": "a2da5f86-8e58-4284-9394-5d9842c73902",
+          "childrenIds": ["be565af9-db2b-467e-9967-fa1d6ca4c606"],
+          "role": "assistant",
+          "content": "The Service Organization Control (SOC) 2 framework, developed by the American Institute of Certified Public Accountants (AICPA), contains five categories or \"trust services criteria\" that an organization may elect to apply. These five categories include:\n\n1. **Security**: The system and data are protected against unauthorized access, use, disclosure, modification, or destruction.\n2. **Availability**: The system is available for operation and processing within committed service levels.\n3. **Processing Integrity**: System transactions and processes are complete, accurate, timely, and authorized.\n4. **Privacy**: Personal information is collected, stored, used, retained, disclosed, or destroyed in accordance with the entity's privacy policy.\n\nAdditionally, the AICPA also includes two optional criteria, these are:\n\n5. **Confidentiality (Optional)**: The system protects against unauthorized access to sensitive data and ensures confidentiality.\n6. **Integrity of Physical and Logical Assets (Optional)**: This is not really a \"control\" per se, but rather an additional criterion for the Security category.\n\nNote that while SOC 2 contains five categories or criteria, each entity being audited must choose which ones are relevant to their operations. The controls used to address these criteria can vary significantly depending on the specific services offered and the risks associated with those services.",
+          "model": "llama3.1:latest",
+          "modelName": "llama3.1:latest",
+          "modelIdx": 0,
+          "userContext": null,
+          "timestamp": 1729789317,
+          "lastSentence": "Note that while SOC 2 contains five categories or criteria, each entity being audited must choose which ones are relevant to their operations.",
+          "done": true,
+          "context": null,
+          "info": {
+            "total_duration": 13545497772,
+            "load_duration": 7539159158,
+            "prompt_eval_count": 21,
+            "prompt_eval_duration": 105477000,
+            "eval_count": 264,
+            "eval_duration": 5895515000
+          }
+        },
+        "be565af9-db2b-467e-9967-fa1d6ca4c606": {
+          "id": "be565af9-db2b-467e-9967-fa1d6ca4c606",
+          "parentId": "a2da5f86-8e58-4284-9394-5d9842c73902",
+          "childrenIds": ["97538868-48ae-4828-8be1-934f46fa3aac"],
+          "role": "user",
+          "content": "How many total controls if all 6 categories are relevant. Security, Availability, Processing Integrity, Privay, Confidentiality, and Integrity",
+          "timestamp": 1729789459,
+          "models": ["llama3.1:latest"]
+        },
+        "97538868-48ae-4828-8be1-934f46fa3aac": {
+          "parentId": "be565af9-db2b-467e-9967-fa1d6ca4c606",
+          "id": "97538868-48ae-4828-8be1-934f46fa3aac",
+          "childrenIds": ["6e915360-20d0-4342-a922-f5690a3fb1bb"],
+          "role": "assistant",
+          "content": "If an organization chooses to apply all six categories (Security, Availability, Processing Integrity, Privacy, Confidentiality, and Integrity of Physical and Logical Assets), the SOC 2 framework would contain a total of **77 controls**.\n\nThese 77 controls are categorized into four main types:\n\n1. **Controls**: These are specific procedures or activities that are designed to prevent or detect misstatements in financial statements.\n2. **Policies**: These are the rules, regulations, and standards that guide an organization's operations and control environment.\n3. **Procedures**: These are the steps or actions taken by personnel to carry out policies or controls.\n4. **Attributes**: These are characteristics of a control, such as frequency, timing, documentation, or monitoring.\n\nThese 77 controls can be further broken down into more detailed sub-controls, but I've provided the high-level overview.\n\nPlease note that while these numbers may vary slightly depending on the specific SOC 2 report and the organization being audited, 77 is a commonly cited total number of controls for all six categories.",
+          "model": "llama3.1:latest",
+          "modelName": "llama3.1:latest",
+          "modelIdx": 0,
+          "userContext": null,
+          "timestamp": 1729789459,
+          "lastSentence": "These 77 controls can be further broken down into more detailed sub-controls, but I've provided the high-level overview.",
+          "done": true,
+          "context": null,
+          "info": {
+            "total_duration": 5763287507,
+            "load_duration": 28823602,
+            "prompt_eval_count": 321,
+            "prompt_eval_duration": 591307000,
+            "eval_count": 214,
+            "eval_duration": 4990770000
+          }
+        },
+        "6e915360-20d0-4342-a922-f5690a3fb1bb": {
+          "id": "6e915360-20d0-4342-a922-f5690a3fb1bb",
+          "parentId": "97538868-48ae-4828-8be1-934f46fa3aac",
+          "childrenIds": ["84d0cddb-4b3a-45f0-8335-6f1550809319"],
+          "role": "user",
+          "content": "How many are there all inclusive of controls and subcontrols ",
+          "timestamp": 1729789493,
+          "models": ["llama3.1:latest"]
+        },
+        "84d0cddb-4b3a-45f0-8335-6f1550809319": {
+          "parentId": "6e915360-20d0-4342-a922-f5690a3fb1bb",
+          "id": "84d0cddb-4b3a-45f0-8335-6f1550809319",
+          "childrenIds": ["33cb5336-7700-4534-bec1-53b5b0c05014"],
+          "role": "assistant",
+          "content": "According to the AICPA's SOC 2 guidelines, when including **sub-controls**, the total number of **controls** for all six categories (Security, Availability, Processing Integrity, Privacy, Confidentiality, and Integrity) is approximately:\n\n**247-261**\n\nThese numbers represent the total number of controls, including sub-controls, that are designed to prevent or detect misstatements in financial statements.\n\nHere's a breakdown of the approximate number of controls for each category:\n\n1. **Security**: 40-45 controls\n2. **Availability**: 25-30 controls\n3. **Processing Integrity**: 20-25 controls\n4. **Privacy**: 35-40 controls\n5. **Confidentiality (optional)**: 15-20 controls\n6. **Integrity of Physical and Logical Assets (optional)**: 10-15 controls\n\nKeep in mind that these numbers may vary slightly depending on the specific SOC 2 report, the organization being audited, and the type of services provided. However, 247-261 is a commonly cited total number of controls for all six categories.\n\nIt's worth noting that the AICPA provides a detailed control matrix and guidelines for each category, which can be used to identify and implement these controls.",
+          "model": "llama3.1:latest",
+          "modelName": "llama3.1:latest",
+          "modelIdx": 0,
+          "userContext": null,
+          "timestamp": 1729789493,
+          "lastSentence": "However, 247-261 is a commonly cited total number of controls for all six categories.",
+          "done": true,
+          "context": null,
+          "info": {
+            "total_duration": 6525633073,
+            "load_duration": 25693335,
+            "prompt_eval_count": 556,
+            "prompt_eval_duration": 267920000,
+            "eval_count": 256,
+            "eval_duration": 5935913000
+          }
+        },
+        "33cb5336-7700-4534-bec1-53b5b0c05014": {
+          "id": "33cb5336-7700-4534-bec1-53b5b0c05014",
+          "parentId": "84d0cddb-4b3a-45f0-8335-6f1550809319",
+          "childrenIds": ["4392ee9f-5b13-4954-a238-5a6d234dd989"],
+          "role": "user",
+          "content": "What is the difference between SOC 2 Type 1 and SOC 2 Type 2?",
+          "timestamp": 1729789579,
+          "models": ["llama3.1:latest"]
+        },
+        "4392ee9f-5b13-4954-a238-5a6d234dd989": {
+          "parentId": "33cb5336-7700-4534-bec1-53b5b0c05014",
+          "id": "4392ee9f-5b13-4954-a238-5a6d234dd989",
+          "childrenIds": ["bd121707-0fb6-49e0-8251-3d2e94e6b92f"],
+          "role": "assistant",
+          "content": "SOC 2 (Service Organization Control 2) reports come in two types: **Type 1** and **Type 2**.\n\nThe main differences between them are:\n\n**Type 1 (SOC 2 - Description):**\n\n* Provides a description of the organization's system and controls as of a specific date.\n* Assesses the design of the controls, but not their operating effectiveness.\n* Includes management's written assertion that the system is suitably designed to meet the specified criteria.\n* Typically takes 5-10 days to complete.\n* The scope is usually limited to the dates of the report (e.g., January 1, 2022, through February 28, 2022).\n\n**Type 2 (SOC 2 - Examination):**\n\n* Provides an examination of both the design and operating effectiveness of the organization's controls over a specified period.\n* Assesses whether the controls were in place and functioning as designed throughout the reporting period.\n* Includes management's written assertion that the system was suitably designed and operated effectively to meet the specified criteria.\n* Typically takes 30-60 days or more to complete, depending on the complexity of the organization and its systems.\n* The scope is usually broader than Type 1, covering a full fiscal year or similar period (e.g., January 1, 2022, through December 31, 2022).\n\nIn summary:\n\n* SOC 2 Type 1 provides a snapshot of an organization's controls as of a specific date, while\n* SOC 2 Type 2 provides a more comprehensive examination of both the design and operating effectiveness of the controls over a specified period.\n\nWhen choosing between these two types, consider the following factors:\n\n* **Level of assurance**: If you need a higher level of assurance (Type 2), plan for a longer audit duration.\n* **Scope**: If the scope is limited to a short period or specific dates, Type 1 might be sufficient. For broader scopes, choose Type 2.\n* **Cost and time**: Type 1 audits are generally faster and less expensive than Type 2 audits.\n\nUltimately, consult with your auditor or a qualified professional to determine which type of SOC 2 report is best suited for your organization's needs.",
+          "model": "llama3.1:latest",
+          "modelName": "llama3.1:latest",
+          "modelIdx": 0,
+          "userContext": null,
+          "timestamp": 1729789579,
+          "lastSentence": "For broader scopes, choose Type 2. *: Type 1 audits are generally faster and less expensive than Type 2 audits.",
+          "done": true,
+          "context": null,
+          "info": {
+            "total_duration": 11537873711,
+            "load_duration": 27578434,
+            "prompt_eval_count": 840,
+            "prompt_eval_duration": 217918000,
+            "eval_count": 454,
+            "eval_duration": 10810832000
+          }
+        },
+        "bd121707-0fb6-49e0-8251-3d2e94e6b92f": {
+          "id": "bd121707-0fb6-49e0-8251-3d2e94e6b92f",
+          "parentId": "4392ee9f-5b13-4954-a238-5a6d234dd989",
+          "childrenIds": ["3def10cf-198a-4eea-b5c9-f1a983cf0de4"],
+          "role": "user",
+          "content": "What are the requirements and what is the process to achieve a SOC 2 Type 1 certification?",
+          "timestamp": 1729789638,
+          "models": ["llama3.1:latest"]
+        },
+        "3def10cf-198a-4eea-b5c9-f1a983cf0de4": {
+          "parentId": "bd121707-0fb6-49e0-8251-3d2e94e6b92f",
+          "id": "3def10cf-198a-4eea-b5c9-f1a983cf0de4",
+          "childrenIds": [],
+          "role": "assistant",
+          "content": "To achieve a SOC 2 (Service Organization Control 2) **Type 1** certification, follow these steps:\n\n**Requirements:**\n\n1. **Service organization**: The entity seeking certification must provide services related to financial reporting or other sensitive information.\n2. **Scope**: The scope of the report must be clearly defined and include the services offered by the organization.\n3. **Criteria**: The organization must apply one or more of the five Trust Services Criteria (TSC) categories:\n\t* Security\n\t* Availability\n\t* Processing Integrity\n\t* Confidentiality\n\t* Privacy\n4. **Audit process**: A qualified auditor must perform a SOC 2 audit to examine the organization's controls and provide an opinion on their design.\n\n**Step-by-Step Process:**\n\n1. **Engage an independent auditor**: Choose a qualified auditor with experience in performing SOC 2 audits.\n2. **Define the scope**: Clearly define the services offered by the organization and the relevant TSC categories to be addressed.\n3. **Pre-implementation preparation**:\n\t* Review the SOC 2 criteria and guidelines.\n\t* Assess the organization's current controls and identify any gaps or weaknesses.\n\t* Develop a plan to address these gaps and implement necessary controls.\n4. **Implementation**: Implement the required controls, including:\n\t* Designing and implementing new policies and procedures.\n\t* Training personnel on new controls.\n\t* Documenting all changes.\n5. **Audit preparation**:\n\t* The auditor will request documentation of the implemented controls.\n\t* Provide access to necessary personnel for interviews.\n6. **SOC 2 audit**: The auditor will perform a review of the organization's controls, including:\n\t* Interviews with personnel.\n\t* Review of documentation and procedures.\n\t* Observation of control activities (if deemed necessary).\n7. **Audit report**: The auditor will issue an opinion on the design of the controls, stating whether they are suitably designed to meet the specified criteria.\n8. **Written assertion**: Management must provide a written assertion that the system is suitably designed to meet the specified criteria.\n\n**Timeline:**\n\n* Preparation and implementation: 2-6 weeks\n* Audit duration: typically 5-10 days\n* Total time: approximately 3-6 months\n\n**Costs:**\n\nThe cost of a SOC 2 Type 1 audit varies depending on factors such as:\n\n* Auditor fees (average $10,000-$50,000).\n* Complexity and scope of the report.\n* Number of locations or services.\n\nPlease note that these costs are approximate and may vary based on your specific situation.\n\n**Next Steps:**\n\nOnce you've completed a SOC 2 Type 1 certification, you can proceed with:\n\n* **SOC 2 Type 2**: Perform a more comprehensive examination (Type 2) to assess the operating effectiveness of the controls.\n* **Annual reporting**: Schedule annual SOC 2 audits to maintain your certification and ensure ongoing control effectiveness.\n\nConsult with your auditor or a qualified professional for guidance on achieving a SOC 2 Type 1 certification.",
+          "model": "llama3.1:latest",
+          "modelName": "llama3.1:latest",
+          "modelIdx": 0,
+          "userContext": null,
+          "timestamp": 1729789638,
+          "lastSentence": "*: Schedule annual SOC 2 audits to maintain your certification and ensure ongoing control effectiveness.",
+          "done": true,
+          "context": null,
+          "info": {
+            "total_duration": 16251852554,
+            "load_duration": 30118629,
+            "prompt_eval_count": 1323,
+            "prompt_eval_duration": 300766000,
+            "eval_count": 623,
+            "eval_duration": 15373621000
+          }
+        }
+      },
+      "currentId": "3def10cf-198a-4eea-b5c9-f1a983cf0de4"
+    },
+    "tags": [],
+    "timestamp": 1729789317339,
+    "files": []
+  },
+  "updated_at": 1729789654,
+  "created_at": 1729789317,
+  "share_id": null,
+  "archived": false
+}

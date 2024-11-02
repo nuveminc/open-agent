@@ -1,4 +1,4 @@
 export interface ButtonResponseProps {
-  ariaLabel: string;
+  ariaLabel?: string;
   className?: string;
 }

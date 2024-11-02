@@ -1,3 +1,4 @@
+import { Icon } from '../atoms';
 import { ControlsMenuButton } from './controls-menu-button';
 import { NewChatButton } from './new-chat-button';
 import { UserMenu } from './user-menu';
@@ -19,20 +20,7 @@ export const Navbar = () => {
               aria-label="Toggle Sidebar"
             >
               <div className="m-auto self-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  className="size-5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
-                  ></path>
-                </svg>
+                <Icon name="toggle" strokeWidth="2.0" className="size-5" />
               </div>
             </button>
           </div>
@@ -58,20 +46,12 @@ export const Navbar = () => {
                     >
                       <div className="flex w-full text-left px-0.5 outline-none bg-transparent truncate text-lg font-medium placeholder-gray-400 focus:outline-none">
                         llama3.1:latest
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke-width="2.5"
+                        <Icon
+                          name="arrowDown"
+                          className="self-center ml-2 size-3"
                           stroke="currentColor"
-                          className=" self-center ml-2 size-3"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                          ></path>
-                        </svg>
+                          strokeWidth="2.5"
+                        />
                       </div>
                     </button>
                   </div>
@@ -80,20 +60,13 @@ export const Navbar = () => {
                 <div className="self-center mx-1 disabled:text-gray-600 disabled:hover:text-gray-600 -translate-y-[0.5px]">
                   <div aria-label="Add Model" className="flex">
                     <button className="" aria-label="Add Model">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="2"
-                        stroke="currentColor"
+                      <Icon
+                        name="plus"
+                        stroke="none"
                         className="size-3.5"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M12 6v12m6-6H6"
-                        ></path>
-                      </svg>
+                        strokeWidth="2"
+                        fill="currentColor"
+                      />
                     </button>
                   </div>
                 </div>
@@ -117,20 +90,13 @@ export const Navbar = () => {
                 id="chat-context-menu-button"
               >
                 <div className="m-auto self-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                  <Icon
+                    name="ellipsis"
                     fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
                     stroke="currentColor"
-                    className="size-5"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-                    ></path>
-                  </svg>
+                    strokeWidth="1.5"
+                    className="size-4"
+                  />
                 </div>
               </button>
             </button>

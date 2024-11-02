@@ -1,63 +1,10 @@
+import { ChatHistory } from './chat-history';
+
 export const SidebarItems = () => {
   return (
     <div className="pl-2 my-2 flex-1 flex flex-col space-y-1 overflow-y-auto scrollbar-hidden svelte-141e0sl">
-      <div className="w-full pl-2.5 text-xs text-gray-500 dark:text-gray-500 font-medium  pb-0.5">
-        Today
-      </div>
-      <div className="w-full pr-2 relative group">
-        <a
-          className="w-full flex justify-between rounded-xl px-3 py-2 bg-gray-200 dark:bg-gray-900 whitespace-nowrap text-ellipsis"
-          href="/c/28aa9a11-5245-45df-8afa-4f2204e24879"
-          draggable="false"
-        >
-          <div className="flex self-center flex-1 w-full">
-            <div className="text-left self-center overflow-hidden w-full h-[20px]">
-              SOC2 Compliance Checklist 📁
-            </div>
-          </div>
-        </a>
-        <div className="from-gray-200 dark:from-gray-900 absolute right-[10px] top-[6px] py-1 pr-2 pl-5 bg-gradient-to-l from-80% to-transparent">
-          <div className="flex self-center space-x-1 z-10">
-            <button
-              aria-controls="M0RzV4QrUk"
-              aria-expanded="false"
-              data-state="closed"
-              id="ZpSkSgofKI"
-              tabIndex={0}
-              data-melt-dropdown-menu-trigger=""
-              data-menu-trigger=""
-              type="button"
-            >
-              <div aria-label="More" className="flex">
-                <button
-                  aria-label="Chat Menu"
-                  className="self-center dark:hover:text-white transition"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    className="w-4 h-4"
-                  >
-                    <path d="M2 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM6.5 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM12.5 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"></path>
-                  </svg>
-                </button>
-              </div>
-            </button>
-            <div slot="content"></div>
-            <button id="delete-chat-button" className="hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                className="w-4 h-4"
-              >
-                <path d="M2 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM6.5 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM12.5 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* timeline title */}
+      <ChatHistory />
       <div className="w-full pl-2.5 text-xs text-gray-500 dark:text-gray-500 font-medium pt-5 pb-0.5">
         Yesterday
       </div>

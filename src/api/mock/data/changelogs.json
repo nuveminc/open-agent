@@ -1,0 +1,220 @@
+{
+  "0.3.21": {
+    "date": "2024-09-08",
+    "added": [
+      {
+        "title": "📊 Document Count Display",
+        "content": "Now displays the total number of documents directly within the dashboard.",
+        "raw": "<li><strong>📊 Document Count Display</strong>: Now displays the total number of documents directly within the dashboard.</li>"
+      },
+      {
+        "title": "🚀 Ollama Embed API Endpoint",
+        "content": "Enabled /api/embed endpoint proxy support.",
+        "raw": "<li><strong>🚀 Ollama Embed API Endpoint</strong>: Enabled /api/embed endpoint proxy support.</li>"
+      }
+    ],
+    "fixed": [
+      {
+        "title": "🐳 Docker Launch Issue",
+        "content": "Resolved the problem preventing Open-WebUI from launching correctly when using Docker.",
+        "raw": "<li><strong>🐳 Docker Launch Issue</strong>: Resolved the problem preventing Open-WebUI from launching correctly when using Docker.</li>"
+      }
+    ],
+    "changed": [
+      {
+        "title": "🔍 Enhanced Search Prompts",
+        "content": "Improved the search query generation prompts for better accuracy and user interaction, enhancing the overall search experience.",
+        "raw": "<li><strong>🔍 Enhanced Search Prompts</strong>: Improved the search query generation prompts for better accuracy and user interaction, enhancing the overall search experience.</li>"
+      }
+    ]
+  },
+  "0.3.20": {
+    "date": "2024-09-07",
+    "added": [
+      {
+        "title": "🌐 Translation Update",
+        "content": "Updated Catalan translations to improve user experience for Catalan speakers.",
+        "raw": "<li><strong>🌐 Translation Update</strong>: Updated Catalan translations to improve user experience for Catalan speakers.</li>"
+      }
+    ],
+    "fixed": [
+      {
+        "title": "📄 PDF Download",
+        "content": "Resolved a configuration issue with fonts directory, ensuring PDFs are now downloaded with the correct formatting.",
+        "raw": "<li><strong>📄 PDF Download</strong>: Resolved a configuration issue with fonts directory, ensuring PDFs are now downloaded with the correct formatting.</li>"
+      },
+      {
+        "title": "🛠️ Installation of Tools & Functions Requirements",
+        "content": "Fixed a bug where necessary requirements for tools and functions were not properly installing.",
+        "raw": "<li><strong>🛠️ Installation of Tools &amp; Functions Requirements</strong>: Fixed a bug where necessary requirements for tools and functions were not properly installing.</li>"
+      },
+      {
+        "title": "🔗 Inline Image Link Rendering",
+        "content": "Enabled rendering of images directly from links in chat.",
+        "raw": "<li><strong>🔗 Inline Image Link Rendering</strong>: Enabled rendering of images directly from links in chat.</li>"
+      },
+      {
+        "title": "📞 Post-Call User Interface Cleanup",
+        "content": "Adjusted UI behavior to automatically close chat controls after a voice call ends, reducing screen clutter.",
+        "raw": "<li><strong>📞 Post-Call User Interface Cleanup</strong>: Adjusted UI behavior to automatically close chat controls after a voice call ends, reducing screen clutter.</li>"
+      },
+      {
+        "title": "🎙️ Microphone Deactivation Post-Call",
+        "content": "Addressed an issue where the microphone remained active after calls.",
+        "raw": "<li><strong>🎙️ Microphone Deactivation Post-Call</strong>: Addressed an issue where the microphone remained active after calls.</li>"
+      },
+      {
+        "title": "✍️ Markdown Spacing Correction",
+        "content": "Corrected spacing in Markdown rendering, ensuring text appears neatly and as expected.",
+        "raw": "<li><strong>✍️ Markdown Spacing Correction</strong>: Corrected spacing in Markdown rendering, ensuring text appears neatly and as expected.</li>"
+      },
+      {
+        "title": "🔄 Message Re-rendering",
+        "content": "Fixed an issue causing all response messages to re-render with each new message, now improving chat performance.",
+        "raw": "<li><strong>🔄 Message Re-rendering</strong>: Fixed an issue causing all response messages to re-render with each new message, now improving chat performance.</li>"
+      }
+    ],
+    "changed": [
+      {
+        "title": "🌐 Refined Web Search Integration",
+        "content": "Deprecated the Search Query Generation Prompt threshold; introduced a toggle button for \"Enable Web Search Query Generation\" allowing users to opt-in to using web search more judiciously.",
+        "raw": "<li><strong>🌐 Refined Web Search Integration</strong>: Deprecated the Search Query Generation Prompt threshold; introduced a toggle button for \"Enable Web Search Query Generation\" allowing users to opt-in to using web search more judiciously.</li>"
+      },
+      {
+        "title": "📝 Default Prompt Templates Update",
+        "content": "Emptied environment variable templates for search and title generation now default to the Open WebUI default prompt templates, simplifying configuration efforts.",
+        "raw": "<li><strong>📝 Default Prompt Templates Update</strong>: Emptied environment variable templates for search and title generation now default to the Open WebUI default prompt templates, simplifying configuration efforts.</li>"
+      }
+    ]
+  },
+  "0.3.19": {
+    "date": "2024-09-05",
+    "added": [
+      {
+        "title": "🌐 Translation Update",
+        "content": "Improved Chinese translations.",
+        "raw": "<li><strong>🌐 Translation Update</strong>: Improved Chinese translations.</li>"
+      }
+    ],
+    "fixed": [
+      {
+        "title": "📂 DATA_DIR Overriding",
+        "content": "Fixed an issue to avoid overriding DATA_DIR, preventing errors when directories are set identically, ensuring smoother operation and data management.",
+        "raw": "<li><strong>📂 DATA_DIR Overriding</strong>: Fixed an issue to avoid overriding DATA_DIR, preventing errors when directories are set identically, ensuring smoother operation and data management.</li>"
+      },
+      {
+        "title": "🛠️ Frontmatter Extraction",
+        "content": "Fixed the extraction process for frontmatter in tools and functions.",
+        "raw": "<li><strong>🛠️ Frontmatter Extraction</strong>: Fixed the extraction process for frontmatter in tools and functions.</li>"
+      }
+    ],
+    "changed": [
+      {
+        "title": "🎨 UI Styling",
+        "content": "Refined the user interface styling for enhanced visual coherence and user experience.",
+        "raw": "<li><strong>🎨 UI Styling</strong>: Refined the user interface styling for enhanced visual coherence and user experience.</li>"
+      }
+    ]
+  },
+  "0.3.18": {
+    "date": "2024-09-04",
+    "added": [
+      {
+        "title": "🛠️ Direct Database Execution for Tools & Functions",
+        "content": "Enhanced the execution of Python files for tools and functions, now directly loading from the database for a more streamlined backend process.",
+        "raw": "<li><strong>🛠️ Direct Database Execution for Tools &amp; Functions</strong>: Enhanced the execution of Python files for tools and functions, now directly loading from the database for a more streamlined backend process.</li>"
+      }
+    ],
+    "fixed": [
+      {
+        "title": "🔄 Automatic Rewrite of Import Statements in Tools & Functions",
+        "content": "Tool and function scripts that import 'utils', 'apps', 'main', 'config' will now automatically rename these with 'open_webui.', ensuring compatibility and consistency across different modules.",
+        "raw": "<li><strong>🔄 Automatic Rewrite of Import Statements in Tools &amp; Functions</strong>: Tool and function scripts that import 'utils', 'apps', 'main', 'config' will now automatically rename these with 'open_webui.', ensuring compatibility and consistency across different modules.</li>"
+      },
+      {
+        "title": "🎨 Styling Adjustments",
+        "content": "Minor fixes in the visual styling to improve user experience and interface consistency.",
+        "raw": "<li><strong>🎨 Styling Adjustments</strong>: Minor fixes in the visual styling to improve user experience and interface consistency.</li>"
+      }
+    ]
+  },
+  "0.3.17": {
+    "date": "2024-09-04",
+    "added": [
+      {
+        "title": "🔄 Import/Export Configuration",
+        "content": "Users can now import and export webui configurations from admin settings > Database, simplifying setup replication across systems.",
+        "raw": "<li><strong>🔄 Import/Export Configuration</strong>: Users can now import and export webui configurations from admin settings &gt; Database, simplifying setup replication across systems.</li>"
+      },
+      {
+        "title": "🌍 Web Search via URL Parameter",
+        "content": "Added support for activating web search directly through URL by setting 'web-search=true'.",
+        "raw": "<li><strong>🌍 Web Search via URL Parameter</strong>: Added support for activating web search directly through URL by setting 'web-search=true'.</li>"
+      },
+      {
+        "title": "🌐 SearchApi Integration",
+        "content": "Added support for SearchApi as an alternative web search provider, enhancing search capabilities within the platform.",
+        "raw": "<li><strong>🌐 SearchApi Integration</strong>: Added support for SearchApi as an alternative web search provider, enhancing search capabilities within the platform.</li>"
+      },
+      {
+        "title": "🔍 Literal Type Support in Tools",
+        "content": "Tools now support the Literal type.",
+        "raw": "<li><strong>🔍 Literal Type Support in Tools</strong>: Tools now support the Literal type.</li>"
+      },
+      {
+        "title": "🌍 Updated Translations",
+        "content": "Improved translations for Chinese, Ukrainian, and Catalan.",
+        "raw": "<li><strong>🌍 Updated Translations</strong>: Improved translations for Chinese, Ukrainian, and Catalan.</li>"
+      }
+    ],
+    "fixed": [
+      {
+        "title": "🔧 Pip Install Issue",
+        "content": "Resolved the issue where pip install failed due to missing 'alembic.ini', ensuring smoother installation processes.",
+        "raw": "<li><strong>🔧 Pip Install Issue</strong>: Resolved the issue where pip install failed due to missing 'alembic.ini', ensuring smoother installation processes.</li>"
+      },
+      {
+        "title": "🌃 Automatic Theme Update",
+        "content": "Fixed an issue where the color theme did not update dynamically with system changes.",
+        "raw": "<li><strong>🌃 Automatic Theme Update</strong>: Fixed an issue where the color theme did not update dynamically with system changes.</li>"
+      },
+      {
+        "title": "🛠️ User Agent in ComfyUI",
+        "content": "Added default headers in ComfyUI to fix access issues, improving reliability in network communications.",
+        "raw": "<li><strong>🛠️ User Agent in ComfyUI</strong>: Added default headers in ComfyUI to fix access issues, improving reliability in network communications.</li>"
+      },
+      {
+        "title": "🔄 Missing Chat Completion Response Headers",
+        "content": "Ensured proper return of proxied response headers during chat completion, improving API reliability.",
+        "raw": "<li><strong>🔄 Missing Chat Completion Response Headers</strong>: Ensured proper return of proxied response headers during chat completion, improving API reliability.</li>"
+      },
+      {
+        "title": "🔗 Websocket Connection Prioritization",
+        "content": "Modified socket.io configuration to prefer websockets and more reliably fallback to polling, enhancing connection stability.",
+        "raw": "<li><strong>🔗 Websocket Connection Prioritization</strong>: Modified socket.io configuration to prefer websockets and more reliably fallback to polling, enhancing connection stability.</li>"
+      },
+      {
+        "title": "🎭 Accessibility Enhancements",
+        "content": "Added missing ARIA labels for buttons, improving accessibility for visually impaired users.",
+        "raw": "<li><strong>🎭 Accessibility Enhancements</strong>: Added missing ARIA labels for buttons, improving accessibility for visually impaired users.</li>"
+      },
+      {
+        "title": "⚖️ Advanced Parameter",
+        "content": "Fixed an issue ensuring that advanced parameters are correctly applied in all scenarios, ensuring consistent behavior of user-defined settings.",
+        "raw": "<li><strong>⚖️ Advanced Parameter</strong>: Fixed an issue ensuring that advanced parameters are correctly applied in all scenarios, ensuring consistent behavior of user-defined settings.</li>"
+      }
+    ],
+    "changed": [
+      {
+        "title": "🔁 Namespace Reorganization",
+        "content": "Reorganized all Python files under the 'open_webui' namespace to streamline the project structure and improve maintainability. Tools and functions importing from 'utils' should now use 'open_webui.utils'.",
+        "raw": "<li><strong>🔁 Namespace Reorganization</strong>: Reorganized all Python files under the 'open_webui' namespace to streamline the project structure and improve maintainability. Tools and functions importing from 'utils' should now use 'open_webui.utils'.</li>"
+      },
+      {
+        "title": "🚧 Dependency Updates",
+        "content": "Updated several backend dependencies like 'aiohttp', 'authlib', 'duckduckgo-search', 'flask-cors', and 'langchain' to their latest versions, enhancing performance and security.",
+        "raw": "<li><strong>🚧 Dependency Updates</strong>: Updated several backend dependencies like 'aiohttp', 'authlib', 'duckduckgo-search', 'flask-cors', and 'langchain' to their latest versions, enhancing performance and security.</li>"
+      }
+    ]
+  }
+}

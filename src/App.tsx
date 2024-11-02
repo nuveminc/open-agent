@@ -5,11 +5,20 @@
 import { ChatInput } from './components/molecules/chat-input';
 import { MainChat } from './components/molecules/main-chat';
 import { ScrollDown } from './components/molecules/scroll-down';
-import { Sidebar } from './components/molecules/sidebar';
+import { Sidebar } from './components/organisms/sidebar/sidebar';
 import { SystemHelp } from './components/molecules/system-help';
 import { Navbar } from './components/molecules/nav-bar';
+import { usePresenter } from './presenters/usePresenter';
 
 export default function App() {
+  // const chatData = useChatData(chatPresenter);
+
+  const presenter = usePresenter();
+  const chatData = presenter.getItems();
+  console.log('ChatData:', chatData);
+  console.log('ChatItem:', chatData[0]);
+  console.log('Presenter:', presenter);
+
   return (
     <>
       <div className="app relative">

@@ -1,6 +1,6 @@
-import { ButtonCopy } from './button-copy';
-import { ButtonDelete } from './button-delete';
-import { ButtonEdit } from './button-edit';
+import { ButtonCopy } from './button/button-copy';
+import { ButtonDelete } from './button/button-delete';
+import { ButtonEdit } from './button/button-edit';
 
 export class ChatMessageProps {
   text: string = '';

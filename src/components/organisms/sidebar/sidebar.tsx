@@ -1,5 +1,5 @@
-import { NavButtonItem } from './nav-button-item';
-import { SettingsMenu } from './settings-menu';
+import { NavButtonItem } from '../../molecules/nav-button-item';
+import { SettingsMenu } from '../../molecules/settings-menu';
 import { SidebarHeader } from './sidebar-header';
 import { SidebarItems } from './sidebar-items';
 import { SidebarSearch } from './sidebar-search';

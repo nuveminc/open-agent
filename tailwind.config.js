@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    darkMode: ["class"],
+    darkMode: "class",
     content: [
     "./index.html",
     "./src/**/*.{html,js,jsx,ts,tsx}",
@@ -66,10 +66,27 @@ export default {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+				gray: {
+					50: '#f9f9f9',
+					100: '#ececec',
+					200: '#e3e3e3',
+					300: '#cdcdcd',
+					400: '#b4b4b4',
+					500: '#9b9b9b',
+					600: '#676767',
+					700: '#4e4e4e',
+					800: 'var(--color-gray-800, #333)',
+					850: 'var(--color-gray-850, #262626)',
+					900: 'var(--color-gray-900, #171717)',
+					950: 'var(--color-gray-950, #0d0d0d)'
+				}				
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+		require("tailwindcss-animate", 
+		require("@tailwindcss/typography"))
+	],
 }
 

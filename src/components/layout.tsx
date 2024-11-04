@@ -1,14 +1,35 @@
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
-import { AppSidebar } from '@/components/atoms/app-sidebar';
 import './layout.css';
+import { Sidebar } from './organisms/sidebar/sidebar';
+import { SystemHelp } from './molecules/system-help';
+import { Navbar } from './molecules/nav-bar';
+import { MainChat } from './molecules/main-chat';
+import { ScrollDown } from './molecules/scroll-down';
+import { ChatInput } from './molecules/chat-input';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout() {
   return (
-    <SidebarProvider>
-      <div className="layout-container"></div>
-      <AppSidebar />
-      <SidebarTrigger className="inset" />
-      <main>{children}</main>
-    </SidebarProvider>
+    <>
+      <div className="app relative">
+        <div className="text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-900 h-screen max-h-[100dvh] overflow-auto flex flex-row">
+          {/* <div className="fixed md:hidden z-40 top-0 right-0 left-0 bottom-0 bg-black/60 w-full min-h-screen h-screen flex justify-center overflow-hidden overscroll-contain"></div> */}
+          <Sidebar />
+          <SystemHelp />
+          <audio id="audioElement" />
+          {/* main content area */}
+          <div className="h-screen max-h-[100dvh] md:max-w-[calc(100%-260px)] w-full max-w-full flex flex-col">
+            {/* top navigation */}
+            <Navbar />
+            {/* main chat content section */}
+            <div className="flex flex-col flex-auto z-10">
+              <MainChat />
+              <div className="w-full font-primary">
+                <ScrollDown />
+                <ChatInput />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

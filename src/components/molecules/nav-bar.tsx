@@ -1,4 +1,5 @@
 import { Icon } from '../atoms';
+import { ThemeToggle } from '../ThemeToggle';
 import { ControlsMenuButton } from './controls-menu-button';
 import { NewChatButton } from './new-chat-button';
 import { UserMenu } from './user-menu';
@@ -104,6 +105,7 @@ export const Navbar = () => {
             <ControlsMenuButton />
             <NewChatButton />
             <UserMenu />
+            <ThemeToggle />
           </div>
         </div>
       </div>

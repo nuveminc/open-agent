@@ -3,8 +3,7 @@ import { Sidebar } from './organisms/sidebar/sidebar';
 import { SystemHelp } from './molecules/system-help';
 import { Navbar } from './molecules/nav-bar';
 import { MainChat } from './molecules/main-chat';
-import { ScrollDown } from './molecules/scroll-down';
-import { ChatInput } from './molecules/chat-input';
+import { MessagesContainer } from './organisms/messages-container';
 
 export default function Layout() {
   return (
@@ -21,11 +20,9 @@ export default function Layout() {
             <Navbar />
             {/* main chat content section */}
             <div className="flex flex-col flex-auto z-10">
-              <MainChat />
-              <div className="w-full font-primary">
-                <ScrollDown />
-                <ChatInput />
-              </div>
+              <MessagesContainer>
+                <MainChat />
+              </MessagesContainer>
             </div>
           </div>
         </div>

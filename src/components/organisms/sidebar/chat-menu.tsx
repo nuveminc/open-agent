@@ -1,6 +1,9 @@
 export const ChatMenu: React.FC<object> = () => {
   return (
-    <div className="from-gray-200 dark:from-gray-900 absolute right-[10px] top-[6px] py-1 pr-2 pl-5 bg-gradient-to-l from-80% to-transparent">
+    // default: invisible group-hover:bg-gray-100 dark:group-hover:bg-gray-950
+    // hover: from-gray-200 dark:from-gray-900
+    // invisible group-hover:visible from-gray-100 dark:from-gray-950 absolute right-[10px] top-[6px] py-1 pr-2 pl-5 bg-gradient-to-l from-80% to-transparent
+    <div className="invisible group-hover:visible from-gray-100 dark:from-gray-950 absolute right-[10px] top-[6px] py-1 pr-2 pl-5 bg-gradient-to-l from-80% to-transparent">
       <div className="flex self-center space-x-1 z-10">
         <button
           aria-controls="M0RzV4QrUk"

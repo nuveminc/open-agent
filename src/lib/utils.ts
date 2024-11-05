@@ -97,7 +97,7 @@ export class Time {
 export function getTimeRange(timestamp: string): string {
   const date = new Date(timestamp);
   const now = new Date();
-  console.log(`Date: ${timestamp} :: ${date}`);
+  // console.log(`Date: ${timestamp} :: ${date}`);
   // Reset hours to compare just the dates
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   const targetDate = new Date(

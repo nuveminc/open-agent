@@ -1,18 +1,36 @@
 // usePresenter.ts (Custom Hook)
 import repository from '@/repositories/chat.repository';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { ChatPresenter } from './chat.presenter';
 import { useAppStore } from '@/store/app.store';
 
 export const usePresenter = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const presenter = useMemo(
     () => new ChatPresenter(repository, useAppStore),
     []
   );
 
   useEffect(() => {
-    presenter.initialize();
+    const initializePresenter = async () => {
+      try {
+        setIsLoading(true);
+        await presenter.initialize();
+      } catch (error) {
+        console.error('Failed to initialize presenter:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (!presenter.isInitialized()) {
+      initializePresenter();
+    } else {
+      setIsLoading(false);
+    }
+
+    return () => presenter.cleanup();
   }, [presenter]);
 
-  return presenter;
+  return { presenter, isLoading };
 };

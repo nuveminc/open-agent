@@ -14,9 +14,6 @@ import { ThemeProvider } from './components/ThemeProvider';
 export default function App() {
   return (
     <ThemeProvider>
-      {/* <div className="min-h-screen bg-background text-foreground">
-         <ThemeToggle />
-       </div> */}
       <Layout />
     </ThemeProvider>
   );

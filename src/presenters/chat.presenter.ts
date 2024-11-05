@@ -6,22 +6,38 @@ import { ChatListVM } from '@/models/chat/chat-list.class.vm';
 import { ChatPMFactory } from '@/repositories/factories';
 
 export class ChatPresenter {
+  private initialized: boolean = false;
+
   constructor(
     private repository: ChatRepository,
     private store: typeof useAppStore
   ) {}
 
   async initialize(): Promise<void> {
+    if (this.initialized) return;
+
     console.log('Initializing ChatPresenter...');
-    console.log('Fetching chats from repository...');
-    const items = await this.repository.getItems();
-    const chatItems = items.map((item: ChatPM) => new ChatVM(item));
-    this._createChatList(items);
-    this.store.getState().setChats(chatItems);
+    try {
+      const items = await this.repository.getItems();
+      const chatList = this._createChatList(items);
+      this.store.getState().setChatList(chatList);
+      this.initialized = true;
+    } catch (error) {
+      console.error('Failed to initialize ChatPresenter:', error);
+      throw error;
+    }
+  }
+
+  isInitialized(): boolean {
+    return this.initialized;
   }
 
   getItems(): ChatVM[] {
     return this.store.getState().chats;
+  }
+
+  getChatList(): ChatListVM {
+    return this.store.getState().chatList;
   }
 
   async addItem(item: ChatVM): Promise<ChatVM> {
@@ -30,6 +46,10 @@ export class ChatPresenter {
     const itemVM = new ChatVM(newItem);
     this.store.getState().addChat(itemVM);
     return itemVM;
+  }
+
+  cleanup(): void {
+    this.initialized = false;
   }
 
   private _createChatList(items: ChatPM[]): ChatListVM {

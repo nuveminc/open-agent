@@ -33,6 +33,6 @@ export class ChatPMFactory {
   }
 
   private static _timestampToDate(timestamp: number): string {
-    return format(new Date(timestamp), 'yyyy-MM-dd:hh:mm:ss');
+    return format(new Date(timestamp * 1000), 'yyyy-MM-dd:hh:mm:ss');
   }
 }

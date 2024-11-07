@@ -7,7 +7,7 @@ export const Welcome: React.FC<object> = () => {
             <button>
               <div aria-label="" className="flex">
                 <img
-                  src="/static/favicon.png"
+                  src="/public/favicon.png"
                   className="size-[2.7rem] rounded-full border-[1px] border-gray-200 dark:border-none"
                   alt="logo"
                   draggable="false"

@@ -1,10 +1,14 @@
-import { Icon } from '../atoms';
-import { ThemeToggle } from '../ThemeToggle';
+import { Icon } from '../../atoms';
+import { ThemeToggle } from '../../ThemeToggle';
 import { ControlsMenuButton } from './controls-menu-button';
-import { NewChatButton } from './new-chat-button';
+import { NewChatButton } from '../sidebar/header/new-chat-button';
 import { UserMenu } from './user-menu';
+import { ModelDropdown } from './model-selector/model-dropdown';
+// import { useState } from 'react';
 
 export const Navbar = () => {
+  // const [isOpen, setModal] = useState(false);
+
   return (
     <nav
       id="nav"
@@ -31,7 +35,8 @@ export const Navbar = () => {
               {/* select model section */}
               <div className="flex w-full max-w-fit">
                 {/* model selector dropdown */}
-                <div className="overflow-hidden w-full">
+                <ModelDropdown />
+                {/* <div className="overflow-hidden w-full">
                   <div className="mr-1 max-w-full">
                     <button
                       aria-controls="YYDZcq3Eh9"
@@ -56,7 +61,7 @@ export const Navbar = () => {
                       </div>
                     </button>
                   </div>
-                </div>
+                </div> */}
                 {/* add new model button: + */}
                 <div className="self-center mx-1 disabled:text-gray-600 disabled:hover:text-gray-600 -translate-y-[0.5px]">
                   <div aria-label="Add Model" className="flex">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChatTimeRange } from './chat-timerange';
 import { ChatItem } from './chat-item';
-import { usePresenter } from '@/presenters/usePresenter';
+import { useChatPresenter as usePresenter } from '@/presenters/chat/useChatPresenter';
 import { ChatListVM } from '@/models/chat/chat-list.class.vm';
 
 export const ChatHistory: React.FC = () => {
@@ -30,7 +30,7 @@ export const ChatHistory: React.FC = () => {
         <React.Fragment key={range}>
           <ChatTimeRange timeRange={range} />
           {chatList.rangeList[range].map((item) => (
-            <ChatItem key={item.id} title={item.title} />
+            <ChatItem key={item.id} id={item.id} title={item.title} />
           ))}
         </React.Fragment>
       ))}

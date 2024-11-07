@@ -1,4 +1,4 @@
-import { ChatHistory } from './chat-history';
+import { ChatHistory } from './chat/chat-history';
 
 export const SidebarItems = () => {
   return (

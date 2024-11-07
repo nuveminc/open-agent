@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '../atoms';
+import { Icon } from '@/components/atoms';
 
 export const ControlsMenuButton: React.FC<object> = () => {
   return (

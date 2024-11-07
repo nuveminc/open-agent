@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ChatPresenter } from './chat.presenter';
 import { useAppStore } from '@/store/app.store';
 
-export const usePresenter = () => {
+export const useChatPresenter = () => {
   const [isLoading, setIsLoading] = useState(true);
   const presenter = useMemo(
     () => new ChatPresenter(repository, useAppStore),

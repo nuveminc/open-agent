@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
+
 export const SidebarHeader = () => {
   return (
     <div className="px-2.5 flex justify-between space-x-1 text-gray-600 dark:text-gray-400">
-      <a
-        id="sidebar-new-chat-button"
+      <Link
+        to={'/'}
         className="flex flex-1 justify-between rounded-xl px-2 h-full hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-        href="/"
         draggable="false"
       >
         <div className="self-center mx-1.5">
@@ -29,7 +30,7 @@ export const SidebarHeader = () => {
             <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z"></path>
           </svg>
         </div>
-      </a>
+      </Link>
       <button className="cursor-pointer px-2 py-2 flex rounded-xl hover:bg-gray-100 dark:hover:bg-gray-900 transition">
         <div className="m-auto self-center">
           <svg

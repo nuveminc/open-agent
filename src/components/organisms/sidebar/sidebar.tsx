@@ -1,8 +1,8 @@
-import { NavButtonItem } from '../../molecules/nav-button-item';
+import { NavButtonItem } from '../navbar/nav-button-item';
 import { SettingsMenu } from '../../molecules/settings-menu';
-import { SidebarHeader } from './sidebar-header';
+import { SidebarHeader } from './header/sidebar-header';
 import { SidebarItems } from './sidebar-items';
-import { SidebarSearch } from './sidebar-search';
+import { SidebarSearch } from './header/sidebar-search';
 
 export const Sidebar = () => {
   return (

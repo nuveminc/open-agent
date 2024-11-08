@@ -4,6 +4,7 @@ import { ControlsMenuButton } from './controls-menu-button';
 import { NewChatButton } from '../sidebar/header/new-chat-button';
 import { UserMenu } from './user-menu';
 import { ModelDropdown } from './model-selector/model-dropdown';
+
 // import { useState } from 'react';
 
 export const Navbar = () => {
@@ -35,33 +36,7 @@ export const Navbar = () => {
               {/* select model section */}
               <div className="flex w-full max-w-fit">
                 {/* model selector dropdown */}
-                <ModelDropdown />
-                {/* <div className="overflow-hidden w-full">
-                  <div className="mr-1 max-w-full">
-                    <button
-                      aria-controls="YYDZcq3Eh9"
-                      aria-expanded="false"
-                      data-state="closed"
-                      id="s05A8nb-ZW"
-                      tabIndex={0}
-                      data-melt-dropdown-menu-trigger=""
-                      data-menu-trigger=""
-                      type="button"
-                      className="relative w-full font-primary"
-                      aria-label="Select a model"
-                    >
-                      <div className="flex w-full text-left px-0.5 outline-none bg-transparent truncate text-lg font-medium placeholder-gray-400 focus:outline-none">
-                        llama3.1:latest
-                        <Icon
-                          name="arrowDown"
-                          className="self-center ml-2 size-3"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                        />
-                      </div>
-                    </button>
-                  </div>
-                </div> */}
+                <ModelDropdown text="llama3.1:latest" />
                 {/* add new model button: + */}
                 <div className="self-center mx-1 disabled:text-gray-600 disabled:hover:text-gray-600 -translate-y-[0.5px]">
                   <div aria-label="Add Model" className="flex">

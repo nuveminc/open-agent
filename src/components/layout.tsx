@@ -4,7 +4,6 @@ import { Sidebar } from './organisms/sidebar/sidebar';
 import { SystemHelp } from './molecules/system-help';
 import { Navbar } from './organisms/navbar/nav-bar';
 import { MessagesContainer } from './organisms/messages-container';
-// import { ModelMenu } from './organisms/navbar/model-selector/model-menu';
 // import { ModalState } from '@/store/app.store';
 
 export default function Layout() {
@@ -25,9 +24,7 @@ export default function Layout() {
             </div>
           </div>
         </div>
-        {/* Create a portal container */}
       </div>
-      {/* <ModelMenu dropdownState={ModalState.OPEN} /> */}
     </>
   );
 }

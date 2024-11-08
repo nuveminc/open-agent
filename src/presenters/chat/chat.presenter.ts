@@ -1,9 +1,14 @@
 import { ChatRepository } from '@/repositories/chat.repository';
 import { ChatVM } from '@/models/chat/chat.class.vm';
-import { useAppStore } from '@/store/app.store';
+import { AppActions, AppState, useAppStore } from '@/store/app.store';
 import { ChatPM } from '@/models/chat';
 import { ChatListVM } from '@/models/chat/chat-list.class.vm';
 import { ChatPMFactory } from '@/repositories/factories';
+
+export type Listener = (
+  state: AppState & AppActions,
+  prevState: AppState & AppActions
+) => void;
 
 export class ChatPresenter {
   private initialized: boolean = false;
@@ -32,6 +37,10 @@ export class ChatPresenter {
     return this.initialized;
   }
 
+  isTemporaryChat(): boolean {
+    return this.store.getState().temporaryChat;
+  }
+
   getItems(): ChatVM[] {
     return this.store.getState().chats;
   }
@@ -48,11 +57,23 @@ export class ChatPresenter {
     return itemVM;
   }
 
+  setTemporaryChat(isTemporary: boolean): void {
+    this.store.getState().setTemporaryChat(isTemporary);
+  }
+
+  setSubscriber(listener: Listener): void {
+    this.store.subscribe(listener);
+  }
+
   cleanup(): void {
     this.initialized = false;
   }
 
   private _createChatList(items: ChatPM[]): ChatListVM {
     return new ChatListVM(items);
+  }
+
+  private _getAppState(): AppState & AppActions {
+    return this.store.getState();
   }
 }

@@ -4,7 +4,7 @@ import { ChatItem } from './chat-item';
 import { useChatPresenter as usePresenter } from '@/presenters/chat/useChatPresenter';
 import { ChatListVM } from '@/models/chat/chat-list.class.vm';
 
-export const ChatHistory: React.FC = () => {
+export const ChatHistory: React.FC<object> = () => {
   const { presenter, isLoading } = usePresenter();
   const chatList: ChatListVM = presenter.getChatList();
 
@@ -30,7 +30,12 @@ export const ChatHistory: React.FC = () => {
         <React.Fragment key={range}>
           <ChatTimeRange timeRange={range} />
           {chatList.rangeList[range].map((item) => (
-            <ChatItem key={item.id} id={item.id} title={item.title} />
+            <ChatItem
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              isSelected={false}
+            />
           ))}
         </React.Fragment>
       ))}

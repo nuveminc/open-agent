@@ -7,17 +7,25 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Switch } from '@/components/ui/switch';
-import React from 'react';
 import { cn } from '@/lib/utils';
+import { useChatPresenter } from '@/presenters/chat/useChatPresenter';
+import { useState } from 'react';
 
 export const ModelDropdown: React.FC<{
   text: string;
-}> = ({ text = 'llama3.1:latest' }: { text: string }) => {
+}> = ({ text }: { text: string }) => {
+  const { presenter } = useChatPresenter();
+
+  const [open, setOpen] = useState(false);
+  const [checkState, setCheckState] = useState(presenter.isTemporaryChat());
+
   const temporaryChatSwitch = (checked: boolean) => {
     console.log('CHECKED:', checked);
+    setCheckState(checked);
+    setOpen(false);
   };
   return (
-    <DropdownMenu modal={false}>
+    <DropdownMenu modal={false} open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger>
         <div className="overflow-hidden w-full">
           <div className="mr-1 max-w-full">
@@ -132,23 +140,10 @@ export const ModelDropdown: React.FC<{
           >
             {/* className="flex justify-between w-full font-medium line-clamp-1 select-none items-center rounded-button py-1 px-2 text-sm text-gray-700 dark:text-gray-100 outline-none transition-all duration-75 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg cursor-pointer data-[highlighted]:bg-muted" */}
             <div className="flex gap-2.5 items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2.5"
-                stroke="currentColor"
-                className="size-4"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z"
-                ></path>
-              </svg>{' '}
+              <Icon name="chatBubble" strokeWidth="2.5" />
               Temporary Chat
             </div>
-            <div onClick={(event) => event.stopPropagation()}>
+            <div>
               <Switch
                 id="airplane-mode"
                 className={cn(
@@ -156,7 +151,7 @@ export const ModelDropdown: React.FC<{
                   'flex h-5 min-h-5 w-9 shrink-0 cursor-pointer items-center rounded-full px-[3px] transition',
                   'bg-gray-200 dark:bg-transparent outline outline-1 outline-gray-100 dark:outline-gray-800'
                 )}
-                onClick={(event) => event.stopPropagation()}
+                checked={checkState}
                 onCheckedChange={temporaryChatSwitch}
               />
               {/* <Label htmlFor="airplane-mode">Airplane Mode</Label> */}

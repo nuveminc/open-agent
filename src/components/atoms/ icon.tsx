@@ -13,6 +13,7 @@ import toggle from '/public/toggle.svg?react';
 import arrowDown from '/public/arrow-down.svg?react';
 import magnifier from '/public/magnifying-glass.svg?react';
 import ellipsis from '/public/ellipsis.svg?react';
+import chatBubble from '/public/chat-bubble.svg?react';
 
 const icons = {
   edit: edit,
@@ -30,6 +31,7 @@ const icons = {
   arrowDown: arrowDown,
   magnifier: magnifier,
   ellipsis: ellipsis,
+  chatBubble: chatBubble,
 } as const;
 
 type IconName = keyof typeof icons;

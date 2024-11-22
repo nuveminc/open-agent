@@ -14,6 +14,12 @@ import arrowDown from '/public/arrow-down.svg?react';
 import magnifier from '/public/magnifying-glass.svg?react';
 import ellipsis from '/public/ellipsis.svg?react';
 import chatBubble from '/public/chat-bubble.svg?react';
+import code from '/public/code.svg?react';
+import gear from '/public/gear.svg?react';
+import logout from '/public/logout.svg?react';
+import avatar from '/public/avatar.svg?react';
+import archive from '/public/archive.svg?react';
+import checkmark from '/public/check-mark.svg?react';
 
 const icons = {
   edit: edit,
@@ -32,9 +38,15 @@ const icons = {
   magnifier: magnifier,
   ellipsis: ellipsis,
   chatBubble: chatBubble,
+  code: code,
+  logout: logout,
+  gear: gear,
+  avatar: avatar,
+  archive: archive,
+  checkmark: checkmark,
 } as const;
 
-type IconName = keyof typeof icons;
+export type IconName = keyof typeof icons;
 
 interface IconProps {
   name: IconName;

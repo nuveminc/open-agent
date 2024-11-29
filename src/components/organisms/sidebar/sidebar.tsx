@@ -1,5 +1,5 @@
 import { NavButtonItem } from '../navbar/nav-button-item';
-import { SettingsMenu } from '../../molecules/settings-menu';
+import { ProfileMenu } from './profile/profile-menu';
 import { SidebarHeader } from './header/sidebar-header';
 import { SidebarItems } from './sidebar-items';
 import { SidebarSearch } from './header/sidebar-search';
@@ -18,7 +18,7 @@ export const Sidebar = () => {
           <SidebarSearch />
           <SidebarItems />
         </div>
-        <SettingsMenu />
+        <ProfileMenu />
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { ChatHistory } from './chat/chat-history';
 
 export const SidebarItems = () => {
   return (
-    <div className="pl-2 my-2 flex-1 flex flex-col space-y-1 overflow-y-auto scrollbar-hidden svelte-141e0sl">
+    <div className="pl-2 my-2 flex-1 flex flex-col space-y-1 overflow-auto hover:overflow-y-scroll svelte-141e0sl">
       {/* timeline title */}
       <ChatHistory />
       {/* <div className="w-full pl-2.5 text-xs text-gray-500 dark:text-gray-500 font-medium pt-5 pb-0.5">

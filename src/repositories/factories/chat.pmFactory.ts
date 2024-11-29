@@ -3,7 +3,7 @@ import { format } from 'date-fns/format';
 
 // PMFactory.ts
 export class ChatPMFactory {
-  static fromDTO(dto: ChatDTO): ChatPM {
+  public static fromDTO(dto: ChatDTO): ChatPM {
     return new ChatPM(
       dto.id,
       dto.title,
@@ -12,7 +12,7 @@ export class ChatPMFactory {
     );
   }
 
-  static toDTO(pm: ChatPM): ChatDTO {
+  public static toDTO(pm: ChatPM): ChatDTO {
     return new ChatDTO(
       pm.id,
       pm.title,
@@ -21,7 +21,7 @@ export class ChatPMFactory {
     );
   }
 
-  static toPM(vm: ChatVM): ChatPM {
+  public static toPM(vm: ChatVM): ChatPM {
     const date = ChatPMFactory._timestampToDate(Date.now());
     vm.createdAt = vm.createdAt ?? date;
     vm.updatedAt = vm.updatedAt ?? date;

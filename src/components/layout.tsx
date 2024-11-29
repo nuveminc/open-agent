@@ -4,6 +4,7 @@ import { Sidebar } from './organisms/sidebar/sidebar';
 import { SystemHelp } from './molecules/system-help';
 import { Navbar } from './organisms/navbar/nav-bar';
 import { MessagesContainer } from './organisms/messages-container';
+import { SettingsDialog } from './organisms/sidebar/profile/settings-dialog';
 // import { ModalState } from '@/store/app.store';
 
 export default function Layout() {
@@ -21,6 +22,7 @@ export default function Layout() {
               <MessagesContainer>
                 <Outlet />
               </MessagesContainer>
+              <SettingsDialog isOpen={true} />
             </div>
           </div>
         </div>

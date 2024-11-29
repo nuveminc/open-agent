@@ -18,7 +18,7 @@ export class ChatPresenter {
     private store: typeof useAppStore
   ) {}
 
-  async initialize(): Promise<void> {
+  public async initialize(): Promise<void> {
     if (this.initialized) return;
 
     console.log('Initializing ChatPresenter...');
@@ -33,23 +33,27 @@ export class ChatPresenter {
     }
   }
 
-  isInitialized(): boolean {
+  public isInitialized(): boolean {
     return this.initialized;
   }
 
-  isTemporaryChat(): boolean {
+  public toggleDialog(): void {
+    return this.store.getState().showDialog(true);
+  }
+
+  public isTemporaryChat(): boolean {
     return this.store.getState().temporaryChat;
   }
 
-  getItems(): ChatVM[] {
+  public getItems(): ChatVM[] {
     return this.store.getState().chats;
   }
 
-  getChatList(): ChatListVM {
+  public getChatList(): ChatListVM {
     return this.store.getState().chatList;
   }
 
-  async addItem(item: ChatVM): Promise<ChatVM> {
+  public async addItem(item: ChatVM): Promise<ChatVM> {
     const itemPM = ChatPMFactory.toPM(item);
     const newItem = await this.repository.addItem(itemPM);
     const itemVM = new ChatVM(newItem);
@@ -57,15 +61,15 @@ export class ChatPresenter {
     return itemVM;
   }
 
-  setTemporaryChat(isTemporary: boolean): void {
+  public setTemporaryChat(isTemporary: boolean): void {
     this.store.getState().setTemporaryChat(isTemporary);
   }
 
-  setSubscriber(listener: Listener): void {
+  public setSubscriber(listener: Listener): void {
     this.store.subscribe(listener);
   }
 
-  cleanup(): void {
+  public cleanup(): void {
     this.initialized = false;
   }
 

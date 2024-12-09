@@ -2,6 +2,7 @@ import { Icon } from '@/components/atoms';
 import React, { useState } from 'react';
 import { GeneralSettings } from './general/general-settings';
 import { InterfaceSettings } from './interface/interface-settings';
+import { PersonalizationSettings } from './personalization/personalization-settings';
 
 export function SettingsDialogTabs() {
   // State to track the currently active tab
@@ -20,8 +21,8 @@ export function SettingsDialogTabs() {
 
   const tabContent: Record<string, React.ReactNode> = {
     General: <GeneralSettings />,
-    Interface: <InterfaceSettings text="llama 3.1:latest" />,
-    Personalization: <div id="personalization">Personalization Content</div>,
+    Interface: <InterfaceSettings />,
+    Personalization: <PersonalizationSettings />,
     Audio: <div id="audio">Audio Content</div>,
     Chats: <div id="chats">Chats Content</div>,
     Account: <div id="account">Account Content</div>,

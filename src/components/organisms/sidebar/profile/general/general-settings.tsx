@@ -1,30 +1,68 @@
 import React from 'react';
-import { Theme } from './theme';
-import { Languages } from './languages';
-import { Notifications } from './notifications';
 import { SystemPrompt } from './system-prompt';
 import { AdvancedParameters } from './advanced-parameters';
+import { SettingsSelectOption } from '@/components/molecules/settings-select';
+import { SettingsLabelControl } from '../settings/settings-label-control';
+
+import languages from '@/i18n/languages.json';
+import { SettingsControl } from '../settings/setttings-control';
+import { SettingsSection } from '../settings/settings-section';
+import { ValueType } from '../settings/settings-dialog-tabs';
 
 export const GeneralSettings: React.FC<object> = () => {
-  const options: { value: string; name: string }[] = [
+  const themeOptions: SettingsSelectOption[] = [
+    { value: 'system', name: 'System', icon: 'gear' },
     { value: 'dark', name: '🌑 Dark' },
     { value: 'oled-dark', name: '🌃 OLED Dark' },
     { value: 'light', name: '☀️ Light' },
     { value: 'her', name: '🌷 Her' },
   ];
+
+  const languageOptions: { value: string; name: string; icon?: string }[] =
+    languages.map((language) => ({
+      name: language.title,
+      value: language.code,
+    }));
+
+  const onChange = (value: ValueType) => {
+    console.log(value);
+  };
   return (
-    <div id="general" className="text-sm font-medium">
-      <div className="text-base">Agent Settings</div>
-      <div>
-        {/* @TODO: need to fix content shifting with scrollbar display  */}
-        <div className="h-[25rem] overflow-y-auto overflow-x-hidden pr-3">
-          <Theme themes={options} />
-          <Languages />
-          <Notifications />
-          <SystemPrompt />
-          <AdvancedParameters />
+    <>
+      <SettingsSection title="Agent Settings">
+        <div>
+          {/* @TODO: need to fix content shifting with scrollbar display  */}
+          <div className="h-[25rem] overflow-y-auto overflow-x-hidden pr-3">
+            {/* TODO: replace with settings-control component */}
+            <SettingsLabelControl label="Theme">
+              <SettingsControl
+                type="select"
+                options={themeOptions as SettingsSelectOption[]}
+                defaultValue="system"
+                onChange={onChange}
+              />
+            </SettingsLabelControl>
+            {/* TODO: replace with settings-control component */}
+            <SettingsLabelControl label="Language">
+              <SettingsControl
+                type="select"
+                options={languageOptions as SettingsSelectOption[]}
+                defaultValue="en-US"
+                onChange={onChange}
+              />
+            </SettingsLabelControl>
+            <SettingsLabelControl label="Notifications" className="my-2">
+              <SettingsControl
+                type="switch"
+                defaultValue={false}
+                onChange={onChange}
+              />
+            </SettingsLabelControl>
+            <SystemPrompt prompt="" onChange={onChange} />
+            <AdvancedParameters onChange={onChange} />
+          </div>
         </div>
-      </div>
-    </div>
+      </SettingsSection>
+    </>
   );
 };

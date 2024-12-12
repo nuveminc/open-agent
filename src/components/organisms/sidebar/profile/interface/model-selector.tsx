@@ -26,7 +26,7 @@ export const ModelSelector: React.FC<{ text: string }> = ({ text }) => {
               className="relative w-full font-primary"
               aria-label="Select a model"
             >
-              <div className="flex justify-between w-[31rem] px-[.5rem] py-[.5rem] rounded-md text-left text-sm outline-none bg-transparent truncate font-medium placeholder-gray-400 dark:bg-gray-850 focus:outline-none">
+              <div className="flex justify-between w-[31rem] px-[.5rem] py-[.5rem] rounded-md text-left  text-sm font-normal outline-none bg-transparent truncate placeholder-gray-400 dark:bg-gray-850 focus:outline-none">
                 {text}
                 <Icon
                   name="arrowDown"

@@ -22,7 +22,7 @@ export const SettingsSlider: React.FC<SettingsSliderProps> = ({
     setTemperature(value);
   };
   return (
-    <>
+    <div className="flex items-center">
       <div className="w-[90%]">
         <Slider
           defaultValue={temperature}
@@ -32,7 +32,7 @@ export const SettingsSlider: React.FC<SettingsSliderProps> = ({
           onValueChange={temperatureOnChange}
         />
       </div>
-      <div className="text-xs text-gray-200">{temperature}</div>
-    </>
+      <div className="text-xs text-gray-200 ml-2">{temperature}</div>
+    </div>
   );
 };

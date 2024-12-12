@@ -3,6 +3,9 @@ import { Switch } from '@/components/ui/switch';
 import React from 'react';
 
 export const PersonalizationSettings: React.FC<object> = () => {
+  const onChange = (value: boolean) => {
+    console.log(value);
+  };
   return (
     <>
       <div className="flex justify-between text-md font-normal mr-2 my-2">
@@ -13,7 +16,7 @@ export const PersonalizationSettings: React.FC<object> = () => {
           </span>
         </div>
         <div>
-          <Switch id="notifications" />
+          <Switch id="notifications" onCheckedChange={onChange} />
         </div>
       </div>
       <div className="flex justify-between text-md font-normal mr-2 my-2">

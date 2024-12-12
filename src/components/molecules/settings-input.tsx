@@ -1,18 +1,18 @@
 import React, { ChangeEvent, useState } from 'react';
 
 export interface SettingsInputProps {
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   defaultValue: number | string;
+  onChange: (value: string) => void;
 }
 export const SettingsInput: React.FC<SettingsInputProps> = ({
-  onChange,
   defaultValue,
+  onChange,
 }) => {
   const [value, setValue] = useState<string | number>(defaultValue);
 
   const onValueChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
-    onChange(event);
+    onChange(event.target.value);
   };
 
   return (

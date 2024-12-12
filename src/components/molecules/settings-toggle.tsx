@@ -13,11 +13,10 @@ export const SettingsToggle: React.FC<SettingsToggleProps> = ({
   const [value, setValue] = useState(defaultValue);
   let optionIdx = options.indexOf(value);
 
-  console.log('Value:', value, defaultValue, optionIdx);
   const onClick = () => {
     optionIdx = optionIdx ^ 1;
     setValue(options[optionIdx]);
-    onChange(value);
+    onChange(options[optionIdx]);
   };
 
   return (

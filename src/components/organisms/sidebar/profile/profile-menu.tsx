@@ -1,6 +1,6 @@
 import { Icon } from '@/components/atoms';
-import { DropdownItem } from '@/components/organisms/dropdown/dropdown-item';
-import { DropdownSeparator } from '@/components/organisms/dropdown/dropdown-separator';
+import { DropdownItem } from '@/components/molecules/dropdown-item';
+import { DropdownSeparator } from '@/components/atoms/dropdown-separator';
 import {
   DropdownMenu,
   DropdownMenuContent,

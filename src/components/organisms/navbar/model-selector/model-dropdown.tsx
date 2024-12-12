@@ -1,5 +1,5 @@
 import { Icon } from '@/components/atoms';
-import { DropdownSeparator } from '@/components/organisms/dropdown/dropdown-separator';
+import { DropdownSeparator } from '@/components/atoms/dropdown-separator';
 import {
   DropdownMenu,
   DropdownMenuContent,

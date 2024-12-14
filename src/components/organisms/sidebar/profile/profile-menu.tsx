@@ -1,5 +1,5 @@
 import { Icon } from '@/components/atoms';
-import { DropdownItem } from '@/components/molecules/dropdown-item';
+import { DropdownItem } from '@/components/molecules/dropdown/dropdown-item';
 import { DropdownSeparator } from '@/components/atoms/dropdown-separator';
 import {
   DropdownMenu,

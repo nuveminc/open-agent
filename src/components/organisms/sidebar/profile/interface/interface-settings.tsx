@@ -1,16 +1,41 @@
 import { ModelSelector } from './model-selector';
 import { SettingsSection } from '../settings/settings-section';
 import { SettingsToggleContainer } from './settings-toggle-container';
+import { SettingsDropdownOption } from '@/components/molecules/settings-select';
+import { useState } from 'react';
 
 export const InterfaceSettings: React.FC<object> = () => {
+  const models: SettingsDropdownOption[] = [
+    {
+      name: 'llama3.1:latest',
+      value: 'llama3.1:latest',
+      size: '8.0B',
+      icon: 'logo',
+    },
+    {
+      name: 'openchat:latest',
+      value: 'openchat:latest',
+      size: '7.0B',
+    },
+  ];
+  const [model, setModel] = useState(models[0]);
   const onChange = (value: string | boolean | number) => {
     console.log(value);
   };
+
+  const onModelChange = (value: SettingsDropdownOption) => {
+    console.log(value);
+    setModel(value);
+  };
+
   return (
     <div id="interface" className="h-[25rem] text-sm font-medium">
       <SettingsSection title="Default Model">
-        {/* @TODO: need to fix content shifting with scrollbar display  */}
-        <ModelSelector text="llama 3.1:latest" />
+        <ModelSelector
+          defaultValue={model}
+          options={models}
+          onChange={onModelChange}
+        />
       </SettingsSection>
       <SettingsSection title="UI">
         <SettingsToggleContainer

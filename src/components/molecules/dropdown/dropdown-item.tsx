@@ -1,5 +1,5 @@
 import React from 'react';
-import { DropdownMenuItem } from '../ui/dropdown-menu';
+import { DropdownMenuItem } from '../../ui/dropdown-menu';
 
 export const DropdownItem: React.FC<{ children: React.ReactNode }> = ({
   children,

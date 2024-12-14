@@ -14,6 +14,14 @@ export interface SettingsSelectOption {
   name: string;
   icon?: IconName;
 }
+
+export interface SettingsDropdownOption {
+  value: string;
+  name: string;
+  size?: string;
+  icon?: string;
+}
+
 export interface SettingsSelectProps {
   defaultValue: string;
   options: SettingsSelectOption[];

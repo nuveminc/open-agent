@@ -31,8 +31,7 @@ export const GeneralSettings: React.FC<object> = () => {
     <>
       <SettingsSection title="Agent Settings">
         <div>
-          {/* @TODO: need to fix content shifting with scrollbar display  */}
-          <div className="h-[25rem] overflow-y-auto overflow-x-hidden pr-3">
+          <div className="h-[25rem] overflow-y-hidden overflow-x-hidden mr-3 pr-3 hover:overflow-y-auto hover:mr-[1px]">
             {/* TODO: replace with settings-control component */}
             <SettingsLabelControl label="Theme">
               <SettingsControl

@@ -20,6 +20,9 @@ import logout from '/public/logout.svg?react';
 import avatar from '/public/avatar.svg?react';
 import archive from '/public/archive.svg?react';
 import checkmark from '/public/check-mark.svg?react';
+import upload from '/public/upload.svg?react';
+import download from '/public/download.svg?react';
+import xmark from '/public/x-mark.svg?react';
 
 const icons = {
   edit: edit,
@@ -44,6 +47,9 @@ const icons = {
   avatar: avatar,
   archive: archive,
   checkmark: checkmark,
+  upload: upload,
+  download: download,
+  xmark: xmark,
 } as const;
 
 export type IconName = keyof typeof icons;

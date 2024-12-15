@@ -5,6 +5,7 @@ import { InterfaceSettings } from '../interface/interface-settings';
 import { PersonalizationSettings } from '../personalization/personalization-settings';
 import { AudioSettings } from '../audio/audio-settings';
 import { ChatsSettings } from '../chats/chats-settings';
+import { AccountSettings } from '../account/account-settings';
 
 export type ValueType = string | number | boolean;
 export type InputType = string | number | readonly string[] | undefined;
@@ -30,7 +31,7 @@ export function SettingsDialogTabs() {
     Personalization: <PersonalizationSettings />,
     Audio: <AudioSettings />,
     Chats: <ChatsSettings />,
-    Account: <div id="account">Account Content</div>,
+    Account: <AccountSettings />,
     'Admin Settings': <div id="admin-settings">Admin Settings Content</div>,
     About: <div id="about">About Content</div>,
   };

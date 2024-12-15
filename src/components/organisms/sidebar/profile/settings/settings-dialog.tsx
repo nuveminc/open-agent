@@ -14,6 +14,9 @@ import { SettingsDialogTabs } from './settings-dialog-tabs';
 export const SettingsDialog: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
   const [open, setOpen] = useState(isOpen);
 
+  const navigateHandler = (close: boolean) => {
+    setOpen(close);
+  };
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent
@@ -27,7 +30,7 @@ export const SettingsDialog: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
         <DialogHeader>
           <DialogTitle>Settings</DialogTitle>
         </DialogHeader>
-        <SettingsDialogTabs />
+        <SettingsDialogTabs onNavigate={navigateHandler} />
         <DialogFooter>
           <Button
             type="submit"

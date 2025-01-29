@@ -8,17 +8,35 @@ import {
 } from '@/components/ui/dialog';
 
 import { cn } from '@/lib/utils';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SettingsDialogTabs } from './settings-dialog-tabs';
 
-export const SettingsDialog: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
+export type SettingsDialogProps = {
+  isOpen: boolean;
+  showModal: (showModal: boolean) => void;
+};
+
+export const SettingsDialog: React.FC<SettingsDialogProps> = ({ isOpen, showModal }) => {
   const [open, setOpen] = useState(isOpen);
 
+  // Add effect to debug state changes
+  useEffect(() => {
+    handleOpen(isOpen);
+  }, [isOpen]);
+
+  const handleOpen = (open: boolean) => {  
+    setOpen(open);
+    showModal(open);
+  }
+    
   const navigateHandler = (close: boolean) => {
+    console.log('Navigate to:', close);
     setOpen(close);
+    showModal(close);
   };
+
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={handleOpen}>
       <DialogContent
         className={cn(
           'max-w-full w-[48rem] mx-2',

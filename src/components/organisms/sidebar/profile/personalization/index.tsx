@@ -4,7 +4,7 @@ import React from 'react';
 
 export const PersonalizationSettings: React.FC<object> = () => {
   const onChange = (value: boolean) => {
-    console.log(value);
+    console.log('memoryPersonalization', value);
   };
   return (
     <>

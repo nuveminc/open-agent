@@ -3,13 +3,15 @@ import { useState } from 'react';
 export const NameSetting: React.FC<{
   label: string;
   value: string;
-  onChange: (text: string) => void;
-}> = ({ label, value, onChange }) => {
+  controlName: string;
+  onChange: (name: string, text: string) => void;
+}> = ({ label, value, controlName, onChange }) => {
   const [inputValue, setInputValue] = useState(value);
+  const [name] = useState<string>(controlName);
 
   const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
-    onChange(event.target.value);
+    onChange(name, event.target.value);
   };
   return (
     <div className="my-3">

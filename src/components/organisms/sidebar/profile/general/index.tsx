@@ -1,13 +1,13 @@
 import React from 'react';
 import { SystemPrompt } from './system-prompt';
 import { AdvancedParameters } from './advanced-parameters';
-import { SettingsSelectOption } from '@/components/molecules/settings-select';
+import { SettingsSelectOption } from '@/components/molecules/settings/settings-select';
 import { SettingsLabelControl } from '../settings/settings-label-control';
 
 import languages from '@/i18n/languages.json';
 import { SettingsControl } from '../settings/setttings-control';
 import { SettingsSection } from '../settings/settings-section';
-import { ValueType } from '../settings/settings-dialog-tabs';
+import { ValueType } from '@/types';
 
 export const GeneralSettings: React.FC<object> = () => {
   const themeOptions: SettingsSelectOption[] = [
@@ -24,8 +24,8 @@ export const GeneralSettings: React.FC<object> = () => {
       value: language.code,
     }));
 
-  const onChange = (value: ValueType) => {
-    console.log(value);
+  const onChange = (name: string, value: ValueType) => {
+    console.log(name, value);
   };
   return (
     <>
@@ -38,6 +38,7 @@ export const GeneralSettings: React.FC<object> = () => {
                 type="select"
                 options={themeOptions as SettingsSelectOption[]}
                 defaultValue="system"
+                controlName='theme'
                 onChange={onChange}
               />
             </SettingsLabelControl>
@@ -47,6 +48,7 @@ export const GeneralSettings: React.FC<object> = () => {
                 type="select"
                 options={languageOptions as SettingsSelectOption[]}
                 defaultValue="en-US"
+                controlName='language'
                 onChange={onChange}
               />
             </SettingsLabelControl>
@@ -54,10 +56,11 @@ export const GeneralSettings: React.FC<object> = () => {
               <SettingsControl
                 type="switch"
                 defaultValue={false}
+                controlName='notifications'
                 onChange={onChange}
               />
             </SettingsLabelControl>
-            <SystemPrompt prompt="" onChange={onChange} />
+            <SystemPrompt prompt="" controlName='systemPrompt' onChange={onChange} />
             <AdvancedParameters onChange={onChange} />
           </div>
         </div>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Slider } from '../ui/slider';
+import { Slider } from '@/components/ui/slider';
 
 export interface SettingsSliderProps {
-  onValueChange: (value: number[]) => void;
+  onValueChange: (name: string, value: number[]) => void;
   defaultValue: number;
+  controlName: string,
   min?: number;
   max?: number;
   step?: number;
@@ -11,14 +12,16 @@ export interface SettingsSliderProps {
 export const SettingsSlider: React.FC<SettingsSliderProps> = ({
   onValueChange,
   defaultValue,
+  controlName,
   min = 0,
   max = 1,
   step = 0.05,
 }) => {
   const [temperature, setTemperature] = useState([defaultValue]);
+  const [name] = useState<string>(controlName);
 
   const temperatureOnChange = (value: number[]) => {
-    onValueChange(value);
+    onValueChange(name, value);
     setTemperature(value);
   };
   return (

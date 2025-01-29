@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import React from 'react';
+import React, { useState } from 'react';
 
 export interface SettingsSelectOption {
   value: string;
@@ -24,14 +24,20 @@ export interface SettingsDropdownOption {
 
 export interface SettingsSelectProps {
   defaultValue: string;
+  controlName: string;
   options: SettingsSelectOption[];
-  onChange?: (value: string) => void;
+  onChange: (name: string, value: string) => void;
 }
 export const SettingsSelect: React.FC<SettingsSelectProps> = ({
   defaultValue,
+  controlName,
   options,
   onChange,
 }: SettingsSelectProps) => {
+  const [name] = useState<string>(controlName);
+  const handleChange = (value: string) => {
+    onChange(name, value);
+}
   const setItem = (option: SettingsSelectOption) => {
     if (option.icon) {
       return (
@@ -55,7 +61,7 @@ export const SettingsSelect: React.FC<SettingsSelectProps> = ({
     }
   };
   return (
-    <Select defaultValue={defaultValue} onValueChange={onChange}>
+    <Select defaultValue={defaultValue} onValueChange={handleChange}>
       <SelectTrigger className="w-fit h-8 border border-0 pr-0">
         <SelectValue></SelectValue>
       </SelectTrigger>

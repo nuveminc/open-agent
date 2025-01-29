@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
 
 export interface SettingsToggleProps {
-  onChange: (value: string) => void;
+  controlName: string;
   defaultValue: string;
   options: string[]; // options are indexed: 0: default and 1: option
+  onChange: (name: string, value: string) => void;
 }
 export const SettingsToggle: React.FC<SettingsToggleProps> = ({
   onChange,
   defaultValue,
+  controlName,
   options,
 }) => {
   const [value, setValue] = useState(defaultValue);
+  const [name] = useState(controlName);
   let optionIdx = options.indexOf(value);
 
   const onClick = () => {
     optionIdx = optionIdx ^ 1;
     setValue(options[optionIdx]);
-    onChange(options[optionIdx]);
+    onChange(name, options[optionIdx]);
   };
 
   return (

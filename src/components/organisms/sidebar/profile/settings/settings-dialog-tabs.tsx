@@ -1,16 +1,13 @@
 import { Icon } from '@/components/atoms';
 import React, { useState } from 'react';
-import { GeneralSettings } from '../general/general-settings';
-import { InterfaceSettings } from '../interface/interface-settings';
-import { PersonalizationSettings } from '../personalization/personalization-settings';
-import { AudioSettings } from '../audio/audio-settings';
-import { ChatsSettings } from '../chats/chats-settings';
-import { AccountSettings } from '../account/account-settings';
+import { GeneralSettings } from '../general';
+import { InterfaceSettings } from '../interface';
+import { PersonalizationSettings } from '../personalization';
+import { AudioSettings } from '../audio';
+import { ChatsSettings } from '../chats';
+import { AccountSettings } from '../account';
 import { useNavigate } from 'react-router-dom';
-import { AboutSettings } from '../about/about-settings';
-
-export type ValueType = string | number | boolean;
-export type InputType = string | number | readonly string[] | undefined;
+import { AboutSettings } from '../about';
 
 export const SettingsDialogTabs: React.FC<{
   onNavigate: (close: boolean) => void;
@@ -63,14 +60,14 @@ export const SettingsDialogTabs: React.FC<{
           const fn = getClickFunction(tab);
           return (
             <button
-              key={idx}
+            key={`btn-${idx}`} 
               onClick={() => fn(tab)}
               className={`cursor-pointer focus:outline-none px-2.5 py-2.5 min-w-fit rounded-lg flex-1 md:flex-none flex text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition ${currentTab}`}
             >
-              <div className="self-center mr-2">
-                <Icon name="gear" />
+              <div key={`div-${idx}`}  className="self-center mr-2">
+                <Icon key={`icon-${idx}`} name="gear" />
               </div>
-              <div className="self-center">{tab}</div>
+              <div key={`tab-${idx}`}  className="self-center">{tab}</div>
             </button>
           );
         })}

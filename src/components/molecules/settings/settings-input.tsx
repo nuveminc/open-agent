@@ -2,17 +2,20 @@ import React, { ChangeEvent, useState } from 'react';
 
 export interface SettingsInputProps {
   defaultValue: number | string;
-  onChange: (value: string) => void;
+  controlName: string;
+  onChange: (name: string, value: string) => void;
 }
 export const SettingsInput: React.FC<SettingsInputProps> = ({
   defaultValue,
+  controlName,
   onChange,
 }) => {
   const [value, setValue] = useState<string | number>(defaultValue);
+  const [name] = useState<string>(controlName);
 
   const onValueChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
-    onChange(event.target.value);
+    onChange(name, event.target.value);
   };
 
   return (

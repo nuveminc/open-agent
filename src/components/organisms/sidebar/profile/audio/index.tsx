@@ -5,9 +5,9 @@ import { SettingsControl } from '../settings/setttings-control';
 import {
   SettingsDropdownOption,
   SettingsSelectOption,
-} from '@/components/molecules/settings-select';
-import { ValueType } from '../settings/settings-dialog-tabs';
+} from '@/components/molecules/settings/settings-select';
 import { ModelSelector } from '../interface/model-selector';
+import { ValueType } from '@/types';
 
 export const AudioSettings: React.FC<object> = () => {
   const engineOptions = [
@@ -37,12 +37,12 @@ export const AudioSettings: React.FC<object> = () => {
 
   const [voice, setVoice] = useState(voiceOptions[0]);
 
-  const onChange = (value: ValueType) => {
-    console.log(value);
+  const onChange = (name: string, value: ValueType) => {
+    console.log(name, value);
   };
 
-  const onVoiceChange = (value: SettingsDropdownOption) => {
-    console.log(value);
+  const onVoiceChange = (name: string, value: SettingsDropdownOption) => {
+    console.log(name, value);
     setVoice(value);
   };
   return (
@@ -54,6 +54,7 @@ export const AudioSettings: React.FC<object> = () => {
               type="select"
               options={engineOptions as SettingsSelectOption[]}
               defaultValue="default"
+              controlName='speechToTextEngine'
               onChange={onChange}
             />
           </SettingsLabelControl>
@@ -64,6 +65,7 @@ export const AudioSettings: React.FC<object> = () => {
           <SettingsControl
             type="toggle"
             defaultValue="Off"
+            controlName='autoPlaybackResponse'
             options={['Off', 'On']}
             onChange={onChange}
           />
@@ -72,12 +74,14 @@ export const AudioSettings: React.FC<object> = () => {
       <SettingsSection title="Set Voice" className="mt-3">
         <ModelSelector
           defaultValue={voice}
+          controlName='voice'
           options={voiceOptions}
           onChange={onVoiceChange}
         ></ModelSelector>
         <SettingsLabelControl label="Allow non-local voices" className="mt-2">
           <SettingsControl
             type="switch"
+            controlName='allowNonLocalVoices'
             defaultValue={false}
             onChange={onChange}
           />

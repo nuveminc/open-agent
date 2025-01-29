@@ -1,20 +1,23 @@
+import { InputType, ValueType } from '@/types';
 import React from 'react';
-import { InputType, ValueType } from '../settings/settings-dialog-tabs';
 
 interface SystemPromptProps {
   prompt: InputType;
-  onChange: (value: ValueType) => void;
+  controlName: string;
+  onChange: (name: string, value: ValueType) => void;
 }
 
 export const SystemPrompt: React.FC<SystemPromptProps> = ({
   prompt,
+  controlName,
   onChange,
 }) => {
   const [value, setValue] = React.useState<InputType>(prompt);
+  const [name] = React.useState<string>(controlName);
 
   const handleChange = (value: InputType) => {
     setValue(value);
-    onChange(value as ValueType);
+    onChange(name, value as ValueType);
   };
 
   return (

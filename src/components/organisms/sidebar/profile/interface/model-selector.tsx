@@ -1,17 +1,20 @@
 import { Icon } from '@/components/atoms';
 import { DropdownMenuControl } from '@/components/molecules/dropdown/dropdown-menu-control';
-import { SettingsDropdownOption } from '@/components/molecules/settings-select';
+import { SettingsDropdownOption } from '@/components/molecules/settings/settings-select';
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
+import { useState } from 'react';
 
 export const ModelSelector: React.FC<{
   defaultValue: SettingsDropdownOption;
+  controlName: string;
   options: SettingsDropdownOption[];
-  onChange: (value: SettingsDropdownOption) => void;
-}> = ({ defaultValue, options, onChange }) => {
+  onChange: (name: string, value: SettingsDropdownOption) => void;
+}> = ({ defaultValue, controlName, options, onChange }) => {
+  const [name] = useState(controlName);
   const onSelect = (index: number) => {
     console.log(options[index]);
-    onChange(options[index]);
+    onChange(name, options[index]);
   };
   const setItem = (item: SettingsDropdownOption, idx: number) => {
     return (

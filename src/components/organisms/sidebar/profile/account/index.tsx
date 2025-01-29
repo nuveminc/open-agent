@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import { Plus } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { SettingsToggleDisplay } from '../settings/settings-toggle-display';
 import { NameSetting } from './name-setting';
 import { PasswordSetting } from './password-setting';
 import { InputHiddenControl } from '@/components/atoms/input-hidden-control';
-import { Plus } from 'lucide-react';
 
 export const AccountSettings: React.FC = () => {
   const [avatarType, setAvatarType] = useState<
@@ -14,6 +14,8 @@ export const AccountSettings: React.FC = () => {
   const jwtToken =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMGJjN2FlLTFkMWYtNDc3Ny05YmM2LTAwNzAyNTM4NTBkMiJ9.tE65R9yL3eX9oeyuuUON_wPMub8dYCofBmmiwdQpZfE';
 
+  const pwd = '********';
+  
   const handleAvatarType = (type: 'initials' | 'gravatar' | 'remove') => {
     if (type !== 'remove') {
       setAvatarType(type);
@@ -85,6 +87,7 @@ export const AccountSettings: React.FC = () => {
       <NameSetting
         label="Name"
         value="cn"
+        controlName='name'
         onChange={nameChangeHandler}
       ></NameSetting>
       <div className="my-3">
@@ -92,7 +95,7 @@ export const AccountSettings: React.FC = () => {
           label="Change Password"
           options={['Show', 'Hide']}
         >
-          <PasswordSetting />
+          <PasswordSetting value={pwd} />
         </SettingsToggleDisplay>
       </div>
       <SettingsToggleDisplay label="API Keys" options={['Show', 'Hide']}>

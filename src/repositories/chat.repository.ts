@@ -1,8 +1,8 @@
 import { GatewayProvider } from '@/api/gateway/gatewayProvider';
-import { IHttpProvider } from '@/interfaces/IHttpProvider';
-import { ChatDTO, ChatPM } from '@/models/chat';
 import { GatewayType } from '@/types';
+import { ChatDTO, ChatPM } from '@/models/chat';
 import { ChatPMFactory } from './factories/chat.pmFactory';
+import { IHttpProvider } from '@/interfaces/IHttpProvider';
 
 const CHAT_HISTORY = '/chat-history';
 const CHATS = '/chats';
@@ -14,12 +14,12 @@ export class ChatRepository {
   }
 
   public async getHistory(): Promise<ChatDTO[]> {
-    const response = await this.provider.getAll<ChatDTO>(CHAT_HISTORY);
+    const response = await this.provider.get(CHAT_HISTORY);
     return response.data;
   }
 
   public async getItems(): Promise<ChatPM[]> {
-    const response = await this.provider.getAll<ChatDTO>(CHATS);
+    const response = await this.provider.get(CHATS);
     let chats: ChatPM[] = [];
     console.log('Response:', response);
     if (Array.isArray(response.data)) {
@@ -32,7 +32,7 @@ export class ChatRepository {
 
   public async addItem(item: ChatPM): Promise<ChatPM> {
     const itemDTO = ChatPMFactory.toDTO(item);
-    const response = await provider.post<ChatDTO>('/chats', itemDTO);
+    const response = await provider.post('/chats', itemDTO);
     const newItem = ChatPMFactory.fromDTO(response.data);
     return newItem;
   }

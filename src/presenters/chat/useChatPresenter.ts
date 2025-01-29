@@ -2,7 +2,7 @@
 import repository from '@/repositories/chat.repository';
 import { useEffect, useMemo, useState } from 'react';
 import { ChatPresenter } from './chat.presenter';
-import { useAppStore } from '@/store/app.store';
+import { useAppStore } from '@/store/appStore';
 
 export const useChatPresenter = () => {
   const [isLoading, setIsLoading] = useState(true);

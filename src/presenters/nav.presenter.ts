@@ -1,6 +1,6 @@
 import { ChatRepository } from '@/repositories/chat.repository';
 import { ChatVM } from '@/models/chat/chat.class.vm';
-import { useAppStore } from '@/store/app.store';
+import { useAppStore } from '@/store/appStore';
 import { ChatPM } from '@/models/chat';
 import { ChatListVM } from '@/models/chat/chat-list.class.vm';
 import { ChatPMFactory } from '@/repositories/factories';

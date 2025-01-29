@@ -8,22 +8,33 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
 import React from 'react';
+import { useAppPresenter } from '@/presenters/app/useAppPresenter';
 
 export interface MenuItem {
   icon: React.ReactNode | null;
   title: string | null;
   type: 'item' | 'divider';
+  click?: () => void;
 }
 
+
 export const ProfileMenu = () => {
+  const {presenter} = useAppPresenter();
+
+  const openSettings = () => {
+    presenter.showModal(true);
+  }
+
   const menuItems: MenuItem[] = [
-    { icon: <Icon name="gear" />, title: 'Settings', type: 'item' },
-    { icon: <Icon name="archive" />, title: 'Archived Chats', type: 'item' },
-    { icon: <Icon name="code" />, title: 'Playground', type: 'item' },
-    { icon: <Icon name="avatar" />, title: 'Admin Panel', type: 'item' },
-    { icon: null, title: null, type: 'divider' },
-    { icon: <Icon name="logout" />, title: 'Sign Out', type: 'item' },
+    { icon: <Icon name="gear" />, title: 'Settings', type: 'item', click: openSettings },
+    { icon: <Icon name="archive" />, title: 'Archived Chats', type: 'item', click: () => {} },
+    { icon: <Icon name="code" />, title: 'Playground', type: 'item', click: () => {} },
+    { icon: <Icon name="avatar" />, title: 'Admin Panel', type: 'item', click: () => {} },
+    { icon: null, title: null, type: 'divider', click: () => {} },
+    { icon: <Icon name="logout" />, title: 'Sign Out', type: 'item', click: () => {} },
   ];
+
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -55,7 +66,7 @@ export const ProfileMenu = () => {
             return <DropdownSeparator />;
           } else {
             return (
-              <DropdownItem>
+              <DropdownItem onClick={item.click}>
                 <div>{item.icon}</div>
                 <div className="self-center font-medium">{item.title}</div>
               </DropdownItem>

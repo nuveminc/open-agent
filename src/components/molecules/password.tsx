@@ -61,7 +61,7 @@ export const Password: React.FC<{
         </div>
       </div>
       <span className={cn('text-xs text-red-500', isValid ? 'hidden' : '')}>
-        A valid password requires at least 8 characters, upper case, and special
+        A valid password requires at least 8 characters, upper case, and at least one special
         character
       </span>
     </div>

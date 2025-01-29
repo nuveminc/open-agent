@@ -1,3 +1,8 @@
+/**
+ * TODO: Add user menu dropdown
+ * 
+ * @returns Avatar icon with dropdown menu
+ */
 export const UserMenu = () => {
   return (
     <button

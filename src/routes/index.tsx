@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { Welcome } from '@/components/pages/welcome';
 import { MainChat } from '@/components/molecules/main-chat';
 import Layout from '@/components/layout';
-import { AdminPanel } from '@/components/pages/admin-panel';
+import { AdminDashboard } from '@/components/organisms/admin/admin-dashboard';
 import { AdminSettings } from '@/components/pages/admin-settings';
 
 export const router = createBrowserRouter([
@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <AdminPanel />,
+            element: <AdminDashboard />,
           },
           {
             path: 'settings',

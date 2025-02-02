@@ -1,65 +1,35 @@
 import { getTimeRange } from './utils';
 
 describe('getTimeRange', () => {
-  // Store the actual Date implementation
-  const RealDate = Date;
-  let mockDate: Date;
-
+  // Set a fixed date: January 15, 2024, 12:00:00
+  const mockDate: Date = new Date(2024, 0, 15, 12, 0, 0, 0);
+  // Helper function to create a timestamp
+  // This function creates a timestamp for a given date and time
   const getTimestamp = (
     year: number,
     month: number,
     date: number,
     hour: number,
     min: number,
-    sec: number
+    sec: number,
+    ms: number = 0
   ) => {
-    return new Date(year, month, date, hour, min, sec).getTime() / 1000;
+    return new Date(year, month, date, hour, min, sec, ms).getTime();
   };
 
   // Mock date to ensure consistent testing
   beforeEach(() => {
-    // Set a fixed date: January 15, 2024, 12:00:00
-    mockDate = new Date(2024, 0, 15, 12, 0, 0);
-
-    global.Date = class extends RealDate {
-      constructor();
-      constructor(value: number | string);
-      constructor(
-        year: number,
-        month: number,
-        date?: number,
-        hours?: number,
-        minutes?: number,
-        seconds?: number,
-        ms?: number
-      );
-      constructor(
-        ...params:
-          | []
-          | [number | string]
-          | [number, number, number?, number?, number?, number?, number?]
-      ) {
-        if (params.length === 0) {
-          super();
-          return mockDate;
-        }
-        // @ts-expect-error spread
-        super(...params);
-      }
-
-      static now() {
-        return mockDate.getTime();
-      }
-    } as DateConstructor;
+    jest.useFakeTimers();
+    jest.setSystemTime(mockDate);
   });
 
   // Restore the actual Date implementation after tests
   afterEach(() => {
-    global.Date = RealDate;
+    jest.useRealTimers();
   });
 
   test('returns "Today" for current day', () => {
-    const timestamp = getTimestamp(2024, 0, 15, 10, 0, 0);
+    const timestamp = getTimestamp(2024, 0, 15, 13, 0, 0);
     const result = getTimeRange(timestamp);
     expect(result).toBe('Today');
   });

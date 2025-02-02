@@ -10,7 +10,7 @@ export const SidebarHeader = () => {
       >
         <div className="self-center mx-1.5">
           <img
-            src="/public/favicon.png"
+            src="/src/assets/favicon.png"
             className="size-6 -translate-x-1.5 rounded-full"
             alt="logo"
           />

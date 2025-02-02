@@ -26,8 +26,8 @@ export const ChatHistory: React.FC<object> = () => {
 
   return (
     <>
-      {chatList.ranges.map((range: string) => (
-        <React.Fragment key={range}>
+      {chatList.ranges.map((range: string, idx: number) => (
+        <React.Fragment key={`chat-${range}-${idx}`}>
           <ChatTimeRange timeRange={range} />
           {chatList.rangeList[range].map((item) => (
             <ChatItem

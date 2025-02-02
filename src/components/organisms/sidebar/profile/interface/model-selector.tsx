@@ -31,7 +31,7 @@ export const ModelSelector: React.FC<{
         <div className="flex">
           {item.icon ? (
             <img
-              src="/public/favicon.png"
+              src="/src/assets/favicon.png"
               alt="Model"
               className="flex rounded-full size-5 mr-2"
             />
@@ -57,6 +57,7 @@ export const ModelSelector: React.FC<{
       </DropdownMenuItem>
     );
   };
+
   return (
     <DropdownMenuControl
       text={defaultValue.name}

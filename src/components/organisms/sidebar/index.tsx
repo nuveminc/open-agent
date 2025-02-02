@@ -1,5 +1,5 @@
 import { NavButtonItem } from '../navbar/nav-button-item';
-import { ProfileMenu } from './profile/profile-menu';
+import { ProfileMenu } from './profile';
 import { SidebarHeader } from './header/sidebar-header';
 import { SidebarItems } from './sidebar-items';
 import { SidebarSearch } from './header/sidebar-search';

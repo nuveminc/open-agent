@@ -11,7 +11,7 @@ export const Welcome: React.FC<object> = () => {
               <button>
                 <div aria-label="" className="flex">
                   <img
-                    src="/public/favicon.png"
+                    src="src/assets/favicon.png"
                     className="size-[2.7rem] rounded-full border-[1px] border-gray-200 dark:border-none"
                     alt="logo"
                     draggable="false"
@@ -19,10 +19,10 @@ export const Welcome: React.FC<object> = () => {
                 </div>
               </button>
             </div>
-          </div>{' '}
+          </div>
           <div className="mt-2 mb-4 text-3xl text-gray-800 dark:text-gray-100 font-medium text-left flex items-center gap-4 font-primary">
             <div>
-              <div className="capitalize line-clamp-1">Hello, mp</div>
+              <div className="capitalize line-clamp-1">Hello, MP</div>
               <div>
                 <div className="font-medium text-gray-400 dark:text-gray-500 line-clamp-1 font-p">
                   How can I help you today?

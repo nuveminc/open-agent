@@ -1,6 +1,6 @@
 import { Icon } from '@/components/atoms';
 import { DropdownItem } from '@/components/molecules/dropdown/dropdown-item';
-import { DropdownSeparator } from '@/components/atoms/dropdown-separator';
+import { DropdownSeparator } from '@/components/molecules/dropdown/dropdown-separator';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,23 +17,46 @@ export interface MenuItem {
   click?: () => void;
 }
 
-
 export const ProfileMenu = () => {
-  const {presenter} = useAppPresenter();
+  const { presenter } = useAppPresenter();
 
   const openSettings = () => {
     presenter.showModal(true);
-  }
+  };
 
   const menuItems: MenuItem[] = [
-    { icon: <Icon name="gear" />, title: 'Settings', type: 'item', click: openSettings },
-    { icon: <Icon name="archive" />, title: 'Archived Chats', type: 'item', click: () => {} },
-    { icon: <Icon name="code" />, title: 'Playground', type: 'item', click: () => {} },
-    { icon: <Icon name="avatar" />, title: 'Admin Panel', type: 'item', click: () => {} },
+    {
+      icon: <Icon name="gear" />,
+      title: 'Settings',
+      type: 'item',
+      click: openSettings,
+    },
+    {
+      icon: <Icon name="archive" />,
+      title: 'Archived Chats',
+      type: 'item',
+      click: () => {},
+    },
+    {
+      icon: <Icon name="code" />,
+      title: 'Playground',
+      type: 'item',
+      click: () => {},
+    },
+    {
+      icon: <Icon name="avatar" />,
+      title: 'Admin Panel',
+      type: 'item',
+      click: () => {},
+    },
     { icon: null, title: null, type: 'divider', click: () => {} },
-    { icon: <Icon name="logout" />, title: 'Sign Out', type: 'item', click: () => {} },
+    {
+      icon: <Icon name="logout" />,
+      title: 'Sign Out',
+      type: 'item',
+      click: () => {},
+    },
   ];
-
 
   return (
     <DropdownMenu>
@@ -61,12 +84,12 @@ export const ProfileMenu = () => {
           'shadow font-primary'
         )}
       >
-        {menuItems.map((item) => {
+        {menuItems.map((item, idx) => {
           if (item.type == 'divider') {
-            return <DropdownSeparator />;
+            return <DropdownSeparator key={`separator-${idx}`} />;
           } else {
             return (
-              <DropdownItem onClick={item.click}>
+              <DropdownItem key={`item-${idx}`} onClick={item.click}>
                 <div>{item.icon}</div>
                 <div className="self-center font-medium">{item.title}</div>
               </DropdownItem>

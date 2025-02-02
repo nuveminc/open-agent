@@ -133,8 +133,11 @@ export const AdminDashboard: React.FC<object> = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map((user) => (
-                <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-850 text-xs">
+              {users.map((user, idx) => (
+                <tr
+                  key={`user-${idx}`}
+                  className="bg-white border-b dark:bg-gray-900 dark:border-gray-850 text-xs"
+                >
                   <td className="px-3 py-2 min-w-[7rem] w-28">
                     <button className="flex items-center gap-2 text-xs px-3 py-0.5 rounded-lg text-sky-600 dark:text-sky-200 bg-sky-200/30 false false svelte-3g4avz">
                       <div className="w-1 h-1 rounded-full bg-sky-600 dark:bg-sky-300 false false svelte-3g4avz"></div>

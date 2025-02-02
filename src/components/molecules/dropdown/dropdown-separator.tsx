@@ -1,5 +1,5 @@
 import React from 'react';
-import { DropdownMenuSeparator } from '../ui/dropdown-menu';
+import { DropdownMenuSeparator } from '../../ui/dropdown-menu';
 
 export const DropdownSeparator: React.FC<object> = () => {
   return (

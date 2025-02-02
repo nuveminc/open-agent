@@ -4,12 +4,16 @@ import React from 'react';
 /**
  * A label control to display a row of settings.
  * Displays a label and the children controls.
+ *
+ * @param label - The label to display.
+ * @param className - The class name to apply to the container.
+ * @param children - The children controls to display.
+ * @return A label control.
  */
 export const SettingsLabelControl: React.FC<{
   label: string;
-  children: React.ReactNode;
-
   className?: string;
+  children: React.ReactNode;
 }> = ({ label, className, children }) => {
   return (
     <div

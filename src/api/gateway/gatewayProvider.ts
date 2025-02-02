@@ -1,6 +1,6 @@
 import { IHttpProvider } from '@/interfaces/IHttpProvider';
-import httpProvider from '@/providers/httpProvider';
-import mockProvider from '@/providers/mockProvider';
+import httpProvider from '@/api/providers/httpProvider';
+import mockProvider from '@/api/providers/mockProvider';
 import { GatewayType } from '@/types';
 
 export class GatewayProvider {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { SettingsSection } from '../settings/settings-section';
-import { SettingsLabelControl } from '../settings/settings-label-control';
-import { SettingsControl } from '../settings/setttings-control';
+import { SettingsSection } from '../../../../molecules/settings/settings-section';
+import { SettingsLabelControl } from '../../../../molecules/settings/settings-label-control';
+import { SettingsControl } from '../../../../molecules/settings/setttings-control';
 import {
   SettingsDropdownOption,
   SettingsSelectOption,
@@ -9,7 +9,10 @@ import {
 import { ModelSelector } from '../interface/model-selector';
 import { ValueType } from '@/types';
 
-export const AudioSettings: React.FC<object> = () => {
+type AudioSettingsProps = {
+  onChange: (name: string, value: ValueType) => void;
+};
+export const AudioSettings: React.FC<AudioSettingsProps> = ({ onChange }) => {
   const engineOptions = [
     { value: 'default', name: 'Default' },
     { value: 'webui', name: 'Web UI' },
@@ -37,13 +40,9 @@ export const AudioSettings: React.FC<object> = () => {
 
   const [voice, setVoice] = useState(voiceOptions[0]);
 
-  const onChange = (name: string, value: ValueType) => {
-    console.log(name, value);
-  };
-
-  const onVoiceChange = (name: string, value: SettingsDropdownOption) => {
-    console.log(name, value);
-    setVoice(value);
+  const onVoiceChange = (name: string, option: SettingsDropdownOption) => {
+    onChange(name, option.value);
+    setVoice(option);
   };
   return (
     <>

@@ -1,5 +1,5 @@
 import { Icon } from '@/components/atoms';
-import { DropdownSeparator } from '@/components/atoms/dropdown-separator';
+import { DropdownSeparator } from '@/components/molecules/dropdown/dropdown-separator';
 import { DropdownControl } from '@/components/molecules/dropdown/dropdown-control';
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { Switch } from '@/components/ui/switch';
@@ -12,6 +12,7 @@ export const ModelDropdown: React.FC<{
 }> = ({ text }: { text: string }) => {
   const { presenter } = useChatPresenter();
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [open, setOpen] = useState(false);
   const [checkState, setCheckState] = useState(presenter.isTemporaryChat());
 
@@ -53,7 +54,7 @@ export const ModelDropdown: React.FC<{
       >
         <div className="flex">
           <img
-            src="/public/favicon.png"
+            src="/src/assets/favicon.png"
             alt="Model"
             className="rounded-full size-5 flex items-center mr-2"
           />

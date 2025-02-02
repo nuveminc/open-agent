@@ -3,10 +3,12 @@ import { useLocation } from 'react-router-dom';
 import { ScrollDown } from '../molecules/scroll-down';
 import { ChatInput } from '../molecules/chat-input';
 import { Navbar } from './navbar';
-// import { SettingsDialog } from './sidebar/settings-dialog';
+import { SettingsDialog } from './sidebar/profile/settings/settings-dialog';
+import { useAppPresenter } from '@/presenters/app/useAppPresenter';
 export const MessagesContainer: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
+  const { presenter } = useAppPresenter();
   const location = useLocation();
   const showChatControls = location.pathname !== '/';
   return (
@@ -26,7 +28,10 @@ export const MessagesContainer: React.FC<{
           </div>
         )}
       </div>
-      {/* <SettingsDialog isOpen={true} /> */}
+      <SettingsDialog
+        isOpen={presenter.modalOpen}
+        showModal={presenter.showModal}
+      />
     </>
   );
 };

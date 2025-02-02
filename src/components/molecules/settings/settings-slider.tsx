@@ -4,11 +4,23 @@ import { Slider } from '@/components/ui/slider';
 export interface SettingsSliderProps {
   onValueChange: (name: string, value: number[]) => void;
   defaultValue: number;
-  controlName: string,
+  controlName: string;
   min?: number;
   max?: number;
   step?: number;
 }
+
+/**
+ * Creates a slider component for the settings dialog
+ *
+ * @param defaultValue - default value of the slider
+ * @param controlName - name of the control
+ * @param min - minimum value of the slider
+ * @param max - maximum value of the slider
+ * @param step - step value of the slider
+ * @param onValueChange - onValueChange event handler
+ * @returns a slider component
+ **/
 export const SettingsSlider: React.FC<SettingsSliderProps> = ({
   onValueChange,
   defaultValue,

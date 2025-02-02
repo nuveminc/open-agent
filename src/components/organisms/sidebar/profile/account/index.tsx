@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { SettingsToggleDisplay } from '../settings/settings-toggle-display';
+import { SettingsToggleDisplay } from '../../../../molecules/settings/settings-toggle-display';
 import { NameSetting } from './name-setting';
 import { PasswordSetting } from './password-setting';
 import { InputHiddenControl } from '@/components/atoms/input-hidden-control';

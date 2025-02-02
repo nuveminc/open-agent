@@ -3,7 +3,6 @@ import { ChatVM } from '@/models/chat/chat.class.vm';
 import { AppActions, AppState, useAppStore } from '@/store/appStore';
 import { ChatPM } from '@/models/chat';
 import { ChatListVM } from '@/models/chat/chat-list.class.vm';
-import { ChatPMFactory } from '@/repositories/factories';
 
 export type Listener = (
   state: AppState & AppActions,
@@ -54,7 +53,7 @@ export class ChatPresenter {
   }
 
   public async addItem(item: ChatVM): Promise<ChatVM> {
-    const itemPM = ChatPMFactory.toPM(item);
+    const itemPM = new ChatPM(item);
     const newItem = await this.repository.addItem(itemPM);
     const itemVM = new ChatVM(newItem);
     this.store.getState().addChat(itemVM);
@@ -76,8 +75,4 @@ export class ChatPresenter {
   private _createChatList(items: ChatPM[]): ChatListVM {
     return new ChatListVM(items);
   }
-
-  // private _getAppState(): AppState & AppActions {
-  //   return this.store.getState();
-  // }
 }

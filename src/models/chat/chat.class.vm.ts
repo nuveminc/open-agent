@@ -1,5 +1,4 @@
 import { ChatPM } from './chat.class.pm';
-import { format } from 'date-fns/format';
 
 export class ChatVM {
   id: string;
@@ -10,11 +9,11 @@ export class ChatVM {
   constructor(item: ChatPM) {
     this.id = item.id;
     this.title = item.title;
-    this.createdAt = item.createdAt ?? this._formatDate(Date.now());
-    this.updatedAt = item.updatedAt ?? this._formatDate(Date.now());
-  }
-
-  private _formatDate(timestamp: number): string {
-    return format(new Date(timestamp), 'yyyy-MM-dd:hh:mm:ss');
+    try {
+      this.createdAt = new Date(item.createdAt).toISOString();
+      this.updatedAt = new Date(item.updatedAt).toISOString();
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

@@ -1,8 +1,7 @@
+import { IHttpProvider } from '@/interfaces/IHttpProvider';
 import { GatewayProvider } from '@/api/gateway/gatewayProvider';
 import { GatewayType } from '@/types';
 import { ChatDTO, ChatPM } from '@/models/chat';
-import { ChatPMFactory } from './factories/chat.pmFactory';
-import { IHttpProvider } from '@/interfaces/IHttpProvider';
 
 const CHAT_HISTORY = '/chat-history';
 const CHATS = '/chats';
@@ -14,26 +13,27 @@ export class ChatRepository {
   }
 
   public async getHistory(): Promise<ChatDTO[]> {
-    const response = await this.provider.get(CHAT_HISTORY);
-    return response.data;
+    const response = await this.provider.get<ChatDTO[]>(CHAT_HISTORY);
+    return response.data as ChatDTO[];
   }
 
   public async getItems(): Promise<ChatPM[]> {
-    const response = await this.provider.get(CHATS);
+    const response = await this.provider.get<ChatDTO>(CHATS);
     let chats: ChatPM[] = [];
     console.log('Response:', response);
     if (Array.isArray(response.data)) {
-      chats = response.data.map((chatData: ChatDTO) =>
-        ChatPMFactory.fromDTO(chatData)
-      );
+      chats = response.data.map((chatData: ChatDTO) => {
+        const chatPM = new ChatPM(chatData);
+        return chatPM;
+      });
     }
     return chats;
   }
 
   public async addItem(item: ChatPM): Promise<ChatPM> {
-    const itemDTO = ChatPMFactory.toDTO(item);
-    const response = await provider.post('/chats', itemDTO);
-    const newItem = ChatPMFactory.fromDTO(response.data);
+    const itemDTO = new ChatDTO(item);
+    const response = await provider.post<ChatDTO>('/chats', itemDTO);
+    const newItem = new ChatPM(response.data!);
     return newItem;
   }
 }

@@ -19,7 +19,7 @@ export type AppActions = {
   showModal: (showModal: boolean) => void;
 };
 
-export const useAppStore = create<AppState & AppActions>((set, get) => ({
+export const useAppStore = create<AppState & AppActions>((set) => ({
   chatList: {} as ChatListVM,
   chats: [],
   temporaryChat: false,

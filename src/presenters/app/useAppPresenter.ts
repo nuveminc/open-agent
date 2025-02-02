@@ -1,15 +1,7 @@
-// usePresenter.ts (Custom Hook)
-import repository from '@/repositories/chat.repository';
-import { useAppStore } from '@/store/appStore';
 import { useSettingsStore } from '@/store/settingsStore';
-import { useEffect } from 'react';
 
 export const useAppPresenter = () => {
   const store = useSettingsStore();
-
-  // useEffect(() => {
-  //   console.log('useAppPresenter', store);
-  // }, [store.modalOpen]);
 
   // const isTemporaryChat = (): boolean => {
   //   return  store.temporaryChat;
@@ -49,9 +41,10 @@ export const useAppPresenter = () => {
   // }
 
   const presenter = {
+    store,
     showModal: store.showModal,
     modalOpen: store.modalOpen,
-  }
+  };
 
   return { presenter };
 };

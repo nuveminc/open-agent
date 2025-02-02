@@ -10,5 +10,5 @@ export type AnyType =
   | null
   | undefined;
 
-export type ValueType = string | number | boolean;
+export type ValueType = string | number | boolean | object;
 export type InputType = string | number | readonly string[] | undefined;

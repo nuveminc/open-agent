@@ -2,14 +2,23 @@ import React from 'react';
 import { SystemPrompt } from './system-prompt';
 import { AdvancedParameters } from './advanced-parameters';
 import { SettingsSelectOption } from '@/components/molecules/settings/settings-select';
-import { SettingsLabelControl } from '../settings/settings-label-control';
+import { SettingsLabelControl } from '../../../../molecules/settings/settings-label-control';
 
 import languages from '@/i18n/languages.json';
-import { SettingsControl } from '../settings/setttings-control';
-import { SettingsSection } from '../settings/settings-section';
+import { SettingsControl } from '../../../../molecules/settings/setttings-control';
+import { SettingsSection } from '../../../../molecules/settings/settings-section';
 import { ValueType } from '@/types';
+import { SettingsState } from '@/store/settingsStore';
 
-export const GeneralSettings: React.FC<object> = () => {
+export type GeneralSettingsProps = {
+  settings: SettingsState;
+  onChange: (name: string, value: ValueType) => void;
+};
+
+export const GeneralSettings: React.FC<GeneralSettingsProps> = ({
+  onChange,
+  settings,
+}) => {
   const themeOptions: SettingsSelectOption[] = [
     { value: 'system', name: 'System', icon: 'gear' },
     { value: 'dark', name: '🌑 Dark' },
@@ -24,9 +33,6 @@ export const GeneralSettings: React.FC<object> = () => {
       value: language.code,
     }));
 
-  const onChange = (name: string, value: ValueType) => {
-    console.log(name, value);
-  };
   return (
     <>
       <SettingsSection title="Agent Settings">
@@ -37,8 +43,8 @@ export const GeneralSettings: React.FC<object> = () => {
               <SettingsControl
                 type="select"
                 options={themeOptions as SettingsSelectOption[]}
-                defaultValue="system"
-                controlName='theme'
+                defaultValue={settings.theme}
+                controlName="theme"
                 onChange={onChange}
               />
             </SettingsLabelControl>
@@ -47,21 +53,28 @@ export const GeneralSettings: React.FC<object> = () => {
               <SettingsControl
                 type="select"
                 options={languageOptions as SettingsSelectOption[]}
-                defaultValue="en-US"
-                controlName='language'
+                defaultValue={settings.language}
+                controlName="language"
                 onChange={onChange}
               />
             </SettingsLabelControl>
             <SettingsLabelControl label="Notifications" className="my-2">
               <SettingsControl
                 type="switch"
-                defaultValue={false}
-                controlName='notifications'
+                defaultValue={settings.notifications}
+                controlName="notifications"
                 onChange={onChange}
               />
             </SettingsLabelControl>
-            <SystemPrompt prompt="" controlName='systemPrompt' onChange={onChange} />
-            <AdvancedParameters onChange={onChange} />
+            <SystemPrompt
+              prompt={settings.systemPrompt}
+              controlName="systemPrompt"
+              onChange={onChange}
+            />
+            <AdvancedParameters
+              settings={settings.parameters}
+              onChange={onChange}
+            />
           </div>
         </div>
       </SettingsSection>

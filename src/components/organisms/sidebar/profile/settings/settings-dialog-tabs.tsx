@@ -8,6 +8,8 @@ import { ChatsSettings } from '../chats';
 import { AccountSettings } from '../account';
 import { useNavigate } from 'react-router-dom';
 import { AboutSettings } from '../about';
+import { ValueType } from '@/types';
+import { useSettingsStore } from '@/store/settingsStore';
 
 export const SettingsDialogTabs: React.FC<{
   onNavigate: (close: boolean) => void;
@@ -15,6 +17,7 @@ export const SettingsDialogTabs: React.FC<{
   // State to track the currently active tab
   const [activeTab, setActiveTab] = useState<string>('General');
   const navigate = useNavigate();
+  const state = useSettingsStore();
 
   const tabs = [
     'General',
@@ -27,11 +30,30 @@ export const SettingsDialogTabs: React.FC<{
     'About',
   ];
 
+  const handleChange = (name: string, value: ValueType) => {
+    console.log('SettingsDialogTabs > state', state);
+    console.log('SettingsDialogTabs > handleChange', name, value);
+    let settingsValue = value;
+    let settingsName = name;
+    if (name.indexOf(':') > -1) {
+      const [parent, key] = name.split(':');
+      settingsName = parent;
+      settingsValue = { [key]: value } as ValueType;
+    }
+    console.log(
+      'SettingsDialogTabs > handleChange',
+      settingsName,
+      settingsValue
+    );
+    // set the value in our store
+    state.setSettingsValue(settingsName, settingsValue);
+  };
+
   const tabContent: Record<string, React.ReactNode> = {
-    General: <GeneralSettings />,
-    Interface: <InterfaceSettings />,
+    General: <GeneralSettings settings={state} onChange={handleChange} />,
+    Interface: <InterfaceSettings onChange={handleChange} />,
     Personalization: <PersonalizationSettings />,
-    Audio: <AudioSettings />,
+    Audio: <AudioSettings onChange={handleChange} />,
     Chats: <ChatsSettings />,
     Account: <AccountSettings />,
     'Admin Settings': <div></div>,
@@ -39,7 +61,6 @@ export const SettingsDialogTabs: React.FC<{
   };
 
   const gotoSettings = (tab: string) => {
-    console.log('gotoSettings', tab);
     setActiveTab(tab);
     onNavigate(false);
     navigate('/admin/settings');
@@ -60,14 +81,16 @@ export const SettingsDialogTabs: React.FC<{
           const fn = getClickFunction(tab);
           return (
             <button
-            key={`btn-${idx}`} 
+              key={`btn-${idx}`}
               onClick={() => fn(tab)}
               className={`cursor-pointer focus:outline-none px-2.5 py-2.5 min-w-fit rounded-lg flex-1 md:flex-none flex text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition ${currentTab}`}
             >
-              <div key={`div-${idx}`}  className="self-center mr-2">
+              <div key={`div-${idx}`} className="self-center mr-2">
                 <Icon key={`icon-${idx}`} name="gear" />
               </div>
-              <div key={`tab-${idx}`}  className="self-center">{tab}</div>
+              <div key={`tab-${idx}`} className="self-center">
+                {tab}
+              </div>
             </button>
           );
         })}

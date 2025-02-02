@@ -16,24 +16,23 @@ export type SettingsDialogProps = {
   showModal: (showModal: boolean) => void;
 };
 
-export const SettingsDialog: React.FC<SettingsDialogProps> = ({ isOpen, showModal }) => {
+export const SettingsDialog: React.FC<SettingsDialogProps> = ({
+  isOpen,
+  showModal,
+}) => {
   const [open, setOpen] = useState(isOpen);
 
-  // Add effect to debug state changes
+  const handleOpen = React.useCallback(
+    (open: boolean) => {
+      setOpen(open);
+      showModal(open);
+    },
+    [showModal]
+  );
+
   useEffect(() => {
     handleOpen(isOpen);
-  }, [isOpen]);
-
-  const handleOpen = (open: boolean) => {  
-    setOpen(open);
-    showModal(open);
-  }
-    
-  const navigateHandler = (close: boolean) => {
-    console.log('Navigate to:', close);
-    setOpen(close);
-    showModal(close);
-  };
+  }, [isOpen, handleOpen]);
 
   return (
     <Dialog open={open} onOpenChange={handleOpen}>
@@ -48,10 +47,11 @@ export const SettingsDialog: React.FC<SettingsDialogProps> = ({ isOpen, showModa
         <DialogHeader>
           <DialogTitle>Settings</DialogTitle>
         </DialogHeader>
-        <SettingsDialogTabs onNavigate={navigateHandler} />
+        <SettingsDialogTabs onNavigate={handleOpen} />
         <DialogFooter>
           <Button
             type="submit"
+            disabled={true}
             className="hover:dark:bg-green-700 dark:bg-green-800"
           >
             Save

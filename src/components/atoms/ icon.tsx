@@ -23,6 +23,7 @@ import checkmark from '/src/assets/check-mark.svg?react';
 import upload from '/src/assets/upload.svg?react';
 import download from '/src/assets/download.svg?react';
 import xmark from '/src/assets/x-mark.svg?react';
+import lightning from '/src/assets/lightning.svg?react';
 
 const icons = {
   edit: edit,
@@ -50,6 +51,7 @@ const icons = {
   upload: upload,
   download: download,
   xmark: xmark,
+  lightning: lightning,
 } as const;
 
 export type IconName = keyof typeof icons;

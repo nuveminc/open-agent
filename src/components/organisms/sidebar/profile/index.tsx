@@ -63,7 +63,7 @@ export const ProfileMenu = () => {
       <DropdownMenuTrigger>
         <button
           className={cn(
-            'flex rounded-xl py-3 px-3.5 w-full hover:bg-gray-100',
+            'flex rounded-xl py-3 px-3.5 w-full mr-1 hover:bg-gray-100',
             'dark:hover:bg-gray-900 transition'
           )}
         >

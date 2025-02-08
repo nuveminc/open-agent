@@ -5,11 +5,13 @@ import { create } from 'zustand';
 export type SettingsState = Settings & {
   isDirty: boolean;
   modalOpen: boolean;
+  controlPanelOpen: boolean;
 };
 
 export type SettingsActions = {
   setSettingsValue: (name: string, value: ValueType) => void;
   showModal: (showModal: boolean) => void;
+  showControlPanel: (showControlPanel: boolean) => void;
   reset: () => void;
 };
 
@@ -34,7 +36,7 @@ const defaultValues: SettingsState = {
     frequencyPenalty: 1.1,
     repeatLastN: 64.0,
     tfsZ: 1.0,
-    contentLength: 2048,
+    contextLength: 2048,
     batchSize: 512.0,
     tokensToKeep: 24,
     maxTokens: 128,
@@ -46,6 +48,7 @@ const defaultValues: SettingsState = {
     requestMode: 'Default',
   },
   modalOpen: false,
+  controlPanelOpen: false,
 };
 
 /**
@@ -72,6 +75,8 @@ export const useSettingsStore = create<SettingsStore>((set) => ({
     });
   },
   showModal: (showModal: boolean) => set(() => ({ modalOpen: showModal })),
+  showControlPanel: (showControlPanel: boolean) =>
+    set(() => ({ controlPanelOpen: showControlPanel })),
   reset: () => {
     set(() => ({ ...defaultValues }));
   },

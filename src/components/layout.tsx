@@ -17,8 +17,6 @@ export default function Layout() {
           {/* main content area */}
           <div className="h-screen max-h-[100dvh] md:max-w-[calc(100%-260px)] w-full max-w-full flex flex-col">
             <div className="flex flex-col flex-auto">
-              {/* <MessagesContainer>
-              </MessagesContainer> */}
               <Outlet />
               <SettingsDialog
                 isOpen={presenter.modalOpen}

@@ -1,3 +1,4 @@
+import { Icon } from '@/components/atoms';
 import { cn } from '@/lib/utils';
 import React, { useState } from 'react';
 
@@ -12,27 +13,43 @@ import React, { useState } from 'react';
  **/
 export const SettingsToggleDisplay: React.FC<{
   label: string;
+  labelClassName?: string;
+  toggle?: 'text' | 'chevron';
+  displayContent?: boolean;
   options?: string[];
   children: React.ReactNode;
-}> = ({ label, children, options = ['Custom', 'Default'] }) => {
-  const [customValue, setCustomValue] = useState(false);
+}> = ({
+  label,
+  labelClassName,
+  children,
+  toggle = 'text',
+  displayContent = false,
+  options = ['Default', 'Custom'],
+}) => {
+  const [showContent, setShowContent] = useState(displayContent);
+
+  const icons = [<Icon name="chevronDown" />, <Icon name="chevronUp" />];
+
+  const showHideValues = toggle === 'text' ? options : icons;
+
+  const labelClasses = labelClassName ? labelClassName : 'text-sm font-normal';
 
   const toggleDisplay = () => {
-    setCustomValue(!customValue);
+    setShowContent(!showContent);
   };
 
   return (
     <div className="mb-2">
       <div
-        className="flex justify-between w-full text-sm font-normal"
+        className={`flex justify-between w-full ${labelClasses}`}
         onClick={toggleDisplay}
       >
-        <div>{label}</div>
-        <div className="text-xs cursor-pointer">
-          {customValue ? options[1] : options[0]}
+        <div className="cursor-pointer">{label}</div>
+        <div className="text-xs cursor-pointer text-gray-500">
+          {showContent ? showHideValues[1] : showHideValues[0]}
         </div>
       </div>
-      <div className={cn('w-full my-2', customValue ? 'display' : 'hidden')}>
+      <div className={cn('w-full my-2', showContent ? 'display' : 'hidden')}>
         {children}
       </div>
     </div>

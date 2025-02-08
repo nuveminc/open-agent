@@ -7,13 +7,15 @@ export const MessagesContainer: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   return (
-    <>
+    <div className="flex flex-col h-screen overflow-hidden">
       <Navbar />
-      {children}
+      <div className="flex h-full overflow-auto">
+        <div className="flex w-full h-full justify-center">{children}</div>
+      </div>
       <div className="w-full font-primary">
         <ScrollDown />
         <ChatInput />
       </div>
-    </>
+    </div>
   );
 };

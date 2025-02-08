@@ -1,10 +1,10 @@
-import { Switch } from '@/components/ui/switch';
 import { SettingsInput } from '@/components/molecules/settings/settings-input';
 import { SettingsToggle } from '@/components/molecules/settings/settings-toggle';
 import { SettingsSlider } from '@/components/molecules/settings/settings-slider';
 import { SettingsSelect, SettingsSelectOption } from './settings-select';
 import { useState } from 'react';
 import { ValueType } from '@/types';
+import { SettingsSwitch } from './settings-switch';
 
 export type ComponentType = 'input' | 'slider' | 'switch' | 'toggle' | 'select';
 
@@ -12,6 +12,7 @@ export interface ControlProps {
   type: ComponentType;
   defaultValue: ValueType;
   controlName: string;
+  showSwitchLabel?: boolean; // only applies to switch
   options?: string[] | SettingsSelectOption[];
   min?: number;
   max?: number;
@@ -22,6 +23,7 @@ export const SettingsControl: React.FC<ControlProps> = ({
   type,
   defaultValue,
   controlName,
+  showSwitchLabel,
   options,
   min,
   max,
@@ -43,7 +45,6 @@ export const SettingsControl: React.FC<ControlProps> = ({
             defaultValue={defaultValue as number | string}
           />
         );
-        break;
       case 'slider':
         return (
           <SettingsSlider
@@ -58,18 +59,15 @@ export const SettingsControl: React.FC<ControlProps> = ({
             step={step}
           />
         );
-        break;
       case 'switch':
         return (
-          <div className="flex w-full justify-end mb-1">
-            <Switch
-              key={name}
-              checked={defaultValue as boolean}
-              onCheckedChange={(value: boolean) => handleChange(name, value)}
-            />
-          </div>
+          <SettingsSwitch
+            onChange={handleChange}
+            defaultValue={defaultValue}
+            controlName={controlName}
+            showLabel={showSwitchLabel as boolean}
+          />
         );
-        break;
       case 'toggle':
         return (
           <SettingsToggle

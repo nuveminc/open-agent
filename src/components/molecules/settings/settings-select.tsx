@@ -83,11 +83,15 @@ export const SettingsSelect: React.FC<SettingsSelectProps> = ({
   };
 
   return (
-    <Select defaultValue={defaultValue} onValueChange={handleChange}>
-      <SelectTrigger className="w-fit h-8 border border-0 pr-0">
+    <Select
+      value={defaultValue}
+      defaultValue={defaultValue}
+      onValueChange={handleChange}
+    >
+      <SelectTrigger className="w-fit h-8 border border-0 pr-0 pl-0">
         <SelectValue></SelectValue>
       </SelectTrigger>
-      <SelectContent className="text-white bg-gray-900 border border-gray-700 relative left-[1rem]">
+      <SelectContent className="text-white bg-gray-900 border border-gray-700 relative ">
         <SelectGroup>
           {options.map((option, idx) => setItem(option, idx))}
         </SelectGroup>

@@ -44,6 +44,8 @@ export const useAppPresenter = () => {
     store,
     showModal: store.showModal,
     modalOpen: store.modalOpen,
+    showControlPanel: store.showControlPanel,
+    controlPanelOpen: store.controlPanelOpen,
   };
 
   return { presenter };

@@ -11,7 +11,7 @@ export type SettingParameters = {
   frequencyPenalty: number;
   repeatLastN: number;
   tfsZ: number;
-  contentLength: number;
+  contextLength: number;
   batchSize: number;
   tokensToKeep: number;
   maxTokens: number;

@@ -5,6 +5,8 @@ import {
   SuggestedPrompts,
 } from '../organisms/suggested-prompts';
 import { MessagesContainer } from '../organisms/messages-container';
+import { Control } from '../organisms/control-panel';
+import { useAppPresenter } from '@/presenters/app/useAppPresenter';
 
 export const prompts: SuggestedPrompt[] = [
   {
@@ -37,17 +39,28 @@ export const prompts: SuggestedPrompt[] = [
   },
 ];
 export const Welcome: React.FC<object> = () => {
+  const { presenter } = useAppPresenter();
+
+  const handleClick = () => {
+    const showPanel = !presenter.controlPanelOpen;
+    presenter.showControlPanel(showPanel);
+  };
   return (
     <MessagesContainer>
-      <div className="h-full flex">
-        <div className="m-auto w-full max-w-6xl px-8 lg:px-20">
-          <div className="flex justify-start">
-            <div className="flex -space-x-4 mb-0.5">
+      <div className="flex w-full justify-between overflow-hidden">
+        {/* MAIN CONTENT */}
+        <div className="m-auto w-full 2xl:max-w-6xl md:max-w-3xl sm:max-w-2xl lg:px-20">
+          <div className="flex">
+            <div className="flex mb-0.5">
               <ButtonLogo />
             </div>
           </div>
           <WelcomeMessage name="MP" message="How can I help you today?" />
           <SuggestedPrompts suggestedPrompts={prompts} />
+        </div>
+        {/* RIGHT CONTROL SECTIOn */}
+        <div className={`${!presenter.controlPanelOpen ? 'hidden' : ''}`}>
+          <Control onClick={handleClick} />
         </div>
       </div>
     </MessagesContainer>

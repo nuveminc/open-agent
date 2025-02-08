@@ -24,6 +24,8 @@ import upload from '/src/assets/upload.svg?react';
 import download from '/src/assets/download.svg?react';
 import xmark from '/src/assets/x-mark.svg?react';
 import lightning from '/src/assets/lightning.svg?react';
+import chevronUp from '/src/assets/chevron-up.svg?react';
+import chevronDown from '/src/assets/chevron-down.svg?react';
 
 const icons = {
   edit: edit,
@@ -52,6 +54,8 @@ const icons = {
   download: download,
   xmark: xmark,
   lightning: lightning,
+  chevronUp: chevronUp,
+  chevronDown: chevronDown,
 } as const;
 
 export type IconName = keyof typeof icons;

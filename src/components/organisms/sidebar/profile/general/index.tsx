@@ -1,14 +1,16 @@
 import React from 'react';
-import { SystemPrompt } from './system-prompt';
-import { AdvancedParameters } from './advanced-parameters';
+import { SystemPrompt } from '@/components/molecules/settings/system-prompt';
+import { AdvancedParameters } from '@/components/organisms/common/advanced-parameters';
 import { SettingsSelectOption } from '@/components/molecules/settings/settings-select';
-import { SettingsLabelControl } from '../../../../molecules/settings/settings-label-control';
+import { SettingsLabelControl } from '@/components/molecules/settings/settings-label-control';
 
 import languages from '@/i18n/languages.json';
-import { SettingsControl } from '../../../../molecules/settings/setttings-control';
-import { SettingsSection } from '../../../../molecules/settings/settings-section';
+import { SettingsControl } from '@/components/molecules/settings/setttings-control';
+import { SettingsSection } from '@/components/molecules/settings/settings-section';
 import { ValueType } from '@/types';
 import { SettingsState } from '@/store/settingsStore';
+import { advancedControlSettings } from '@/constants/advanced-control-settings';
+import { SettingsToggleDisplay } from '@/components/molecules/settings/settings-toggle-display';
 
 export type GeneralSettingsProps = {
   settings: SettingsState;
@@ -62,6 +64,7 @@ export const GeneralSettings: React.FC<GeneralSettingsProps> = ({
               <SettingsControl
                 type="switch"
                 defaultValue={settings.notifications}
+                showSwitchLabel={false}
                 controlName="notifications"
                 onChange={onChange}
               />
@@ -71,10 +74,18 @@ export const GeneralSettings: React.FC<GeneralSettingsProps> = ({
               controlName="systemPrompt"
               onChange={onChange}
             />
-            <AdvancedParameters
-              settings={settings.parameters}
-              onChange={onChange}
-            />
+            <SettingsToggleDisplay
+              label="Advanced Settings"
+              options={['Show', 'Hide']}
+              displayContent={true}
+            >
+              <AdvancedParameters
+                advancedControlSettings={advancedControlSettings}
+                settings={settings.parameters}
+                httpSettings={true}
+                onChange={onChange}
+              />
+            </SettingsToggleDisplay>
           </div>
         </div>
       </SettingsSection>

@@ -1,3 +1,4 @@
+import { DialogType } from '@/components/organisms/common/dialog-container';
 import { ValueType } from '@/types';
 import { Settings } from '@/types/settings';
 import { create } from 'zustand';
@@ -5,11 +6,13 @@ import { create } from 'zustand';
 export type SettingsState = Settings & {
   isDirty: boolean;
   modalOpen: boolean;
+  currentModal: DialogType;
   controlPanelOpen: boolean;
 };
 
 export type SettingsActions = {
   setSettingsValue: (name: string, value: ValueType) => void;
+  setModal: (modal: DialogType) => void;
   showModal: (showModal: boolean) => void;
   showControlPanel: (showControlPanel: boolean) => void;
   reset: () => void;
@@ -48,6 +51,7 @@ const defaultValues: SettingsState = {
     requestMode: 'Default',
   },
   modalOpen: false,
+  currentModal: 'settings',
   controlPanelOpen: false,
 };
 
@@ -74,6 +78,7 @@ export const useSettingsStore = create<SettingsStore>((set) => ({
       return newState;
     });
   },
+  setModal: (modal: DialogType) => set(() => ({ currentModal: modal })),
   showModal: (showModal: boolean) => set(() => ({ modalOpen: showModal })),
   showControlPanel: (showControlPanel: boolean) =>
     set(() => ({ controlPanelOpen: showControlPanel })),

@@ -21,6 +21,7 @@ export const ProfileMenu = () => {
   const { presenter } = useAppPresenter();
 
   const openSettings = () => {
+    presenter.setModal('settings');
     presenter.showModal(true);
   };
 

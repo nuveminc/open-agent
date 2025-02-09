@@ -26,6 +26,8 @@ import xmark from '/src/assets/x-mark.svg?react';
 import lightning from '/src/assets/lightning.svg?react';
 import chevronUp from '/src/assets/chevron-up.svg?react';
 import chevronDown from '/src/assets/chevron-down.svg?react';
+import users from '/src/assets/users.svg?react';
+import groups from '/src/assets/groups.svg?react';
 
 const icons = {
   edit: edit,
@@ -56,6 +58,8 @@ const icons = {
   lightning: lightning,
   chevronUp: chevronUp,
   chevronDown: chevronDown,
+  users: users,
+  groups: groups,
 } as const;
 
 export type IconName = keyof typeof icons;

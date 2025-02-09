@@ -4,7 +4,9 @@ import { AdminTabs } from '../organisms/admin/admin-tabs';
 
 export const AdminSettings: React.FC = () => {
   const adminTabs = [
-    { label: 'Dashboard', href: '' },
+    { label: 'Users', href: '' },
+    { label: 'Evaluations', href: '' },
+    { label: 'Functions', href: '' },
     { label: 'Settings', href: '/admin/settings' },
   ];
   return (
@@ -34,9 +36,6 @@ export const AdminSettings: React.FC = () => {
                 </svg>
               </div>
             </button>
-          </div>
-          <div className="flex items-center text-xl font-semibold">
-            Admin Panel
           </div>
         </div>
       </div>

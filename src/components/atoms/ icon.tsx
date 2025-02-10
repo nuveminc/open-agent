@@ -26,6 +26,8 @@ import xmark from '/src/assets/x-mark.svg?react';
 import lightning from '/src/assets/lightning.svg?react';
 import chevronUp from '/src/assets/chevron-up.svg?react';
 import chevronDown from '/src/assets/chevron-down.svg?react';
+import chevronLeft from '/src/assets/chevron-left.svg?react';
+import chevronRight from '/src/assets/chevron-right.svg?react';
 import users from '/src/assets/users.svg?react';
 import groups from '/src/assets/groups.svg?react';
 
@@ -58,6 +60,8 @@ const icons = {
   lightning: lightning,
   chevronUp: chevronUp,
   chevronDown: chevronDown,
+  chevronRight: chevronRight,
+  chevronLeft: chevronLeft,
   users: users,
   groups: groups,
 } as const;

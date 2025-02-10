@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/table';
 import React from 'react';
 import { User } from '../admin-dashboard';
+import { Icon } from '@/components/atoms';
 
 interface UserTableProps {
   users: User[];
@@ -96,30 +97,13 @@ export const UserTable: React.FC<UserTableProps> = ({ users }) => {
               type="button"
               className="mr-[25px] inline-flex size-8 items-center justify-center rounded-[9px] bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 active:scale-98 disabled:cursor-not-allowed disabled:text-gray-400 dark:disabled:text-gray-700 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                className="size-4"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.75 19.5 8.25 12l7.5-7.5"
-                ></path>
-              </svg>
+              <Icon name="chevronLeft" className="size-4" />
             </button>
             <div className="flex items-center gap-2.5">
               <button
                 type="button"
                 aria-label="Page 1"
-                data-value="1"
-                data-selected=""
-                data-melt-pagination-page=""
-                data-pagination-page=""
-                className="inline-flex size-8 items-center justify-center rounded-[9px] bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 text-sm font-medium hover:bg-dark-10 active:scale-98 disabled:cursor-not-allowed disabled:opacity-50 hover:disabled:bg-transparent data-[selected]:bg-black data-[selected]:text-gray-100 data-[selected]:hover:bg-black dark:data-[selected]:bg-white dark:data-[selected]:text-gray-900 dark:data-[selected]:hover:bg-white"
+                className="inline-flex size-8 items-center justify-center rounded-[9px] bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 text-sm font-medium hover:bg-dark-10 active:scale-98 disabled:cursor-not-allowed disabled:opacity-50 hover:disabled:bg-transparent data-[selected]:bg-black data-[selected]:text-gray-100 data-[selected]:hover:bg-black dark:data-[selected]:text-gray-500 dark:data-[selected]:text-gray-900 dark:data-[selected]:hover:bg-white"
               >
                 1
               </button>
@@ -131,20 +115,7 @@ export const UserTable: React.FC<UserTableProps> = ({ users }) => {
               type="button"
               className="ml-[25px]  inline-flex size-8 items-center justify-center rounded-[9px] bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 active:scale-98 disabled:cursor-not-allowed disabled:text-gray-400 dark:disabled:text-gray-700 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                className="size-4"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                ></path>
-              </svg>
+              <Icon name="chevronRight" className="size-4" />
             </button>
           </div>
         </div>

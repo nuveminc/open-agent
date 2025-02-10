@@ -15,9 +15,10 @@ export const SettingsSwitch: React.FC<SettingsSwitchProps> = ({
   onChange,
 }) => {
   const [toggle, setToggle] = useState<boolean>(defaultValue as boolean);
-  const handleChange = (name: string, value: boolean) => {
+
+  const handleChange = (value: boolean) => {
     setToggle(!toggle);
-    onChange(name, value);
+    onChange(controlName, value);
   };
 
   const getLabel = () => {
@@ -29,8 +30,8 @@ export const SettingsSwitch: React.FC<SettingsSwitchProps> = ({
       <div className="text-xs text-gray-500">{showLabel && getLabel()}</div>
       <Switch
         key={controlName}
-        checked={defaultValue as boolean}
-        onCheckedChange={(value: boolean) => handleChange(controlName, value)}
+        checked={toggle}
+        onCheckedChange={handleChange}
       />
     </div>
   );

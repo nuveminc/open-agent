@@ -19,6 +19,22 @@ export interface ControlProps {
   step?: number;
   onChange: (name: string, state: ValueType) => void;
 }
+/**
+ * A SettingsControl component that renders a control based on the type prop.
+ * The control can be an input, slider, switch, toggle, or select.
+ *
+ * @component
+ * @param {ComponentType} type the type of control to render
+ * @param {ValueType} defaltValue: the default value
+ * @param {string} contolName: the name of the control
+ * @param {boolean} [showwitchLabel] only applies to switch
+ * @param {string[] | SettingsSelectOption[]} [options] the options for toggle or select
+ * @param {number} [min] the minimum value for slider
+ * @param {number} [max] the maximum value for slider
+ * @param {number} [step] the step value for slider
+ * @param {Function} onChange the function to call when the value changes
+ * @returns {JSX.Element} the rendered control
+ */
 export const SettingsControl: React.FC<ControlProps> = ({
   type,
   defaultValue,
@@ -31,9 +47,11 @@ export const SettingsControl: React.FC<ControlProps> = ({
   onChange,
 }: ControlProps) => {
   const [name] = useState<string>(controlName || '');
+
   const handleChange = (name: string, value: ValueType) => {
     onChange(name, value);
   };
+
   const renderComponent = (type: ComponentType) => {
     switch (type) {
       case 'input':

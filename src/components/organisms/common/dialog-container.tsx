@@ -1,7 +1,7 @@
 import React from 'react';
 import { SettingsDialog } from '../sidebar/profile/settings/settings-dialog';
-import { GroupsDialog } from '../admin/groups/groups-dialog';
-import { DefaultPermissionsDialog } from '../admin/groups/default-permissions-dialog';
+import { GroupsDialog } from '../admin-dashboard/users-groups/groups/groups-dialog';
+import { DefaultPermissionsDialog } from '../admin-dashboard/users-groups/groups/default-permissions-dialog';
 
 export type DialogType = 'settings' | 'groups' | 'permissions';
 

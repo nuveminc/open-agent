@@ -4,7 +4,7 @@ import SearchBar from './users/search-bar';
 import { UserTable } from './users/user-table';
 import { users } from '@/constants/users';
 import Groups from './groups';
-import LeftNav from './left-nav';
+import LeftNav from '../left-nav';
 
 export interface User {
   id: string;

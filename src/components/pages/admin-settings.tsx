@@ -1,6 +1,6 @@
 import React from 'react';
-import { AdminDashboard } from '../organisms/admin/admin-dashboard';
-import { AdminTabs } from '../organisms/admin/admin-tabs';
+import { AdminDashboard } from '../organisms/admin-dashboard/users-groups';
+import { AdminTabs } from '../organisms/admin-dashboard/admin-tabs';
 
 export const AdminSettings: React.FC = () => {
   const adminTabs = [

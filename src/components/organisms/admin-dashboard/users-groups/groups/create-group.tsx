@@ -1,5 +1,5 @@
 import React from 'react';
-import { DialogType } from '../../common/dialog-container';
+import { DialogType } from '../../../common/dialog-container';
 
 interface CreateGroupProps {
   showDialog: (show: boolean) => void;

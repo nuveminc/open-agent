@@ -1,17 +1,27 @@
 import React from 'react';
-import { AdminDashboard } from '../organisms/admin-dashboard/users-groups';
 import { AdminTabs } from '../organisms/admin-dashboard/admin-tabs';
+import { Users } from '../organisms/admin-dashboard/users-groups';
+import { Evaluations } from '../organisms/admin-dashboard/evaluations/';
 
 export const AdminSettings: React.FC = () => {
+  const [selectedTab, setSelectedTab] = React.useState(0);
+
   const adminTabs = [
-    { label: 'Users', href: '' },
-    { label: 'Evaluations', href: '' },
+    { label: 'Users', href: '', view: <Users /> },
+    { label: 'Evaluations', href: '', view: <Evaluations /> },
     { label: 'Functions', href: '' },
     { label: 'Settings', href: '/admin/settings' },
   ];
+  const sidebarClasses = ''; // 'px-4 pt-3 mt-0.5 mb-1';
+
+  const handleTabChange = (tabIndex: number) => {
+    setSelectedTab(tabIndex);
+    console.log('Selected tab:', adminTabs[tabIndex]);
+  };
+
   return (
     <div className="flex flex-col w-full min-h-screen max-h-screen ]">
-      <div className="px-4 pt-3 mt-0.5 mb-1">
+      <div className={sidebarClasses}>
         <div className="flex items-center gap-1">
           <div className="md:hidden mr-1 self-start flex flex-none items-center">
             <button
@@ -39,8 +49,8 @@ export const AdminSettings: React.FC = () => {
           </div>
         </div>
       </div>
-      <AdminTabs tabs={adminTabs} />
-      <AdminDashboard />
+      <AdminTabs tabs={adminTabs} onTabChange={handleTabChange} />
+      {adminTabs[selectedTab].view}
     </div>
   );
 };

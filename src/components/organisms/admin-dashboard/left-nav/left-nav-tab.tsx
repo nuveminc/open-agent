@@ -4,17 +4,20 @@ import { cn } from '@/lib/utils';
 
 interface LeftNavTabProps {
   key: string;
+  index: number;
   tab: { label: string; value: string; icon: IconName };
-  selected: string;
-  onClick: (value: string) => void;
+  selected: number;
+  onClick: () => void;
 }
-const LeftNavTab: React.FC<LeftNavTabProps> = ({
+
+export const LeftNavTab: React.FC<LeftNavTabProps> = ({
   key,
+  index,
   tab,
   selected,
   onClick,
 }) => {
-  const isSelected = selected === tab.value;
+  const isSelected = selected === index;
   const selectedClass = isSelected
     ? 'text-gray-900 dark:text-white'
     : 'text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white';
@@ -34,11 +37,9 @@ const LeftNavTab: React.FC<LeftNavTabProps> = ({
           strokeWidth=".25"
         />
       </div>
-      <div className="self-center" onClick={() => onClick(tab.value)}>
+      <div className="self-center" onClick={onClick}>
         {tab.label}
       </div>
     </button>
   );
 };
-
-export default LeftNavTab;

@@ -3,8 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Sidebar } from './organisms/sidebar';
 import { useAppPresenter } from '@/presenters/app/useAppPresenter';
 import { SystemHelp } from './molecules/system-help';
-
-import DialogContainer from './organisms/common/dialog-container';
+import { DialogContainer } from './organisms/common/dialog-container';
 
 export default function Layout() {
   const { presenter } = useAppPresenter();

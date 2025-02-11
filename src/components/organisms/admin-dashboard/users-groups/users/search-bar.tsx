@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchBar: React.FC = () => {
+export const SearchBar: React.FC = () => {
   return (
     <div className="flex gap-1">
       <input
@@ -24,5 +24,3 @@ const SearchBar: React.FC = () => {
     </div>
   );
 };
-
-export default SearchBar;

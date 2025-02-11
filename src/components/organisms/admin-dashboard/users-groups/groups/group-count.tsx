@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GroupCount: React.FC = () => {
+export const GroupCount: React.FC = () => {
   return (
     <div className="flex md:self-center text-lg font-medium px-0.5">
       Groups
@@ -11,5 +11,3 @@ const GroupCount: React.FC = () => {
     </div>
   );
 };
-
-export default GroupCount;

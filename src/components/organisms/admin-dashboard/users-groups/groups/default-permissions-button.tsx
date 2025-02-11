@@ -5,10 +5,10 @@ interface DefaultPermissionsButtonProps {
   showDialog: (show: boolean) => void;
   setModal: (modal: DialogType) => void;
 }
-const DefaultPermissionsButton: React.FC<DefaultPermissionsButtonProps> = ({
-  showDialog,
-  setModal,
-}) => {
+
+export const DefaultPermissionsButton: React.FC<
+  DefaultPermissionsButtonProps
+> = ({ showDialog, setModal }) => {
   const handleDialog = () => {
     setModal('permissions');
     showDialog(true);
@@ -56,5 +56,3 @@ const DefaultPermissionsButton: React.FC<DefaultPermissionsButtonProps> = ({
     </button>
   );
 };
-
-export default DefaultPermissionsButton;

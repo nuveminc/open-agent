@@ -4,7 +4,7 @@ type UserCountProps = {
   userCount: number;
 };
 
-const UserCount: React.FC<UserCountProps> = ({ userCount }) => {
+export const UserCount: React.FC<UserCountProps> = ({ userCount }) => {
   return (
     <div className="flex md:self-center text-lg font-medium px-0.5">
       All Users
@@ -15,5 +15,3 @@ const UserCount: React.FC<UserCountProps> = ({ userCount }) => {
     </div>
   );
 };
-
-export default UserCount;

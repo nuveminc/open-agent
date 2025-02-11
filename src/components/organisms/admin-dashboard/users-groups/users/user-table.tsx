@@ -7,8 +7,8 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import React from 'react';
-import { User } from '../../admin-dashboard';
 import { Icon } from '@/components/atoms';
+import { User } from '@/interfaces/user';
 
 interface UserTableProps {
   users: User[];

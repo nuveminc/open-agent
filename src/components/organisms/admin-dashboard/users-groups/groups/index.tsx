@@ -1,12 +1,18 @@
 import React from 'react';
-import GroupCount from './group-count';
-import GroupSearchBar from './search-bar';
 import CreateGroup from './create-group';
+import { GroupCount } from './group-count';
 import { useAppPresenter } from '@/presenters/app/useAppPresenter';
-import DefaultPermissionsButton from './default-permissions-button';
+import { DefaultPermissionsButton } from './default-permissions-button';
+import { SearchBar } from '@/components/organisms/common/search-bar';
+import { AddButton } from '@/components/organisms/common/add-button';
 
-const Groups: React.FC = () => {
+export const Groups: React.FC = () => {
   const { presenter } = useAppPresenter();
+
+  const onAddClick = () => {
+    console.log('Add Group');
+  };
+
   return (
     <>
       <div className="flex-1 mt-1 w-full lg:mt-0 overflow-y-auto">
@@ -14,7 +20,10 @@ const Groups: React.FC = () => {
           <GroupCount />
           <div className="flex gap-1">
             <div className="flex w-full space-x-2">
-              <GroupSearchBar />
+              <div className="flex gap-2">
+                <SearchBar />
+                <AddButton ariaText="Create Group" onClick={onAddClick} />
+              </div>
             </div>
           </div>
         </div>
@@ -33,5 +42,3 @@ const Groups: React.FC = () => {
     </>
   );
 };
-
-export default Groups;

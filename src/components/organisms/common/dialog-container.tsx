@@ -10,7 +10,8 @@ interface DialogContainerProps {
   isOpen: boolean;
   showModal: (showModal: boolean) => void;
 }
-const DialogContainer: React.FC<DialogContainerProps> = ({
+
+export const DialogContainer: React.FC<DialogContainerProps> = ({
   type = 'settings',
   isOpen,
   showModal,
@@ -27,5 +28,3 @@ const DialogContainer: React.FC<DialogContainerProps> = ({
   };
   return <>{getModal()}</>;
 };
-
-export default DialogContainer;

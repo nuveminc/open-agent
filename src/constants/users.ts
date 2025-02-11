@@ -1,4 +1,4 @@
-import { User } from '@/components/organisms/admin-dashboard/admin-dashboard';
+import { User } from '@/interfaces/user';
 
 export const users: User[] = [
   {

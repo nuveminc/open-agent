@@ -30,6 +30,8 @@ import chevronLeft from '/src/assets/chevron-left.svg?react';
 import chevronRight from '/src/assets/chevron-right.svg?react';
 import users from '/src/assets/users.svg?react';
 import groups from '/src/assets/groups.svg?react';
+import leaderboard from '/src/assets/leaderboard.svg?react';
+import feedback from '/src/assets/feedback.svg?react';
 
 const icons = {
   edit: edit,
@@ -64,6 +66,8 @@ const icons = {
   chevronLeft: chevronLeft,
   users: users,
   groups: groups,
+  leaderboard: leaderboard,
+  feedback: feedback,
 } as const;
 
 export type IconName = keyof typeof icons;

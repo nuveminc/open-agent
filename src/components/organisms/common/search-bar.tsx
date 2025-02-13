@@ -2,8 +2,8 @@ import React from 'react';
 
 export const SearchBar: React.FC = () => {
   return (
-    <div className="flex bg-gray-800 rounded-xl">
-      <div className="self-center ml-1 mr-3">
+    <div className="flex bg-gray-800 rounded-xl" area-text="Search">
+      <div className="self-center ml-2 mr-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"

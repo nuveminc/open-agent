@@ -1,13 +1,13 @@
 import React from 'react';
 import { AdminTabs } from '../organisms/admin-dashboard/admin-tabs';
-import { Users } from '../organisms/admin-dashboard/users-groups';
 import { Evaluations } from '../organisms/admin-dashboard/evaluations/';
+import { UsersGroups } from '../organisms/admin-dashboard/users-groups';
 
 export const AdminSettings: React.FC = () => {
   const [selectedTab, setSelectedTab] = React.useState(0);
 
   const adminTabs = [
-    { label: 'Users', href: '', view: <Users /> },
+    { label: 'Users', href: '', view: <UsersGroups /> },
     { label: 'Evaluations', href: '', view: <Evaluations /> },
     { label: 'Functions', href: '' },
     { label: 'Settings', href: '/admin/settings' },

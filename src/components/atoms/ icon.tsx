@@ -32,6 +32,7 @@ import users from '/src/assets/users.svg?react';
 import groups from '/src/assets/groups.svg?react';
 import leaderboard from '/src/assets/leaderboard.svg?react';
 import feedback from '/src/assets/feedback.svg?react';
+import exportIcon from '/src/assets/export.svg?react';
 
 const icons = {
   edit: edit,
@@ -68,6 +69,7 @@ const icons = {
   groups: groups,
   leaderboard: leaderboard,
   feedback: feedback,
+  export: exportIcon,
 } as const;
 
 export type IconName = keyof typeof icons;

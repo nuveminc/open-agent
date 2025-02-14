@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LeftNav, { Tab } from './left-nav';
+import LeftNav, { Tab } from '../left-nav';
 
 export interface ViewMapping {
   [key: string]: React.ReactElement;

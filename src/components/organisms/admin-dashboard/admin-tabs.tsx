@@ -1,22 +1,33 @@
+import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { router } from '@/routes';
 
-interface TabsProps {
+export interface TabsProps {
   label: string;
-  href: string;
+  view: React.ReactElement;
+  href?: string;
 }
 interface AdminTabsProps {
   tabs: TabsProps[];
-  onTabChange: (tabIndex: number) => void;
 }
 
-export const AdminTabs: React.FC<AdminTabsProps> = ({ tabs, onTabChange }) => {
+export const AdminTabs: React.FC<AdminTabsProps> = ({ tabs }) => {
   const [selected, setSelected] = useState<number>(0);
+
+  useEffect(() => {
+    const currentTabIndex = tabs.findIndex(
+      (tab) => tab.href === location.pathname
+    );
+    if (currentTabIndex !== -1) {
+      setSelected(currentTabIndex);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname, tabs]);
 
   const selectedStyle = ' bg-gray-50 dark:bg-gray-850';
 
   const handleClick = (idx: number) => () => {
-    onTabChange(idx);
+    router.navigate(tabs[idx].href || '');
     setSelected(idx);
   };
 

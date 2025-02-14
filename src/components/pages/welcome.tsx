@@ -7,6 +7,7 @@ import {
 import { MessagesContainer } from '../organisms/messages-container';
 import { Control } from '../organisms/control-panel';
 import { useAppPresenter } from '@/presenters/app/useAppPresenter';
+import { SystemHelp } from '../molecules/system-help';
 
 export const prompts: SuggestedPrompt[] = [
   {
@@ -63,6 +64,7 @@ export const Welcome: React.FC<object> = () => {
           <Control onClick={handleClick} />
         </div>
       </div>
+      <SystemHelp />
     </MessagesContainer>
   );
 };

@@ -9,6 +9,7 @@ import {
 import { cn } from '@/lib/utils';
 import React from 'react';
 import { useAppPresenter } from '@/presenters/app/useAppPresenter';
+import { router } from '@/routes';
 
 export interface MenuItem {
   icon: React.ReactNode | null;
@@ -48,7 +49,10 @@ export const ProfileMenu = () => {
       icon: <Icon name="avatar" />,
       title: 'Admin Panel',
       type: 'item',
-      click: () => {},
+      click: () => {
+        console.log('Admin Panel');
+        router.navigate('/admin');
+      },
     },
     { icon: null, title: null, type: 'divider', click: () => {} },
     {

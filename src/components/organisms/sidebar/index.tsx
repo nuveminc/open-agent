@@ -13,7 +13,7 @@ export const Sidebar = () => {
     >
       <div className="py-2.5 my-auto flex flex-col justify-between h-screen max-h-[100dvh] w-[260px] z-50 ">
         <SidebarHeader />
-        <NavButtonItem title="Workspace" link="workspace" />
+        <NavButtonItem title="Workspace" link="" />
         <div className="relative flex flex-col flex-1 overflow-y-auto">
           <SidebarSearch />
           <SidebarItems />

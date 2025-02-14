@@ -63,7 +63,7 @@ export const SettingsDialogTabs: React.FC<{
   const gotoSettings = (tab: string) => {
     setActiveTab(tab);
     onNavigate(false);
-    navigate('/admin/settings');
+    navigate('/admin/');
   };
 
   const getClickFunction = (tab: string) => {

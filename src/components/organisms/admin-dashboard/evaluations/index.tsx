@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tab } from '../left-nav';
-import { DashboardContainer } from '../dashboard-container';
+import { DashboardContainer } from '../common/dashboard-container';
 import { Feedback } from './feedback';
 import { Leaderboard } from './leaderboard';
 

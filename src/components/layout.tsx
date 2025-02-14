@@ -2,7 +2,6 @@ import './layout.css';
 import { Outlet } from 'react-router-dom';
 import { Sidebar } from './organisms/sidebar';
 import { useAppPresenter } from '@/presenters/app/useAppPresenter';
-import { SystemHelp } from './molecules/system-help';
 import { DialogContainer } from './organisms/common/dialog-container';
 
 export default function Layout() {
@@ -12,7 +11,6 @@ export default function Layout() {
       <div className="app relative">
         <div className="text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-900 h-screen max-h-[100dvh] overflow-auto flex flex-row">
           <Sidebar />
-          <SystemHelp />
           <audio id="audioElement" />
           {/* main content area */}
           <div className="h-screen max-h-[100dvh] md:max-w-[calc(100%-260px)] w-full max-w-full flex flex-col">
@@ -23,11 +21,6 @@ export default function Layout() {
                 isOpen={presenter.modalOpen}
                 showModal={presenter.showModal}
               />
-              {/* <SettingsDialog
-                isOpen={presenter.modalOpen}
-                showModal={presenter.showModal}
-              />
-              <GroupsDialog isOpen={true} showModal={() => {}} /> */}
             </div>
           </div>
         </div>

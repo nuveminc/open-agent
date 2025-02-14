@@ -1,7 +1,7 @@
 import React from 'react';
 import { Groups } from './groups';
 import { Tab } from '../left-nav';
-import { DashboardContainer, ViewMapping } from '../dashboard-container';
+import { DashboardContainer, ViewMapping } from '../common/dashboard-container';
 import { AllUsers } from './users';
 
 export const UsersGroups: React.FC<object> = () => {

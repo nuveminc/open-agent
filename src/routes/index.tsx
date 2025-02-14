@@ -1,8 +1,14 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { Welcome } from '@/components/pages/welcome';
 import { MainChat } from '@/components/molecules/main-chat';
 import Layout from '@/components/layout';
 import { AdminSettings } from '@/components/pages/admin-settings';
+import { UsersGroups } from '@/components/organisms/admin-dashboard/users-groups';
+import { Evaluations } from '@/components/organisms/admin-dashboard/evaluations';
+import { Functions } from '@/components/organisms/admin-dashboard/functions';
+import { FunctionEditor } from '@/components/organisms/admin-dashboard/functions/function-editor';
+import { SystemSettings } from '@/components/organisms/admin-dashboard/settings';
+// import { FunctionEditor } from '@/components/organisms/admin-dashboard/functions/function-editor';
 
 export const router = createBrowserRouter([
   {
@@ -19,10 +25,31 @@ export const router = createBrowserRouter([
       },
       {
         path: '/admin',
+        element: <AdminSettings />,
         children: [
           {
             index: true,
-            element: <AdminSettings />,
+            element: <Navigate to="/admin/users" replace />,
+          },
+          {
+            path: 'users',
+            element: <UsersGroups />,
+          },
+          {
+            path: 'evaluations',
+            element: <Evaluations />,
+          },
+          {
+            path: 'functions',
+            element: <Functions />,
+          },
+          {
+            path: 'functions/create',
+            element: <FunctionEditor />,
+          },
+          {
+            path: 'settings',
+            element: <SystemSettings />,
           },
         ],
       },

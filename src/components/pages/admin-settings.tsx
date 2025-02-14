@@ -1,23 +1,19 @@
 import React from 'react';
-import { AdminTabs } from '../organisms/admin-dashboard/admin-tabs';
+import { Outlet } from 'react-router-dom';
+import { AdminTabs, TabsProps } from '../organisms/admin-dashboard/admin-tabs';
 import { Evaluations } from '../organisms/admin-dashboard/evaluations/';
 import { UsersGroups } from '../organisms/admin-dashboard/users-groups';
+import { Functions } from '../organisms/admin-dashboard/functions';
+import { SystemSettings } from '../organisms/admin-dashboard/settings';
 
 export const AdminSettings: React.FC = () => {
-  const [selectedTab, setSelectedTab] = React.useState(0);
-
-  const adminTabs = [
-    { label: 'Users', href: '', view: <UsersGroups /> },
-    { label: 'Evaluations', href: '', view: <Evaluations /> },
-    { label: 'Functions', href: '' },
-    { label: 'Settings', href: '/admin/settings' },
+  const adminTabs: TabsProps[] = [
+    { label: 'Users', href: '/admin/users', view: <UsersGroups /> },
+    { label: 'Evaluations', href: '/admin/evaluations', view: <Evaluations /> },
+    { label: 'Functions', href: '/admin/functions', view: <Functions /> },
+    { label: 'Settings', href: '/admin/settings', view: <SystemSettings /> },
   ];
   const sidebarClasses = ''; // 'px-4 pt-3 mt-0.5 mb-1';
-
-  const handleTabChange = (tabIndex: number) => {
-    setSelectedTab(tabIndex);
-    console.log('Selected tab:', adminTabs[tabIndex]);
-  };
 
   return (
     <div className="flex flex-col w-full min-h-screen max-h-screen ]">
@@ -49,8 +45,8 @@ export const AdminSettings: React.FC = () => {
           </div>
         </div>
       </div>
-      <AdminTabs tabs={adminTabs} onTabChange={handleTabChange} />
-      {adminTabs[selectedTab].view}
+      <AdminTabs tabs={adminTabs} />
+      <Outlet />
     </div>
   );
 };

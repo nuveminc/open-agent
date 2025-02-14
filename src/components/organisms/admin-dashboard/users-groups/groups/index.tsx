@@ -4,7 +4,7 @@ import { useAppPresenter } from '@/presenters/app/useAppPresenter';
 import { DefaultPermissionsButton } from './default-permissions-button';
 import { SearchBar } from '@/components/organisms/common/search-bar';
 import { AddButton } from '@/components/organisms/common/add-button';
-import { EntityCount } from '../../entity-count';
+import { EntityCount } from '../../common/entity-count';
 
 export const Groups: React.FC = () => {
   const { presenter } = useAppPresenter();

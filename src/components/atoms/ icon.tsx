@@ -20,8 +20,8 @@ import logout from '/src/assets/logout.svg?react';
 import avatar from '/src/assets/avatar.svg?react';
 import archive from '/src/assets/archive.svg?react';
 import checkmark from '/src/assets/check-mark.svg?react';
-import upload from '/src/assets/upload.svg?react';
-import download from '/src/assets/download.svg?react';
+import upload from '/src/assets/file-upload.svg?react';
+import download from '/src/assets/file-download.svg?react';
 import xmark from '/src/assets/x-mark.svg?react';
 import lightning from '/src/assets/lightning.svg?react';
 import chevronUp from '/src/assets/chevron-up.svg?react';
@@ -57,8 +57,8 @@ const icons = {
   avatar: avatar,
   archive: archive,
   checkmark: checkmark,
-  upload: upload,
-  download: download,
+  fileUpload: upload,
+  fileDownload: download,
   xmark: xmark,
   lightning: lightning,
   chevronUp: chevronUp,

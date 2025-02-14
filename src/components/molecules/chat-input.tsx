@@ -14,16 +14,7 @@ export const ChatInput: React.FC<object> = () => {
             >
               <div className="flex">
                 <div className="ml-0.5 self-end mb-1.5 flex space-x-1">
-                  <button
-                    aria-controls="n4HT-zO9F6"
-                    aria-expanded="false"
-                    data-state="closed"
-                    id="u18usXrTLI"
-                    tabIndex={0}
-                    data-melt-dropdown-menu-trigger=""
-                    data-menu-trigger=""
-                    type="button"
-                  >
+                  <button tabIndex={0} type="button">
                     <div aria-label="More" className="flex">
                       <button
                         className="bg-gray-50 hover:bg-gray-100 text-gray-800 dark:bg-gray-850 dark:text-white dark:hover:bg-gray-800 transition rounded-full p-2 outline-none focus:outline-none"

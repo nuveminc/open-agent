@@ -1,5 +1,5 @@
 import React from 'react';
-import { EntityCount } from '../entity-count';
+import { EntityCount } from '../common/entity-count';
 import { SearchBar } from '@/components/organisms/common/search-bar';
 import { LeaderboardTable } from './leaderboard-table';
 

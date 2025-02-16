@@ -8,6 +8,7 @@ import { Evaluations } from '@/components/organisms/admin-dashboard/evaluations'
 import { Functions } from '@/components/organisms/admin-dashboard/functions';
 import { FunctionEditor } from '@/components/organisms/admin-dashboard/functions/function-editor';
 import { SystemSettings } from '@/components/organisms/admin-dashboard/settings';
+import { FlowView } from '@/components/pages/flow';
 // import { FunctionEditor } from '@/components/organisms/admin-dashboard/functions/function-editor';
 
 export const router = createBrowserRouter([
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: '/c/:chatId',
         element: <MainChat />,
+      },
+      {
+        path: 'flow',
+        element: <FlowView />,
       },
       {
         path: '/admin',

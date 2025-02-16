@@ -217,7 +217,7 @@ export const ChatExport: React.FC<{
       onClick={exportChats}
     >
       <div className="mr-2">
-        <Icon name="download" stroke="none" fill="currentColor" />
+        <Icon name="fileDownload" stroke="none" fill="currentColor" />
       </div>
       {text}
     </div>

@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { AboutSettings } from '../about';
 import { ValueType } from '@/types';
 import { useSettingsStore } from '@/store/settingsStore';
+import { SystemSettingsTab } from '@/components/organisms/admin-dashboard/settings';
 
 export const SettingsDialogTabs: React.FC<{
   onNavigate: (close: boolean) => void;
@@ -18,17 +19,6 @@ export const SettingsDialogTabs: React.FC<{
   const [activeTab, setActiveTab] = useState<string>('General');
   const navigate = useNavigate();
   const state = useSettingsStore();
-
-  const tabs = [
-    'General',
-    'Interface',
-    'Personalization',
-    'Audio',
-    'Chats',
-    'Account',
-    'Admin Settings',
-    'About',
-  ];
 
   const handleChange = (name: string, value: ValueType) => {
     console.log('SettingsDialogTabs > state', state);
@@ -49,17 +39,6 @@ export const SettingsDialogTabs: React.FC<{
     state.setSettingsValue(settingsName, settingsValue);
   };
 
-  const tabContent: Record<string, React.ReactNode> = {
-    General: <GeneralSettings settings={state} onChange={handleChange} />,
-    Interface: <InterfaceSettings onChange={handleChange} />,
-    Personalization: <PersonalizationSettings />,
-    Audio: <AudioSettings onChange={handleChange} />,
-    Chats: <ChatsSettings />,
-    Account: <AccountSettings />,
-    'Admin Settings': <div></div>,
-    About: <AboutSettings />,
-  };
-
   const gotoSettings = (tab: string) => {
     setActiveTab(tab);
     onNavigate(false);
@@ -73,30 +52,61 @@ export const SettingsDialogTabs: React.FC<{
     return (tab: string) => setActiveTab(tab);
   };
 
+  const showTabView = (tab: string) => {
+    const currentTab = tabs.find((t) => t.name === tab);
+    return currentTab ? currentTab.view : null;
+  };
+  const tabs: SystemSettingsTab[] = [
+    {
+      name: 'General',
+      icon: 'gear',
+      view: <GeneralSettings settings={state} onChange={handleChange} />,
+    },
+    {
+      name: 'Interface',
+      icon: 'monitor',
+      view: <InterfaceSettings onChange={handleChange} />,
+    },
+    {
+      name: 'Personalization',
+      icon: 'avatar',
+      view: <PersonalizationSettings />,
+    },
+    {
+      name: 'Audio',
+      icon: 'audio',
+      view: <AudioSettings onChange={handleChange} />,
+    },
+    { name: 'Chats', icon: 'chatBubble', view: <ChatsSettings /> },
+    { name: 'Account', icon: 'avatar', view: <AccountSettings /> },
+    { name: 'Admin Settings', icon: 'adminSettings', view: <></> },
+    { name: 'About', icon: 'info', view: <AboutSettings /> },
+  ];
+
   return (
     <div className="flex mt-5">
       <div className="w-[10rem] mr-2 flex flex-row overflow-x-auto space-x-1 md:space-x-0 md:space-y-1 md:flex-col md:flex-none text-xs text-left">
         {tabs.map((tab, idx) => {
-          const currentTab = activeTab === tab ? 'dark:bg-gray-800' : '';
-          const fn = getClickFunction(tab);
+          const currentTab = activeTab === tab.name ? 'dark:bg-gray-800' : '';
+          const fn = getClickFunction(tab.name);
           return (
             <button
               key={`btn-${idx}`}
-              onClick={() => fn(tab)}
+              onClick={() => fn(tab.name)}
               className={`cursor-pointer focus:outline-none px-2.5 py-2.5 min-w-fit rounded-lg flex-1 md:flex-none flex text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition ${currentTab}`}
             >
               <div key={`div-${idx}`} className="self-center mr-2">
-                <Icon key={`icon-${idx}`} name="gear" />
+                <Icon key={`icon-${idx}`} name={tab.icon} />
               </div>
               <div key={`tab-${idx}`} className="self-center">
-                {tab}
+                {tab.name}
               </div>
             </button>
           );
         })}
       </div>
       <div className="w-full px-3 h-[28rem]">
-        <div className="mx-2">{tabContent[activeTab]}</div>
+        <div className="mx-2">{showTabView(activeTab)}</div>
       </div>
     </div>
   );

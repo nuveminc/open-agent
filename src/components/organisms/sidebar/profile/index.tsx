@@ -26,6 +26,10 @@ export const ProfileMenu = () => {
     presenter.showModal(true);
   };
 
+  const navigateToAdminSettings = () => {
+    router.navigate('/admin/');
+  };
+
   const menuItems: MenuItem[] = [
     {
       icon: <Icon name="gear" />,
@@ -49,10 +53,7 @@ export const ProfileMenu = () => {
       icon: <Icon name="avatar" />,
       title: 'Admin Panel',
       type: 'item',
-      click: () => {
-        console.log('Admin Panel');
-        router.navigate('/admin');
-      },
+      click: navigateToAdminSettings,
     },
     { icon: null, title: null, type: 'divider', click: () => {} },
     {

@@ -14,6 +14,15 @@ interface AdminTabsProps {
 export const AdminTabs: React.FC<AdminTabsProps> = ({ tabs }) => {
   const [selected, setSelected] = useState<number>(0);
 
+  // Reset to first tab on mount
+  useEffect(() => {
+    setSelected(0);
+    if (location.pathname !== tabs[0].href) {
+      router.navigate(tabs[0].href || '');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty dependency array - runs once on mount
+
   useEffect(() => {
     const currentTabIndex = tabs.findIndex(
       (tab) => tab.href === location.pathname
@@ -22,7 +31,7 @@ export const AdminTabs: React.FC<AdminTabsProps> = ({ tabs }) => {
       setSelected(currentTabIndex);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname, tabs]);
+  }, [location.pathname, tabs, selected]);
 
   const selectedStyle = ' bg-gray-50 dark:bg-gray-850';
 

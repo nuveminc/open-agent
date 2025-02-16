@@ -49,7 +49,7 @@ export const ChatImport: React.FC<{
       />
       <div className="flex items-center mb-3 cursor-pointer">
         <div className="mr-2">
-          <Icon name="upload" stroke="none" fill="currentColor" />
+          <Icon name="fileUpload" stroke="none" fill="currentColor" />
         </div>
         <button onClick={handleButtonClick}>{text}</button>
       </div>

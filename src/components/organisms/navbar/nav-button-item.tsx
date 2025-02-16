@@ -1,15 +1,24 @@
+import { router } from '@/routes';
+import { Link } from 'react-router-dom';
+
 interface NavButtonItemProps {
   title: string;
   link: string;
 }
 
 export const NavButtonItem = ({ title, link }: NavButtonItemProps) => {
+  const handleNavigate = () => {
+    console.log('Navigating to:', link);
+    router.navigate(`${link}`);
+  };
   return (
-    <div className="px-2.5 flex justify-center text-gray-800 dark:text-gray-200">
-      <a
+    <div
+      className="px-2.5 flex justify-center text-gray-800 dark:text-gray-200"
+      onClick={handleNavigate}
+    >
+      <Link
+        to={link}
         className="flex-grow flex space-x-3 rounded-xl px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-        href={`/${link}`}
-        draggable="false"
       >
         <div className="self-center">
           <svg
@@ -32,7 +41,7 @@ export const NavButtonItem = ({ title, link }: NavButtonItemProps) => {
             {title}
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

@@ -33,8 +33,17 @@ import groups from '/src/assets/groups.svg?react';
 import leaderboard from '/src/assets/leaderboard.svg?react';
 import feedback from '/src/assets/feedback.svg?react';
 import exportIcon from '/src/assets/export.svg?react';
+import cloud from '/src/assets/settings/cloud.svg?react';
+import database from '/src/assets/settings/database.svg?react';
+import analytics from '/src/assets/settings/analytics.svg?react';
+import document from '/src/assets/settings/document.svg?react';
+import webSearch from '/src/assets/settings/web-search.svg?react';
+import monitor from '/src/assets/settings/monitor.svg?react';
+import layers from '/src/assets/settings/layers.svg?react';
+import adminSettings from '/src/assets/settings/admin-settings.svg?react';
 
-const icons = {
+// eslint-disable-next-line react-refresh/only-export-components
+export const icons = {
   edit: edit,
   copy: clipboard,
   delete: trashcan,
@@ -70,11 +79,19 @@ const icons = {
   leaderboard: leaderboard,
   feedback: feedback,
   export: exportIcon,
+  cloud: cloud,
+  database: database,
+  analytics: analytics,
+  document: document,
+  webSearch: webSearch,
+  monitor: monitor,
+  layers: layers,
+  adminSettings: adminSettings,
 } as const;
 
 export type IconName = keyof typeof icons;
 
-interface IconProps {
+export interface IconProps {
   name: IconName;
   className?: string;
   fill?: string;

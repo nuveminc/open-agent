@@ -8,6 +8,7 @@ import { MessagesContainer } from '../organisms/messages-container';
 import { Control } from '../organisms/control-panel';
 import { useAppPresenter } from '@/presenters/app/useAppPresenter';
 import { SystemHelp } from '../molecules/system-help';
+import { useAuthPresenter } from '@/presenters/auth/useAuthPresenter';
 
 export const prompts: SuggestedPrompt[] = [
   {
@@ -41,6 +42,9 @@ export const prompts: SuggestedPrompt[] = [
 ];
 export const Welcome: React.FC<object> = () => {
   const { presenter } = useAppPresenter();
+  const { presenter: authPresenter } = useAuthPresenter();
+
+  const user = authPresenter.getUser();
 
   const handleClick = () => {
     const showPanel = !presenter.controlPanelOpen;
@@ -53,10 +57,13 @@ export const Welcome: React.FC<object> = () => {
         <div className="m-auto w-full 2xl:max-w-6xl md:max-w-3xl sm:max-w-2xl lg:px-20">
           <div className="flex">
             <div className="flex mb-0.5">
-              <ButtonLogo />
+              <ButtonLogo size="size-16" />
             </div>
           </div>
-          <WelcomeMessage name="MP" message="How can I help you today?" />
+          <WelcomeMessage
+            name={user.name}
+            message="How can I help you today?"
+          />
           <SuggestedPrompts suggestedPrompts={prompts} />
         </div>
         {/* RIGHT CONTROL SECTIOn */}

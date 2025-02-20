@@ -1,4 +1,5 @@
 import chats from '@/api/mock/data/chats.json'; // Import mock data
+import auth from '@/api/mock/data/auth.json'; // Import mock data
 import { HttpResponse, IHttpProvider } from '@/interfaces/IHttpProvider';
 
 export class MockResponse<T> implements HttpResponse<T> {
@@ -14,21 +15,31 @@ export class MockResponse<T> implements HttpResponse<T> {
 }
 
 export class MockProvider implements IHttpProvider {
-  private jsonData: Record<string, object[]> = {
+  private jsonData: Record<string, object | object[]> = {
     chats,
+    auth,
   };
 
   public async get<T>(path: string): Promise<Partial<MockResponse<T | T[]>>> {
     const { entityName, id } = this._handlePath(path);
 
     const entities = this._getEntities(entityName);
+    let entity = null;
 
-    if (!Array.isArray(entities)) {
+    if (!Array.isArray(entities) && !(typeof entities === 'object')) {
       return Promise.reject(new Error('Invalid entity type'));
+    } else {
+      entity = entities;
     }
 
     return new Promise<MockResponse<T>>((resolve, reject) => {
-      if (id) {
+      if (id || entity) {
+        if (entity) {
+          resolve(new MockResponse<T>(entity as T));
+        } else {
+          reject(new Error('Not Found'));
+        }
+      } else {
         const entity = (entities as []).find(
           (item: { id: string }) => item.id === id
         );
@@ -127,7 +138,7 @@ export class MockProvider implements IHttpProvider {
     });
   }
 
-  private _getEntities(path: string): object[] | null {
+  private _getEntities(path: string): object | object[] | null {
     path = path.replaceAll('/', '');
     return this.jsonData[path] || null;
   }

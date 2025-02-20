@@ -1,10 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { AdminTabs, TabsProps } from '../organisms/admin-dashboard/admin-tabs';
-import { Evaluations } from '../organisms/admin-dashboard/evaluations/';
-import { UsersGroups } from '../organisms/admin-dashboard/users-groups';
-import { Functions } from '../organisms/admin-dashboard/functions';
-import { SystemSettings } from '../organisms/admin-dashboard/settings';
+import {
+  AdminTabs,
+  TabsProps,
+} from '../components/organisms/admin-dashboard/admin-tabs';
+import { Evaluations } from '../components/organisms/admin-dashboard/evaluations';
+import { UsersGroups } from '../components/organisms/admin-dashboard/users-groups';
+import { Functions } from '../components/organisms/admin-dashboard/functions';
+import { SystemSettings } from '../components/organisms/admin-dashboard/settings';
 
 export const AdminSettings: React.FC = () => {
   const adminTabs: TabsProps[] = [

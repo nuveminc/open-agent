@@ -1,14 +1,15 @@
 import { ButtonLogo } from '@/components/molecules/button/button-logo';
-import { WelcomeMessage } from '../molecules/welcome-message';
+import { WelcomeMessage } from '../components/molecules/welcome-message';
 import {
   SuggestedPrompt,
   SuggestedPrompts,
-} from '../organisms/suggested-prompts';
-import { MessagesContainer } from '../organisms/messages-container';
-import { Control } from '../organisms/control-panel';
+} from '../components/organisms/suggested-prompts';
+import { MessagesContainer } from '../components/organisms/messages-container';
+import { Control } from '../components/organisms/control-panel';
 import { useAppPresenter } from '@/presenters/app/useAppPresenter';
-import { SystemHelp } from '../molecules/system-help';
+import { SystemHelp } from '../components/molecules/system-help';
 import { useAuthPresenter } from '@/presenters/auth/useAuthPresenter';
+import { router } from '@/routes';
 
 export const prompts: SuggestedPrompt[] = [
   {
@@ -42,9 +43,11 @@ export const prompts: SuggestedPrompt[] = [
 ];
 export const Welcome: React.FC<object> = () => {
   const { presenter } = useAppPresenter();
-  const { presenter: authPresenter } = useAuthPresenter();
+  const { user, isAuthenticated } = useAuthPresenter();
 
-  const user = authPresenter.getUser();
+  if (!isAuthenticated) {
+    router.navigate('/login');
+  }
 
   const handleClick = () => {
     const showPanel = !presenter.controlPanelOpen;

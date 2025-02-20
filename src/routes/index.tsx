@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { Welcome } from '@/components/pages/welcome';
 import { MainChat } from '@/components/molecules/main-chat';
-import Layout from '@/components/layout';
+import { Layout } from '@/components/templates/layout';
 import { AdminSettings } from '@/components/pages/admin-settings';
 import { UsersGroups } from '@/components/organisms/admin-dashboard/users-groups';
 import { Evaluations } from '@/components/organisms/admin-dashboard/evaluations';
@@ -9,6 +9,7 @@ import { Functions } from '@/components/organisms/admin-dashboard/functions';
 import { FunctionEditor } from '@/components/organisms/admin-dashboard/functions/function-editor';
 import { SystemSettings } from '@/components/organisms/admin-dashboard/settings';
 import { FlowView } from '@/components/pages/flow';
+import { Login } from '@/components/pages/login';
 // import { FunctionEditor } from '@/components/organisms/admin-dashboard/functions/function-editor';
 
 export const router = createBrowserRouter([
@@ -59,5 +60,9 @@ export const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  {
+    path: '/login',
+    element: <Login />,
   },
 ]);

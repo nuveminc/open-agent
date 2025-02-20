@@ -41,6 +41,7 @@ import webSearch from '/src/assets/settings/web-search.svg?react';
 import monitor from '/src/assets/settings/monitor.svg?react';
 import layers from '/src/assets/settings/layers.svg?react';
 import adminSettings from '/src/assets/settings/admin-settings.svg?react';
+import oaLogo from '/src/assets/oa-logo.svg?react';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const icons = {
@@ -87,6 +88,7 @@ export const icons = {
   monitor: monitor,
   layers: layers,
   adminSettings: adminSettings,
+  oaLogo: oaLogo,
 } as const;
 
 export type IconName = keyof typeof icons;

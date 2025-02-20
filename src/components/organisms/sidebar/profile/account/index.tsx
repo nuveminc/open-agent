@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { SettingsToggleDisplay } from '../../../../molecules/settings/settings-toggle-display';
 import { NameSetting } from './name-setting';
 import { PasswordSetting } from './password-setting';
-import { InputHiddenControl } from '@/components/atoms/input-hidden-control';
+import { InputHiddenControl } from '@/components/molecules/common/input-hidden-control';
 
 export const AccountSettings: React.FC = () => {
   const [avatarType, setAvatarType] = useState<
@@ -15,7 +15,7 @@ export const AccountSettings: React.FC = () => {
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMGJjN2FlLTFkMWYtNDc3Ny05YmM2LTAwNzAyNTM4NTBkMiJ9.tE65R9yL3eX9oeyuuUON_wPMub8dYCofBmmiwdQpZfE';
 
   const pwd = '********';
-  
+
   const handleAvatarType = (type: 'initials' | 'gravatar' | 'remove') => {
     if (type !== 'remove') {
       setAvatarType(type);
@@ -87,7 +87,7 @@ export const AccountSettings: React.FC = () => {
       <NameSetting
         label="Name"
         value="cn"
-        controlName='name'
+        controlName="name"
         onChange={nameChangeHandler}
       ></NameSetting>
       <div className="my-3">

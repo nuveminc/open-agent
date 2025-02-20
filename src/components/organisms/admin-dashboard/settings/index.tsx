@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { IconName } from '@/components/atoms';
 import { SvgIcon } from '@/components/atoms/SvgIcon';
+import { AdminSettingsGeneral } from './general';
+import { AdminSettingsConnections } from './connections';
+import { AdminSettingsModels } from './models';
 
 export interface SystemSettingsTab {
   name: string;
@@ -12,9 +15,9 @@ export const SystemSettings: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<string>('General');
 
   const tabs: SystemSettingsTab[] = [
-    { name: 'General', icon: 'gear', view: <></> },
-    { name: 'Connections', icon: 'cloud', view: <></> },
-    { name: 'Models', icon: 'database', view: <></> },
+    { name: 'General', icon: 'gear', view: <AdminSettingsGeneral /> },
+    { name: 'Connections', icon: 'cloud', view: <AdminSettingsConnections /> },
+    { name: 'Models', icon: 'database', view: <AdminSettingsModels /> },
     { name: 'Evaluations', icon: 'analytics', view: <></> },
     { name: 'Documents', icon: 'document', view: <></> },
     { name: 'Web Search', icon: 'webSearch', view: <></> },

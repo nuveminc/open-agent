@@ -4,7 +4,7 @@ interface WelcomeMessageProps {
 }
 
 export const WelcomeMessage: React.FC<WelcomeMessageProps> = ({
-  name = 'MP',
+  name,
   message = 'How can I help you today?',
 }) => {
   return (

@@ -12,6 +12,7 @@ export interface ControlProps {
   type: ComponentType;
   defaultValue: ValueType;
   controlName: string;
+  placeholder?: string;
   showSwitchLabel?: boolean; // only applies to switch
   options?: string[] | SettingsSelectOption[];
   min?: number;
@@ -27,6 +28,7 @@ export interface ControlProps {
  * @param {ComponentType} type the type of control to render
  * @param {ValueType} defaltValue: the default value
  * @param {string} contolName: the name of the control
+ * @param {string} [placeholder] the placeholder for input
  * @param {boolean} [showwitchLabel] only applies to switch
  * @param {string[] | SettingsSelectOption[]} [options] the options for toggle or select
  * @param {number} [min] the minimum value for slider
@@ -39,6 +41,7 @@ export const SettingsControl: React.FC<ControlProps> = ({
   type,
   defaultValue,
   controlName,
+  placeholder,
   showSwitchLabel,
   options,
   min,
@@ -60,6 +63,7 @@ export const SettingsControl: React.FC<ControlProps> = ({
             key={name}
             onChange={handleChange}
             controlName={name}
+            placeholder={placeholder}
             defaultValue={defaultValue as number | string}
           />
         );

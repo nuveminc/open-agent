@@ -1,6 +1,11 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
 
+export interface LabelControlProps {
+  label: string;
+  className?: string;
+  children: React.ReactNode;
+}
 /**
  * A label control to display a row of settings.
  * Displays a label and the children controls.
@@ -10,11 +15,11 @@ import React from 'react';
  * @param children - The children controls to display.
  * @return A label control.
  */
-export const SettingsLabelControl: React.FC<{
-  label: string;
-  className?: string;
-  children: React.ReactNode;
-}> = ({ label, className, children }) => {
+export const SettingsLabelControl: React.FC<LabelControlProps> = ({
+  label,
+  className,
+  children,
+}) => {
   return (
     <div
       className={cn(

@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { InputEmail } from '@/components/molecules/common/input-email';
 import { InputPassword } from '@/components/molecules/common/input-password';
 import { Button } from '@/components/ui/button';
-import { router } from '@/routes';
 
-type LoginFormProps = object;
+type LoginFormProps = {
+  onSubmit: () => void;
+};
 
-export const LoginForm: React.FC<LoginFormProps> = () => {
+export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
@@ -20,7 +21,7 @@ export const LoginForm: React.FC<LoginFormProps> = () => {
 
   const loginHandler = () => {
     console.log(email, password);
-    router.navigate('/');
+    onSubmit();
   };
   return (
     <div>

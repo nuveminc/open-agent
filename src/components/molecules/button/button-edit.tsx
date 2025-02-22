@@ -1,5 +1,5 @@
 import { Icon } from '@/components/atoms';
-import { MessageType } from '@/types/messageType';
+import { MessageType } from '@/types/message.type';
 
 class ButtonEditProps {
   messageType?: MessageType = MessageType.User;

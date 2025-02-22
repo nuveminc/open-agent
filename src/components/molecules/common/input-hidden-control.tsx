@@ -7,8 +7,8 @@ export const InputHiddenControl: React.FC<{
   onChange?: (value: string) => void;
   generateKey?: () => void;
 }> = ({ value, onChange, generateKey }) => {
-  const [inputValue, setinputValue] = useState(value);
-  const [type, setType] = useState('password');
+  const [inputValue, setinputValue] = useState<string>(value);
+  const [type, setType] = useState<string>('password');
 
   const toggleVisibility = (isVisible: boolean) => {
     const type = isVisible ? 'text' : 'password';

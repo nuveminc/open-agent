@@ -7,9 +7,9 @@ export const Password: React.FC<{
   value: string;
   onChange?: (text: string) => void;
 }> = ({ label, value, onChange }) => {
-  const [password, setPassword] = useState(value);
-  const [type, setType] = useState('password');
-  const [isValid, setIsValid] = useState(true);
+  const [password, setPassword] = useState<string>(value);
+  const [type, setType] = useState<string>('password');
+  const [isValid, setIsValid] = useState<boolean>(true);
 
   const errorState = 'border-2 border-red-500';
 

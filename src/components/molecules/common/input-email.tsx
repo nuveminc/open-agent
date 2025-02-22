@@ -9,8 +9,8 @@ export const InputEmail: React.FC<{
   defaultValue: string;
   onChange: (text: string) => void;
 }> = ({ label, defaultValue, onChange }) => {
-  const [value, setValue] = useState(defaultValue);
-  const [isValid, setIsValid] = useState(true);
+  const [value, setValue] = useState<string>(defaultValue);
+  const [isValid, setIsValid] = useState<boolean>(true);
 
   const emailSchema = z.string().email();
 

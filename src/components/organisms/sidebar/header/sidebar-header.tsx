@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+import { SidebarToggle } from '../../common/sidebar-toggle';
 
 export const SidebarHeader = () => {
   return (
     <div className="px-2.5 flex justify-between space-x-1 text-gray-600 dark:text-gray-400">
+      <SidebarToggle />
       <Link
         to={'/'}
         className="flex flex-1 justify-between rounded-xl px-2 h-full hover:bg-gray-100 dark:hover:bg-gray-900 transition"
@@ -31,24 +33,6 @@ export const SidebarHeader = () => {
           </svg>
         </div>
       </Link>
-      <button className="cursor-pointer px-2 py-2 flex rounded-xl hover:bg-gray-100 dark:hover:bg-gray-900 transition">
-        <div className="m-auto self-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            className="size-5"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
-            ></path>
-          </svg>
-        </div>
-      </button>
     </div>
   );
 };

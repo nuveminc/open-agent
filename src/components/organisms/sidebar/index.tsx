@@ -9,7 +9,6 @@ export const Sidebar = () => {
     <div
       id="sidebar"
       className="h-screen max-h-[100dvh] min-h-screen select-none md:relative w-[260px] bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-200 text-sm transition fixed z-50 top-0 left-0"
-      data-state="true"
     >
       <div className="py-2.5 my-auto flex flex-col justify-between h-screen max-h-[100dvh] w-[260px] z-50 ">
         <SidebarHeader />

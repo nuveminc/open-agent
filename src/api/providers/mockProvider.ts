@@ -14,6 +14,8 @@ export class MockResponse<T> implements HttpResponse<T> {
   }
 }
 
+const SIMULATED_API_LATENCY = 0;
+
 export class MockProvider implements IHttpProvider {
   private jsonData: Record<string, object | object[]> = {
     chats,
@@ -36,7 +38,9 @@ export class MockProvider implements IHttpProvider {
     return new Promise<MockResponse<T>>((resolve, reject) => {
       if (id || entity) {
         if (entity) {
-          resolve(new MockResponse<T>(entity as T));
+          setTimeout(() => {
+            resolve(new MockResponse<T>(entity as T));
+          }, SIMULATED_API_LATENCY);
         } else {
           reject(new Error('Not Found'));
         }
@@ -45,12 +49,16 @@ export class MockProvider implements IHttpProvider {
           (item: { id: string }) => item.id === id
         );
         if (entity) {
-          resolve(new MockResponse<T>(entity as T));
+          setTimeout(() => {
+            resolve(new MockResponse<T>(entity as T));
+          }, SIMULATED_API_LATENCY);
         } else {
           reject(new Error('Not Found'));
         }
       }
-      resolve(new MockResponse<T>(entities as T));
+      setTimeout(() => {
+        resolve(new MockResponse<T>(entities as T));
+      }, SIMULATED_API_LATENCY);
     });
   }
 

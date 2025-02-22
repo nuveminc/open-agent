@@ -1,4 +1,4 @@
-import { MessageType } from '@/types/messageType';
+import { MessageType } from '@/types/message.type';
 import { ImageIcon } from '../atoms/image-icon';
 import { ButtonEdit } from './button/button-edit';
 import { ButtonReadAloud } from './button/button-read-aloud';

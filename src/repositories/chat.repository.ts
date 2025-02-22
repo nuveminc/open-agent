@@ -33,6 +33,12 @@ export class ChatRepository {
     return chats;
   }
 
+  public async getItem(id: string): Promise<ChatPM> {
+    const response = await this.provider.get<ChatDTO>(`${CHATS}/${id}`);
+    const chatPM = new ChatPM(response.data!);
+    return chatPM;
+  }
+
   public async addItem(item: ChatPM): Promise<ChatPM> {
     const itemDTO = new ChatDTO(item);
     const response = await provider.post<ChatDTO>('/chats', itemDTO);

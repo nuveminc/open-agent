@@ -1,7 +1,7 @@
 import { AnyType } from '@/types';
 
 export interface IHttpProvider {
-  get<T>(path: string): Promise<Partial<HttpResponse<T | T[]>>>;
+  get<T>(path: string): Promise<Partial<HttpResponse<T>>>;
   post<T>(path: string, data: T): Promise<Partial<HttpResponse<T>>>;
   put<T>(path: string, data: T): Promise<Partial<HttpResponse<T>>>;
   delete<T>(path: string): Promise<Partial<HttpResponse<T>>>;

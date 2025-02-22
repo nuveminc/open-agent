@@ -1,15 +1,18 @@
 // import { useParams } from 'react-router-dom';
 // import { usePresenter } from '@/presenters/usePresenter';
 
+import { useChatPresenter } from '@/presenters/chat/useChatPresenter';
 import { ChatMessage } from './chat-message';
 import { ChatMessageResponse } from './chat-message-response';
+import { useParams } from 'react-router-dom';
 
 export const MainChat: React.FC<object> = () => {
-  // const { chatId } = useParams();
-  // const { presenter } = usePresenter();
+  const { chatId } = useParams<{ chatId: string }>();
+  const { presenter } = useChatPresenter();
 
   // Add your chat loading logic here using the chatId
-
+  const data = presenter.getItem(chatId!);
+  console.log('Chat Data:', data);
   return (
     <>
       <div className="h-full w-full flex flex-col py-4">

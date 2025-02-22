@@ -1,26 +1,24 @@
 export interface User {
   id: string;
-  name: string;
   email: string;
+  name: string;
   role: string;
   profile_image_url: string;
-  last_active_at: number;
-  updated_at: number;
-  created_at: number;
-  api_key: string;
-  settings: {
-    ui: {
-      models: string[];
-      chatBubble: boolean;
-      widescreenMode: boolean;
-      splitLargeChunks: boolean;
-      speechAutoSend: boolean;
-      requestFormat: string;
-      chatDirection: string;
-      memory: boolean;
-      responseAutoPlayback: boolean;
+  token?: string;
+  token_type: string;
+  expires_at: string | null;
+  permissions: {
+    workspace: {
+      models: boolean;
+      knowledge: boolean;
+      prompts: boolean;
+      tools: boolean;
+    };
+    chat: {
+      file_upload: boolean;
+      delete: boolean;
+      edit: boolean;
+      temporary: boolean;
     };
   };
-  info: string | null;
-  oauth_sub: string | null;
 }

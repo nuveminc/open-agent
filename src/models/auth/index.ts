@@ -56,10 +56,10 @@ export class User {
   public email: string;
   public name: string;
   public role: string;
-  public profile_image_url: string;
+  public profileImageUrl: string;
   public token: string;
-  public token_type: string;
-  public expires_at: Date | null;
+  public tokenType: string;
+  public expiresAt: Date | null;
   public permissions: Permissions;
 
   constructor(item: UserDTO) {
@@ -67,10 +67,10 @@ export class User {
     this.email = item.email;
     this.name = item.name;
     this.role = item.role;
-    this.profile_image_url = item.profile_image_url;
+    this.profileImageUrl = item.profile_image_url;
     this.token = item.token;
-    this.token_type = item.token_type;
-    this.expires_at = item.expires_at ? new Date(item.expires_at) : null;
+    this.tokenType = item.token_type;
+    this.expiresAt = item.expires_at ? new Date(item.expires_at) : null;
     this.permissions = new Permissions(item.permissions);
   }
 }

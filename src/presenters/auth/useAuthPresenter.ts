@@ -1,36 +1,22 @@
-// usePresenter.ts (Custom Hook)
-import repository from '@/repositories/auth.repository';
-import { useEffect, useMemo, useState } from 'react';
-import { AuthPresenter } from './auth.presenter';
-import { useAppStore } from '@/store/appStore';
+import { useAuthStore } from '@/store/authStore';
+import repository from '@/repositories/AuthRepository';
 
 export const useAuthPresenter = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const presenter = useMemo(
-    () => new AuthPresenter(repository, useAppStore),
-    []
-  );
+  const store = useAuthStore();
+  const user = useAuthStore((state) => state.user);
+  const isAuthenticated = useAuthStore((state) => state.setIsAuthenticated);
 
-  useEffect(() => {
-    const initializePresenter = async () => {
-      try {
-        setIsLoading(true);
-        await presenter.initialize();
-      } catch (error) {
-        console.error('Failed to initialize presenter:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    if (!presenter.isInitialized()) {
-      initializePresenter();
-    } else {
-      setIsLoading(false);
+  const login = async () => {
+    try {
+      const items = await repository.getUser();
+      console.log('Users:', items);
+      store.setIsAuthenticated(true);
+      store.setUser(items);
+    } catch (error) {
+      console.error('Failed to initialize AuthPresenter:', error);
+      throw error;
     }
+  };
 
-    return () => presenter.cleanup();
-  }, [presenter]);
-
-  return { presenter, isLoading };
+  return { login, user, isAuthenticated };
 };

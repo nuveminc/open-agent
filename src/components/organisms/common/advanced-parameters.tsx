@@ -1,6 +1,6 @@
 import React from 'react';
 import { ValueType } from '@/types';
-import { SettingParameters } from '@/types/settings';
+import { SettingParameters } from '@/types/settings-parameters.type';
 import {
   ComponentType,
   SettingsControl,

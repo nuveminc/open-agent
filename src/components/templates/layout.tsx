@@ -3,14 +3,11 @@ import { Outlet } from 'react-router-dom';
 import { Sidebar } from '../organisms/sidebar';
 import { useAppPresenter } from '@/presenters/app/useAppPresenter';
 import { DialogContainer } from '../organisms/common/dialog-container';
-import { useAuthPresenter } from '@/presenters/auth/useAuthPresenter';
 import './layout.css';
 
 export const Layout: React.FC<object> = () => {
-  const { presenter: authPresenter } = useAuthPresenter();
   const { presenter } = useAppPresenter();
 
-  console.log('authPresenter', authPresenter);
   return (
     <>
       <div className="app relative">

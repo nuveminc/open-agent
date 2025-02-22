@@ -1,6 +1,6 @@
 import { DialogType } from '@/components/organisms/common/dialog-container';
 import { ValueType } from '@/types';
-import { Settings } from '@/types/settings';
+import { Settings } from '@/types/settings-parameters.type';
 import { create } from 'zustand';
 
 export type SettingsState = Settings & {

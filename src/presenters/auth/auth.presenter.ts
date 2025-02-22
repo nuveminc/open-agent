@@ -1,18 +1,18 @@
 import { User } from '@/models/auth';
-import { AuthRepository } from '@/repositories/auth.repository';
-import { AppActions, AppState, useAppStore } from '@/store/appStore';
+import { AuthRepository } from '@/repositories/AuthRepository';
+import { AuthActions, AuthState, useAuthStore } from '@/store/authStore';
 
 export type Listener = (
-  state: AppState & AppActions,
-  prevState: AppState & AppActions
+  state: AuthState & AuthActions,
+  prevState: AuthState & AuthActions
 ) => void;
 
 export class AuthPresenter {
-  public state: AppState & AppActions;
+  public state: AuthState & AuthActions;
   private initialized: boolean = false;
   constructor(
     private repository: AuthRepository,
-    private store: typeof useAppStore
+    public store: typeof useAuthStore
   ) {
     this.state = this.store.getState();
   }
@@ -46,7 +46,7 @@ export class AuthPresenter {
   // }
 
   public getUser(): User {
-    return this.store.getState().user;
+    return this.store((store) => store.user);
   }
 
   // public getChatList(): ChatListVM {

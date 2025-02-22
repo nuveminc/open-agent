@@ -22,7 +22,10 @@ export class ChatRepository {
     let chats: ChatPM[] = [];
     console.log('Response:', response);
     if (Array.isArray(response.data)) {
-      chats = response.data.map((chatData: ChatDTO) => {
+      const data = response.data.sort(
+        (a: ChatDTO, b: ChatDTO) => a.updated_at - b.updated_at
+      );
+      chats = data.map((chatData: ChatDTO) => {
         const chatPM = new ChatPM(chatData);
         return chatPM;
       });

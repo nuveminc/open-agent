@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { ButtonLogo } from '../components/molecules/button/button-logo';
-import { LoginForm } from '../components/organisms/auth/login';
-import { RegisterForm } from '../components/organisms/auth/register';
+import { ButtonLogo } from '@/components/molecules/button/button-logo';
+import { LoginForm } from '@/components/organisms/auth/login';
+import { RegisterForm } from '@/components/organisms/auth/register';
 import { useAuthPresenter } from '@/presenters/auth/useAuthPresenter';
 import { router } from '@/routes';
 
 type LoginProps = Readonly<object>;
 
 export const Login: React.FC<LoginProps> = () => {
-  const [login, setLogin] = useState<boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, setLogin] = useState<boolean>(false);
   const [register, setRegister] = useState<boolean>(false);
   const [action, setAction] = useState<string>('Register');
   const { login: loginFn } = useAuthPresenter();

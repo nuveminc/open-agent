@@ -1,3 +1,3 @@
 export * from './common';
-export * from './messageType';
-export * from './gatewayType';
+export * from './message.type';
+export * from './gateway.type';

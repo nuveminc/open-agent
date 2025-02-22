@@ -3,11 +3,11 @@ import { Outlet } from 'react-router-dom';
 import {
   AdminTabs,
   TabsProps,
-} from '../components/organisms/admin-dashboard/admin-tabs';
-import { Evaluations } from '../components/organisms/admin-dashboard/evaluations';
-import { UsersGroups } from '../components/organisms/admin-dashboard/users-groups';
-import { Functions } from '../components/organisms/admin-dashboard/functions';
-import { SystemSettings } from '../components/organisms/admin-dashboard/settings';
+} from '@/components/organisms/admin-dashboard/admin-tabs';
+import { Evaluations } from '@/components/organisms/admin-dashboard/evaluations';
+import { UsersGroups } from '@/components/organisms/admin-dashboard/users-groups';
+import { Functions } from '@/components/organisms/admin-dashboard/functions';
+import { SystemSettings } from '@/components/organisms/admin-dashboard/settings';
 
 export const AdminSettings: React.FC = () => {
   const adminTabs: TabsProps[] = [

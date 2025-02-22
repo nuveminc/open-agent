@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --mode development",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:unit": "npm test useAppPResenter.test.ts -- --no-coverage",

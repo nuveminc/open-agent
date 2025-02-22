@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { SidebarToggle } from '../../common/sidebar-toggle';
+import { SidebarToggle } from '@/components/molecules/common/sidebar-toggle';
 
 export const SidebarHeader = () => {
   return (

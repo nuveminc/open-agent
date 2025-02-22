@@ -10,10 +10,12 @@ import { useAppPresenter } from '@/presenters/app/useAppPresenter';
 
 export const Navbar = () => {
   const { presenter } = useAppPresenter();
+
   const handleClick = () => {
     const isOpen = presenter.controlPanelOpen;
     presenter.showControlPanel(!isOpen);
   };
+
   return (
     <div className="top-0 flex flex-row justify-center z-10">
       {/* navbar container  */}

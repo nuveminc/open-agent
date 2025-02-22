@@ -1,6 +1,6 @@
-import chats from '@/api/mock/data/chats.json'; // Import mock data
-import auth from '@/api/mock/data/auth.json'; // Import mock data
 import { HttpResponse, IHttpProvider } from '@/interfaces/IHttpProvider';
+// Import mock data
+import { auth, chats, config } from '../mock/data';
 
 export class MockResponse<T> implements HttpResponse<T> {
   data: T;
@@ -18,6 +18,7 @@ export class MockProvider implements IHttpProvider {
   private jsonData: Record<string, object | object[]> = {
     chats,
     auth,
+    config,
   };
 
   public async get<T>(path: string): Promise<Partial<MockResponse<T | T[]>>> {

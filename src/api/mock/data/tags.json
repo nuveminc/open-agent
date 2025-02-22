@@ -1,0 +1,26 @@
+[
+  {
+    "id": "finance",
+    "name": "Finance",
+    "user_id": "5f0bc7ae-1d1f-4777-9bc6-0070253850d2",
+    "meta": null
+  },
+  {
+    "id": "investing",
+    "name": "Investing",
+    "user_id": "5f0bc7ae-1d1f-4777-9bc6-0070253850d2",
+    "meta": null
+  },
+  {
+    "id": "options_trading",
+    "name": "Options Trading",
+    "user_id": "5f0bc7ae-1d1f-4777-9bc6-0070253850d2",
+    "meta": null
+  },
+  {
+    "id": "accounting",
+    "name": "Accounting",
+    "user_id": "5f0bc7ae-1d1f-4777-9bc6-0070253850d2",
+    "meta": null
+  }
+]

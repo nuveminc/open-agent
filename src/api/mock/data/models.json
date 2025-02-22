@@ -1,10 +1,34 @@
 {
   "data": [
     {
+      "id": "llama3.3:latest",
+      "name": "llama3.3:latest",
+      "object": "model",
+      "created": 1740176785,
+      "owned_by": "ollama",
+      "ollama": {
+        "name": "llama3.3:latest",
+        "model": "llama3.3:latest",
+        "modified_at": "2025-01-14T14:58:50.402262127-08:00",
+        "size": 42520413916,
+        "digest": "a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": ["llama"],
+          "parameter_size": "70.6B",
+          "quantization_level": "Q4_K_M"
+        },
+        "urls": [0]
+      },
+      "actions": []
+    },
+    {
       "id": "llama3.1:latest",
       "name": "llama3.1:latest",
       "object": "model",
-      "created": 1730847891,
+      "created": 1740176785,
       "owned_by": "ollama",
       "ollama": {
         "name": "llama3.1:latest",
@@ -22,6 +46,22 @@
         },
         "urls": [0]
       },
+      "actions": []
+    },
+    {
+      "id": "arena-model",
+      "name": "Arena Model",
+      "info": {
+        "meta": {
+          "profile_image_url": "/favicon.png",
+          "description": "Submit your questions to anonymous AI chatbots and vote on the best response.",
+          "model_ids": null
+        }
+      },
+      "object": "model",
+      "created": 1740176785,
+      "owned_by": "arena",
+      "arena": true,
       "actions": []
     }
   ]

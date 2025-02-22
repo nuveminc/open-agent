@@ -1,0 +1,14 @@
+{
+  "models": [
+      "llama3.1:latest"
+  ],
+  "chatBubble": true,
+  "widescreenMode": false,
+  "splitLargeChunks": false,
+  "speechAutoSend": false,
+  "chatDirection": "LTR",
+  "memory": false,
+  "responseAutoPlayback": false,
+  "version": "0.5.4",
+  "params": {}
+}

@@ -1,28 +1,92 @@
 {
-  "data": [
+  "status": true,
+  "name": "Open WebUI",
+  "version": "0.5.4",
+  "default_locale": "",
+  "oauth": {
+    "providers": {}
+  },
+  "features": {
+    "auth": true,
+    "auth_trusted_header": false,
+    "enable_ldap": false,
+    "enable_api_key": true,
+    "enable_signup": true,
+    "enable_login_form": true,
+    "enable_websocket": true,
+    "enable_channels": false,
+    "enable_web_search": false,
+    "enable_google_drive_integration": false,
+    "enable_image_generation": false,
+    "enable_community_sharing": true,
+    "enable_message_rating": true,
+    "enable_admin_export": true,
+    "enable_admin_chat_access": true
+  },
+  "google_drive": {
+    "client_id": "",
+    "api_key": ""
+  },
+  "default_models": null,
+  "default_prompt_suggestions": [
     {
-      "id": "llama3.1:latest",
-      "name": "llama3.1:latest",
-      "object": "model",
-      "created": 1730061037,
-      "owned_by": "ollama",
-      "ollama": {
-        "name": "llama3.1:latest",
-        "model": "llama3.1:latest",
-        "modified_at": "2024-09-10T14:17:40.246488147-07:00",
-        "size": 4661230766,
-        "digest": "42182419e9508c30c4b1fe55015f06b65f4ca4b9e28a744be55008d21998a093",
-        "details": {
-          "parent_model": "",
-          "format": "gguf",
-          "family": "llama",
-          "families": ["llama"],
-          "parameter_size": "8.0B",
-          "quantization_level": "Q4_0"
-        },
-        "urls": [0]
-      },
-      "actions": []
+      "title": ["Help me study", "vocabulary for a college entrance exam"],
+      "content": "Help me study vocabulary: write a sentence for me to fill in the blank, and I'll try to pick the correct option."
+    },
+    {
+      "title": ["Give me ideas", "for what to do with my kids' art"],
+      "content": "What are 5 creative things I could do with my kids' art? I don't want to throw them away, but it's also so much clutter."
+    },
+    {
+      "title": ["Tell me a fun fact", "about the Roman Empire"],
+      "content": "Tell me a random fun fact about the Roman Empire"
+    },
+    {
+      "title": ["Show me a code snippet", "of a website's sticky header"],
+      "content": "Show me a code snippet of a website's sticky header in CSS and JavaScript."
+    },
+    {
+      "title": [
+        "Explain options trading",
+        "if I'm familiar with buying and selling stocks"
+      ],
+      "content": "Explain options trading in simple terms if I'm familiar with buying and selling stocks."
+    },
+    {
+      "title": ["Overcome procrastination", "give me tips"],
+      "content": "Could you start by asking me about instances when I procrastinate the most and then give me some suggestions to overcome it?"
+    },
+    {
+      "title": ["Grammar check", "rewrite it for better readability "],
+      "content": "Check the following sentence for grammar and clarity: \"[sentence]\". Rewrite it for better readability while maintaining its original meaning."
     }
-  ]
+  ],
+  "audio": {
+    "tts": {
+      "engine": "",
+      "voice": "alloy",
+      "split_on": "punctuation"
+    },
+    "stt": {
+      "engine": ""
+    }
+  },
+  "file": {
+    "max_size": null,
+    "max_count": null
+  },
+  "permissions": {
+    "workspace": {
+      "models": false,
+      "knowledge": false,
+      "prompts": false,
+      "tools": false
+    },
+    "chat": {
+      "file_upload": true,
+      "delete": true,
+      "edit": true,
+      "temporary": true
+    }
+  }
 }

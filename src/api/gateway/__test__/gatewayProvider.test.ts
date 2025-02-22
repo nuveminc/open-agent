@@ -1,4 +1,4 @@
-import { GatewayProvider } from '../gateway/gatewayProvider';
+import { GatewayProvider } from '../gatewayProvider';
 import httpProvider from '@/api/providers/httpProvider';
 import mockProvider from '@/api/providers/mockProvider';
 import { GatewayType } from '@/types';

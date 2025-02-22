@@ -1,4 +1,7 @@
-import { HttpResponse, IHttpProvider } from '@/interfaces/IHttpProvider';
+import {
+  HttpResponse,
+  IHttpProvider,
+} from '@/api/types/http-provider.interface';
 import axios, { Axios, AxiosError } from 'axios';
 
 const BASE_URL = 'https://localhost:8080'; // Replace with your API base URL

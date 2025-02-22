@@ -1,4 +1,4 @@
-import { User } from '@/interfaces/user';
+import { User } from '@/api/types/user.interface';
 
 export const users: User[] = [
   {

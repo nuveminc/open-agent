@@ -1,4 +1,4 @@
-import { IHttpProvider } from '@/interfaces/IHttpProvider';
+import { IHttpProvider } from '@/api/types/http-provider.interface';
 import { MockProvider, MockResponse } from '../mockProvider';
 
 const mockChats = [

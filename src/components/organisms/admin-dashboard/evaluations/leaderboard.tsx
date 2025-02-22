@@ -1,6 +1,6 @@
 import React from 'react';
 import { EntityCount } from '../common/entity-count';
-import { SearchBar } from '@/components/organisms/common/search-bar';
+import { SearchBar } from '@/components/molecules/common/search-bar';
 import { LeaderboardTable } from './leaderboard-table';
 
 export const Leaderboard: React.FC = () => {

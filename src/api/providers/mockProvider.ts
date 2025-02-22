@@ -1,4 +1,7 @@
-import { HttpResponse, IHttpProvider } from '@/interfaces/IHttpProvider';
+import {
+  HttpResponse,
+  IHttpProvider,
+} from '@/api/types/http-provider.interface';
 // Import mock data
 import { auth, chats, config } from '../mock/data';
 

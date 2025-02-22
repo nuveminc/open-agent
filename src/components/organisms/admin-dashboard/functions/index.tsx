@@ -1,7 +1,7 @@
 import React from 'react';
 import { EntityCount } from '../common/entity-count';
-import { SearchBar } from '../../common/search-bar';
-import { AddButton } from '../../common/add-button';
+import { SearchBar } from '../../../molecules/common/search-bar';
+import { AddButton } from '../../../molecules/common/add-button';
 import { router } from '@/routes';
 import { Icon } from '@/components/atoms';
 

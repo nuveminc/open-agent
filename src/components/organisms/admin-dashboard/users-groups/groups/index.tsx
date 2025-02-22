@@ -2,8 +2,8 @@ import React from 'react';
 import CreateGroup from './create-group';
 import { useAppPresenter } from '@/presenters/app/useAppPresenter';
 import { DefaultPermissionsButton } from './default-permissions-button';
-import { SearchBar } from '@/components/organisms/common/search-bar';
-import { AddButton } from '@/components/organisms/common/add-button';
+import { SearchBar } from '@/components/molecules/common/search-bar';
+import { AddButton } from '@/components/molecules/common/add-button';
 import { EntityCount } from '../../common/entity-count';
 
 export const Groups: React.FC = () => {

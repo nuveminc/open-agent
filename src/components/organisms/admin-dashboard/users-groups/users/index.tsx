@@ -2,8 +2,8 @@ import React from 'react';
 import { EntityCount } from '../../common/entity-count';
 import { UserTable } from './user-table';
 import { users } from '@/constants/users';
-import { SearchBar } from '@/components/organisms/common/search-bar';
-import { AddButton } from '@/components/organisms/common/add-button';
+import { SearchBar } from '@/components/molecules/common/search-bar';
+import { AddButton } from '@/components/molecules/common/add-button';
 
 export const AllUsers: React.FC = () => {
   const onAddClick = () => {

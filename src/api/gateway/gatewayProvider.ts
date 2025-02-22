@@ -1,4 +1,4 @@
-import { IHttpProvider } from '@/interfaces/IHttpProvider';
+import { IHttpProvider } from '@/api/types/http-provider.interface';
 import httpProvider from '@/api/providers/httpProvider';
 import mockProvider from '@/api/providers/mockProvider';
 import { GatewayType } from '@/types';

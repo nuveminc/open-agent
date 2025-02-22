@@ -1,4 +1,4 @@
-import { IHttpProvider } from '@/interfaces/IHttpProvider';
+import { IHttpProvider } from '@/api/types/http-provider.interface';
 import { GatewayProvider } from '@/api/gateway/gatewayProvider';
 import { GatewayType } from '@/types';
 import { ChatDTO, ChatPM } from '@/models/chat';

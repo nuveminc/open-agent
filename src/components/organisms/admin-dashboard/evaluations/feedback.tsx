@@ -1,6 +1,6 @@
 import { Icon } from '@/components/atoms';
 import React from 'react';
-import { TooltipWrapper } from '../../common/tooltip-wrapper';
+import { TooltipWrapper } from '../../../molecules/common/tooltip-wrapper';
 
 export const Feedback: React.FC = () => {
   return (

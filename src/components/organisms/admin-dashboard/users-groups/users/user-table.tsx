@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/table';
 import React from 'react';
 import { Icon } from '@/components/atoms';
-import { User } from '@/interfaces/user';
+import { User } from '@/api/types/user.interface';
 
 interface UserTableProps {
   users: User[];

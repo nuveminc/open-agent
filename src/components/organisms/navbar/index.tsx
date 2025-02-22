@@ -1,5 +1,5 @@
 import { Icon } from '../../atoms';
-import { ThemeToggle } from '../../ThemeToggle';
+import { ThemeToggle } from '../../molecules/common/theme-toggle';
 import { ControlsMenuButton } from './controls-menu-button';
 import { NewChatButton } from '../sidebar/header/new-chat-button';
 import { UserMenu } from './user-menu';

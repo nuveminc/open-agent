@@ -1,0 +1,92 @@
+{
+  "id": "f61d71ce-9ecf-4b06-8d4b-b9c5a09be7b5",
+  "user_id": "5f0bc7ae-1d1f-4777-9bc6-0070253850d2",
+  "title": "💡 Multiple Vandalism Claims? 🚔",
+  "chat": {
+    "id": "",
+    "title": "💡 Multiple Vandalism Claims? 🚔",
+    "models": ["llama3.1:latest"],
+    "params": {},
+    "messages": [
+      {
+        "id": "54f486b2-6ebb-44bc-b6a5-9197e440fcd0",
+        "parentId": null,
+        "childrenIds": ["09c8b8a3-b42d-4fd2-a19d-6564b8933e5a"],
+        "role": "user",
+        "content": "If insurance covers vandalism to a building an an incident is reported but another indicent of vandalism occurs before an adjuster reviews the damage, are both incidents covered as part of the same claim? ",
+        "timestamp": 1730048882,
+        "models": ["llama3.1:latest"]
+      },
+      {
+        "parentId": "54f486b2-6ebb-44bc-b6a5-9197e440fcd0",
+        "id": "09c8b8a3-b42d-4fd2-a19d-6564b8933e5a",
+        "childrenIds": [],
+        "role": "assistant",
+        "content": "Typically, in insurance policies, each separate and distinct act of vandalism would be considered a separate loss or occurrence. This means that if two separate incidents of vandalism occur before an adjuster reviews the damage from the first incident, they might not necessarily be combined into a single claim.\n\nInsurance companies generally follow a principle called \"occurrence\" or \"event,\" which refers to a distinct and separate act of vandalism. Each occurrence would need to meet the policy's deductible and coverage limits separately.\n\nHowever, it's essential to note that insurance policies can vary significantly between providers and jurisdictions. Some policies might have provisions for combining multiple incidents into a single claim if they occur within a specific time frame (e.g., 30 days) or under certain circumstances (e.g., if the incidents are deemed related).\n\nIf you're dealing with a situation like this, I recommend consulting your policy documents or speaking directly with the insurance company's adjuster or customer service representative. They should be able to provide guidance on how their specific policy handles multiple incidents of vandalism.\n\nWould you like me to elaborate on anything else?",
+        "model": "llama3.1:latest",
+        "modelName": "llama3.1:latest",
+        "modelIdx": 0,
+        "userContext": null,
+        "timestamp": 1730048882,
+        "lastSentence": "They should be able to provide guidance on how their specific policy handles multiple incidents of vandalism.",
+        "done": true,
+        "context": null,
+        "info": {
+          "total_duration": 14561302955,
+          "load_duration": 9334998782,
+          "prompt_eval_count": 49,
+          "prompt_eval_duration": 109664000,
+          "eval_count": 219,
+          "eval_duration": 5113320000
+        }
+      }
+    ],
+    "history": {
+      "messages": {
+        "54f486b2-6ebb-44bc-b6a5-9197e440fcd0": {
+          "id": "54f486b2-6ebb-44bc-b6a5-9197e440fcd0",
+          "parentId": null,
+          "childrenIds": ["09c8b8a3-b42d-4fd2-a19d-6564b8933e5a"],
+          "role": "user",
+          "content": "If insurance covers vandalism to a building an an incident is reported but another indicent of vandalism occurs before an adjuster reviews the damage, are both incidents covered as part of the same claim? ",
+          "timestamp": 1730048882,
+          "models": ["llama3.1:latest"]
+        },
+        "09c8b8a3-b42d-4fd2-a19d-6564b8933e5a": {
+          "parentId": "54f486b2-6ebb-44bc-b6a5-9197e440fcd0",
+          "id": "09c8b8a3-b42d-4fd2-a19d-6564b8933e5a",
+          "childrenIds": [],
+          "role": "assistant",
+          "content": "Typically, in insurance policies, each separate and distinct act of vandalism would be considered a separate loss or occurrence. This means that if two separate incidents of vandalism occur before an adjuster reviews the damage from the first incident, they might not necessarily be combined into a single claim.\n\nInsurance companies generally follow a principle called \"occurrence\" or \"event,\" which refers to a distinct and separate act of vandalism. Each occurrence would need to meet the policy's deductible and coverage limits separately.\n\nHowever, it's essential to note that insurance policies can vary significantly between providers and jurisdictions. Some policies might have provisions for combining multiple incidents into a single claim if they occur within a specific time frame (e.g., 30 days) or under certain circumstances (e.g., if the incidents are deemed related).\n\nIf you're dealing with a situation like this, I recommend consulting your policy documents or speaking directly with the insurance company's adjuster or customer service representative. They should be able to provide guidance on how their specific policy handles multiple incidents of vandalism.\n\nWould you like me to elaborate on anything else?",
+          "model": "llama3.1:latest",
+          "modelName": "llama3.1:latest",
+          "modelIdx": 0,
+          "userContext": null,
+          "timestamp": 1730048882,
+          "lastSentence": "They should be able to provide guidance on how their specific policy handles multiple incidents of vandalism.",
+          "done": true,
+          "context": null,
+          "info": {
+            "total_duration": 14561302955,
+            "load_duration": 9334998782,
+            "prompt_eval_count": 49,
+            "prompt_eval_duration": 109664000,
+            "eval_count": 219,
+            "eval_duration": 5113320000
+          }
+        }
+      },
+      "currentId": "09c8b8a3-b42d-4fd2-a19d-6564b8933e5a"
+    },
+    "tags": [],
+    "timestamp": 1730048882596,
+    "files": []
+  },
+  "updated_at": 1740187130,
+  "created_at": 1734111776,
+  "share_id": null,
+  "archived": false,
+  "pinned": null,
+  "meta": {},
+  "folder_id": null
+}

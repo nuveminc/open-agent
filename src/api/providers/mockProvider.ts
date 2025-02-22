@@ -14,7 +14,7 @@ export class MockResponse<T> implements HttpResponse<T> {
   }
 }
 
-const SIMULATED_API_LATENCY = 0;
+const SIMULATED_API_LATENCY = import.meta.env.VITE_SIMULATED_API_LATENCY || 0;
 
 export class MockProvider implements IHttpProvider {
   private jsonData: Record<string, object | object[]> = {
@@ -122,18 +122,17 @@ export class MockProvider implements IHttpProvider {
       return Promise.reject(new Error('Invalid entity type'));
     }
 
-    try {
-      if (id) {
-        deletedEntity = (entities as []).find(
-          (item: { id: string }) => item.id === id
-        );
+    if (id) {
+      deletedEntity = (entities as []).find(
+        (item: { id: string }) => item.id === id
+      );
+      if (deletedEntity) {
         entities = (entities as []).filter(
           (item: { id: string }) => item.id !== id
         );
+      } else {
+        return Promise.reject(new Error('Entity Not Found'));
       }
-    } catch (error) {
-      console.error('Error deleting entity:', error);
-      return Promise.reject(new Error('Delete failed'));
     }
 
     this.jsonData[path] = entities;

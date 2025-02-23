@@ -1,6 +1,13 @@
-export const ScrollDown = () => {
+type ScrollDownProps = Readonly<{
+  onClick: () => void;
+}>;
+
+export const ScrollDown: React.FC<ScrollDownProps> = ({ onClick }) => {
   return (
-    <div className="-mb-0.5 mx-auto inset-x-0 bg-transparent flex justify-center">
+    <div
+      onClick={onClick}
+      className="-mb-0.5 mx-auto inset-x-0 bg-transparent flex justify-center"
+    >
       <div className="flex flex-col max-w-6xl px-2.5 md:px-6 w-full">
         <div className="relative">
           <div className="absolute -top-12 left-0 right-0 flex justify-center z-30 pointer-events-none">

@@ -1,14 +1,14 @@
 import { ButtonLogo } from '@/components/molecules/button/button-logo';
 import { WelcomeMessage } from '@/components/molecules/welcome-message';
-import { SuggestedPrompts } from '../../components/organisms/suggested-prompts';
-import { MessagesContainer } from '@/components/organisms/messages-container';
+import { SuggestedPrompts } from '../../organisms/suggested-prompts';
+import { ChatContainer } from '@/components/organisms/chat-container';
 import { Control } from '@/components/organisms/control-panel';
 import { useAppPresenter } from '@/presenters/app/useAppPresenter';
 import { SystemHelp } from '@/components/molecules/system-help';
 import { useAuthPresenter } from '@/presenters/auth/useAuthPresenter';
 import { suggestedPrompts } from '@/constants/suggested-prompts';
 
-export const Welcome: React.FC<object> = () => {
+export const NewChat: React.FC<object> = () => {
   const { presenter } = useAppPresenter();
   const { user } = useAuthPresenter();
 
@@ -17,7 +17,7 @@ export const Welcome: React.FC<object> = () => {
     presenter.showControlPanel(showPanel);
   };
   return (
-    <MessagesContainer>
+    <ChatContainer>
       <div className="flex w-full justify-between overflow-hidden">
         {/* MAIN CONTENT */}
         <div className="m-auto w-full 2xl:max-w-6xl md:max-w-3xl sm:max-w-2xl lg:px-20">
@@ -32,12 +32,12 @@ export const Welcome: React.FC<object> = () => {
           />
           <SuggestedPrompts suggestedPrompts={suggestedPrompts} />
         </div>
-        {/* RIGHT CONTROL SECTIOn */}
+        {/* RIGHT CONTROL SECTION */}
         <div className={`${!presenter.controlPanelOpen ? 'hidden' : ''}`}>
           <Control onClick={handleClick} />
         </div>
       </div>
       <SystemHelp />
-    </MessagesContainer>
+    </ChatContainer>
   );
 };

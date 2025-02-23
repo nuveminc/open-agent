@@ -2,12 +2,12 @@ import { ButtonCopy } from './button/button-copy';
 import { ButtonDelete } from './button/button-delete';
 import { ButtonEdit } from './button/button-edit';
 
-export type ChatMessageProps = Readonly<{
+export type ChatMessageUserProps = Readonly<{
   text: string;
   showDeleteButton?: boolean;
 }>;
 
-export const ChatMessage: React.FC<ChatMessageProps> = ({
+export const ChatMessageUser: React.FC<ChatMessageUserProps> = ({
   text = '',
   showDeleteButton = false,
 }) => {

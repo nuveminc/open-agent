@@ -6,22 +6,23 @@ import { ButtonBadResponse } from './button/button-bad-response';
 import { ButtonGenerationInfo } from './button/button-generation-info';
 import { ButtonGoodResponse } from './button/button-good-response';
 import { Icon } from '../atoms';
+import { Remark } from 'react-remark';
 
-type ChatMessageResponseProps = Readonly<{
+type ChatMessageAgentProps = Readonly<{
   id: string;
   text: string;
   model: string;
   time: string;
 }>;
 
-export const ChatMessageResponse: React.FC<ChatMessageResponseProps> = ({
+export const ChatMessageAgent: React.FC<ChatMessageAgentProps> = ({
   id,
   text,
   model,
   time,
 }) => {
   return (
-    <div className="w-full ">
+    <div className="w-full mb-5">
       <div className="flex flex-col justify-between px-5 mb-3 max-w-5xl mx-auto rounded-lg group">
         <div
           className="flex w-full message-a2da5f86-8e58-4284-9394-5d9842c73902 svelte-vhcwlm"
@@ -39,7 +40,9 @@ export const ChatMessageResponse: React.FC<ChatMessageResponseProps> = ({
               <div className="chat-assistant w-full min-w-full markdown-prose svelte-vhcwlm">
                 <div>
                   <div className="w-full flex flex-col">
-                    <p>{text}</p>
+                    <p>
+                      <Remark>{text}</Remark>
+                    </p>
                   </div>
                 </div>
               </div>{' '}

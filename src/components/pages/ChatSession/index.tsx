@@ -2,21 +2,16 @@
 // import { usePresenter } from '@/presenters/usePresenter';
 
 import { useChatPresenter } from '@/presenters/chat/useChatPresenter';
-import { ChatMessage } from './chat-message';
-import { ChatMessageResponse } from './chat-message-response';
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { ChatMessage as ChatMessagePM } from '@/models/chat/chat-session.class.pm';
+import { ChatMessageUser } from '../../molecules/chat-message-user';
+import { ChatMessageAgent } from '../../molecules/chat-message-agent';
+import {
+  ChatMessage,
+  ChatMessage as ChatMessagePM,
+} from '@/models/chat/chat-session.class.pm';
+import { ChatContainer } from '@/components/organisms/chat-container';
 
-export const MainChat: React.FC<object> = () => {
-  const { chatId } = useParams<{ chatId: string }>();
+export const ChatSession: React.FC<object> = () => {
   const { presenter } = useChatPresenter();
-
-  useEffect(() => {
-    if (chatId) {
-      presenter.getItem(chatId);
-    }
-  }, [chatId]);
 
   if (presenter.isLoading) {
     return <div>Loading...</div>;
@@ -24,13 +19,13 @@ export const MainChat: React.FC<object> = () => {
 
   const getMessage = (message: ChatMessagePM) => {
     return message.role === 'user' ? (
-      <ChatMessage
+      <ChatMessageUser
         key={message.id}
         text={message.content}
         showDeleteButton={true}
       />
     ) : (
-      <ChatMessageResponse
+      <ChatMessageAgent
         key={`message-response-${message.id}`}
         id={message.id}
         text={message.content}
@@ -43,20 +38,19 @@ export const MainChat: React.FC<object> = () => {
   // const data = presenter.getItem(chatId!);
   // console.log('Chat Data:', data);
   return (
-    <>
+    <ChatContainer>
       <div className="h-full w-full flex flex-col py-4">
         {/* Your chat messages content */}
         <div className="h-full flex">
           <div className="w-full pt-2">
             {presenter.currentChat &&
               presenter.currentChat.chat &&
-              presenter.currentChat.chat.messages.map((message) =>
+              presenter.currentChat.chat.messages.map((message: ChatMessage) =>
                 getMessage(message)
               )}
-            {/* <ChatMessageResponse text='The Service Organization Control (SOC) 2 framework, developed by the American Institute of Certified Public Accountants (AICPA), contains five categories or "trust services criteria" that an organization may elect to apply. These five categories include:' /> */}
           </div>
         </div>
       </div>
-    </>
+    </ChatContainer>
   );
 };

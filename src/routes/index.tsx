@@ -1,16 +1,16 @@
-import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
-import { Welcome } from '@/pages/WelcomePage';
-import { MainChat } from '@/components/molecules/main-chat';
-import { Layout } from '@/components/templates/layout';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { NewChat } from '@/components/pages/NewChatPage';
+import { ChatSession } from '@/components/pages/ChatSession';
+import { Layout } from '@/components/page-templates/layout';
 import { UsersGroups } from '@/components/organisms/admin-dashboard/users-groups';
 import { Evaluations } from '@/components/organisms/admin-dashboard/evaluations';
 import { Functions } from '@/components/organisms/admin-dashboard/functions';
 import { FunctionEditor } from '@/components/organisms/admin-dashboard/functions/function-editor';
 import { SystemSettings } from '@/components/organisms/admin-dashboard/settings';
-import { AdminSettings } from '@/pages/AdminSettingsPage';
-import { FlowView } from '@/pages/FlowPage';
-import { Login } from '@/pages/LoginPage';
-import { AppInitPage } from '@/pages/AppInitPage';
+import { AdminSettings } from '@/components/pages/AdminSettingsPage';
+import { FlowView } from '@/components/pages/FlowPage';
+import { Login } from '@/components/pages/LoginPage';
+import { AppInitPage } from '@/components/pages/AppInitPage';
 import { ProtectedRoute } from './guards/protected-route';
 import { ProtectedLoginRoute } from './guards/protected-login-route';
 
@@ -29,11 +29,11 @@ const routes = [
         children: [
           {
             index: true,
-            element: <Welcome />,
+            element: <NewChat />,
           },
           {
             path: '/c/:chatId',
-            element: <MainChat />,
+            element: <ChatSession />,
           },
           {
             path: 'flow',

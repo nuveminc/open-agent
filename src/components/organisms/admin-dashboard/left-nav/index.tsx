@@ -2,16 +2,16 @@ import React from 'react';
 import { IconName } from '@/components/atoms';
 import { LeftNavTab } from './left-nav-tab';
 
-export type Tab = {
+export type Tab = Readonly<{
   label: string;
   value: string;
   icon: IconName;
-};
+}>;
 
-interface LeftNavProps {
+type LeftNavProps = Readonly<{
   tabs: Tab[];
   onChange: (idx: number) => void;
-}
+}>;
 
 const LeftNav: React.FC<LeftNavProps> = ({ tabs, onChange }) => {
   const [selected, setSelected] = React.useState<number>(0);

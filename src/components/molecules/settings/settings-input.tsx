@@ -1,12 +1,13 @@
 import React, { ChangeEvent, useState } from 'react';
 
-export interface SettingsInputProps {
+export type SettingsInputProps = Readonly<{
   defaultValue: number | string;
   controlName: string;
   type?: 'text' | 'textarea';
   placeholder?: string;
   onChange: (name: string, value: string) => void;
-}
+}>;
+
 export const SettingsInput: React.FC<SettingsInputProps> = ({
   defaultValue,
   controlName,

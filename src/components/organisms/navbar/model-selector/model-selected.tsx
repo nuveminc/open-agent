@@ -1,14 +1,15 @@
 import { Icon } from '@/components/atoms';
 import React from 'react';
 
-export interface ModelSelected {
+export type ModelSelected = Readonly<{
   text: string;
-}
+}>;
 
-interface ModelSelectedProps {
+type ModelSelectedProps = Readonly<{
   text: string;
   onClick: () => void;
-}
+}>;
+
 export const ModelSelected: React.FC<ModelSelectedProps> = ({
   text = 'llama3.1:latest',
   onClick,

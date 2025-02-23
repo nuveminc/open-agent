@@ -4,12 +4,12 @@ import {
 } from '@/components/molecules/settings/settings-select';
 import React, { useEffect, useState } from 'react';
 
-interface DependentDropdownsProps {
+type DependentDropdownsProps = Readonly<{
   typeOptions: SettingsSelectOption[];
   allItems: { [key: string]: SettingsSelectOption[] };
   onTypeChange?: (value: string) => void;
   onItemChange?: (value: string) => void;
-}
+}>;
 
 export const DependentDropdowns: React.FC<DependentDropdownsProps> = ({
   typeOptions,

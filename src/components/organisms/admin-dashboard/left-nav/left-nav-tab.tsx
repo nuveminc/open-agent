@@ -2,13 +2,13 @@ import React from 'react';
 import { Icon, IconName } from '@/components/atoms';
 import { cn } from '@/lib/utils';
 
-interface LeftNavTabProps {
+type LeftNavTabProps = Readonly<{
   key: string;
   index: number;
   tab: { label: string; value: string; icon: IconName };
   selected: number;
   onClick: () => void;
-}
+}>;
 
 export const LeftNavTab: React.FC<LeftNavTabProps> = ({
   key,

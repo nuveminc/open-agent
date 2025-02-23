@@ -1,10 +1,11 @@
 import React from 'react';
 import { DialogType } from '../../../common/dialog-container';
 
-interface CreateGroupProps {
+type CreateGroupProps = Readonly<{
   showDialog: (show: boolean) => void;
   setModal: (modal: DialogType) => void;
-}
+}>;
+
 const CreateGroup: React.FC<CreateGroupProps> = ({ showDialog, setModal }) => {
   const handleDialog = (show: boolean) => {
     console.log('show dialog');

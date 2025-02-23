@@ -1,7 +1,7 @@
-interface WelcomeMessageProps {
+type WelcomeMessageProps = Readonly<{
   name?: string;
   message?: string;
-}
+}>;
 
 export const WelcomeMessage: React.FC<WelcomeMessageProps> = ({
   name,

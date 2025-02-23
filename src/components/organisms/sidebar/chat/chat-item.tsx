@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import { ChatMenu } from './chat-menu';
 import { cn } from '@/lib/utils';
 
-export interface ChatItemProps {
+export type ChatItemProps = Readonly<{
   title: string;
   id: string;
   isSelected: boolean;
-}
+}>;
 
 export const ChatItem: React.FC<ChatItemProps> = ({
   title,

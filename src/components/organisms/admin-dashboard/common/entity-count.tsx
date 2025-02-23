@@ -1,9 +1,10 @@
 import React from 'react';
 
-interface EntityCountProps {
+type EntityCountProps = Readonly<{
   title: string;
   count: number;
-}
+}>;
+
 export const EntityCount: React.FC<EntityCountProps> = ({ title, count }) => {
   return (
     <div className="flex md:self-center text-lg font-medium px-0.5">

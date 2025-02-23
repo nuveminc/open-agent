@@ -1,9 +1,10 @@
 import React, { ChangeEvent, useState } from 'react';
 
-interface InputTextProps {
+type InputTextProps = Readonly<{
   placeholder: string;
   onChange: (text: string) => void;
-}
+}>;
+
 export const InputText: React.FC<InputTextProps> = ({
   placeholder,
   onChange,

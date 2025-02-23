@@ -3,7 +3,7 @@ import { ChatVM } from '@/models/chat/chat.class.vm';
 import { useAppStore } from '@/store/appStore';
 import { ChatPM } from '@/models/chat';
 import { ChatListVM } from '@/models/chat/chat-list.class.vm';
-import { ChatPMFactory } from '@/repositories/factories';
+// import { ChatPMFactory } from '@/repositories/factories';
 
 export class NavPresenter {
   private initialized: boolean = false;
@@ -13,20 +13,20 @@ export class NavPresenter {
     private store: typeof useAppStore
   ) {}
 
-  async initialize(): Promise<void> {
-    if (this.initialized) return;
+  // async initialize(): Promise<void> {
+  //   if (this.initialized) return;
 
-    console.log('Initializing ChatPresenter...');
-    try {
-      const items = await this.repository.getItems();
-      const chatList = this._createChatList(items);
-      this.store.getState().setChatList(chatList);
-      this.initialized = true;
-    } catch (error) {
-      console.error('Failed to initialize ChatPresenter:', error);
-      throw error;
-    }
-  }
+  //   console.log('Initializing ChatPresenter...');
+  //   try {
+  //     const items = await this.repository.getItems();
+  //     const chatList = this._createChatList(items);
+  //     this.store.getState().setChatList(chatList);
+  //     this.initialized = true;
+  //   } catch (error) {
+  //     console.error('Failed to initialize ChatPresenter:', error);
+  //     throw error;
+  //   }
+  // }
 
   isInitialized(): boolean {
     return this.initialized;

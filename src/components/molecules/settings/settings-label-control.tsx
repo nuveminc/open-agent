@@ -1,11 +1,12 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
 
-export interface LabelControlProps {
+export type LabelControlProps = Readonly<{
   label: string;
   className?: string;
   children: React.ReactNode;
-}
+}>;
+
 /**
  * A label control to display a row of settings.
  * Displays a label and the children controls.

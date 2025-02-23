@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 /**
  * Interface for Settings Toggle properties
- * @interface SettingsToggleProps
+ * @type SettingsToggleProps
  */
-export interface SettingsToggleProps {
+export type SettingsToggleProps = Readonly<{
   controlName: string;
   defaultValue: string;
   options: string[]; // options are indexed: 0: default and 1: option
   onChange: (name: string, value: string) => void;
-}
+}>;
 
 /**
  * A toggle component for settings that switches between two states

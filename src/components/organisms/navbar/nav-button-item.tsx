@@ -1,10 +1,10 @@
 import { router } from '@/routes';
 import { Link } from 'react-router-dom';
 
-interface NavButtonItemProps {
+type NavButtonItemProps = Readonly<{
   title: string;
   link: string;
-}
+}>;
 
 export const NavButtonItem = ({ title, link }: NavButtonItemProps) => {
   const handleNavigate = () => {

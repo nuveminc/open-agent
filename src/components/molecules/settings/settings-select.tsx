@@ -22,12 +22,12 @@ export interface SettingsDropdownOption {
   icon?: string;
 }
 
-export interface SettingsSelectProps {
+export type SettingsSelectProps = Readonly<{
   defaultValue: string;
   controlName: string;
   options: SettingsSelectOption[];
   onChange: (name: string, value: string) => void;
-}
+}>;
 
 /**
  * Creates a select component for the settings dialog

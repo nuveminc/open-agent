@@ -2,10 +2,10 @@ import { Icon } from '@/components/atoms';
 import React from 'react';
 import { TooltipWrapper } from './tooltip-wrapper';
 
-interface AddButtonProps {
+type AddButtonProps = Readonly<{
   text: string;
   onClick: () => void;
-}
+}>;
 
 export const AddButton: React.FC<AddButtonProps> = ({ text, onClick }) => {
   return (

@@ -5,10 +5,10 @@ export interface ViewMapping {
   [key: string]: React.ReactElement;
 }
 
-export interface DashboardProps {
+type DashboardProps = Readonly<{
   tabs: Tab[];
   views: ViewMapping;
-}
+}>;
 
 export const DashboardContainer: React.FC<DashboardProps> = ({
   tabs,

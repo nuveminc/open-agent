@@ -1,16 +1,16 @@
 import { ButtonSB as Button } from './ButtonSB';
 import './header.css';
 
-type User = {
+type User = Readonly<{
   name: string;
-};
+}>;
 
-export interface HeaderProps {
+export type HeaderProps = Readonly<{
   user?: User;
   onLogin?: () => void;
   onLogout?: () => void;
   onCreateAccount?: () => void;
-}
+}>;
 
 export const Header = ({
   user,

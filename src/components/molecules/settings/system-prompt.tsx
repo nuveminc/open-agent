@@ -1,13 +1,13 @@
 import { InputType, ValueType } from '@/types';
 import React from 'react';
 
-interface SystemPromptProps {
+type SystemPromptProps = Readonly<{
   prompt: InputType;
   placecholder?: string;
   controlName: string;
   showLabel?: boolean;
   onChange: (name: string, value: ValueType) => void;
-}
+}>;
 
 export const SystemPrompt: React.FC<SystemPromptProps> = ({
   prompt,

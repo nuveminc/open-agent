@@ -10,9 +10,10 @@ import React from 'react';
 import { Icon } from '@/components/atoms';
 import { User } from '@/api/types/user.interface';
 
-interface UserTableProps {
+type UserTableProps = Readonly<{
   users: User[];
-}
+}>;
+
 export const UserTable: React.FC<UserTableProps> = ({ users }) => {
   return (
     <>

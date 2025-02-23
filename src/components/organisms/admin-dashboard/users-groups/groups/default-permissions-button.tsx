@@ -1,10 +1,10 @@
 import React from 'react';
 import { DialogType } from '../../../common/dialog-container';
 
-interface DefaultPermissionsButtonProps {
+type DefaultPermissionsButtonProps = Readonly<{
   showDialog: (show: boolean) => void;
   setModal: (modal: DialogType) => void;
-}
+}>;
 
 export const DefaultPermissionsButton: React.FC<
   DefaultPermissionsButtonProps

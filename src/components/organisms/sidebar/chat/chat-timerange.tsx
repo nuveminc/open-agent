@@ -1,6 +1,6 @@
-export interface ChatTimeRangeProps {
+export type ChatTimeRangeProps = Readonly<{
   timeRange: string;
-}
+}>;
 
 export const ChatTimeRange: React.FC<ChatTimeRangeProps> = ({ timeRange }) => {
   return (

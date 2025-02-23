@@ -1,7 +1,7 @@
-interface PromptCardProps {
+type PromptCardProps = Readonly<{
   prompt: { title: string; description: string };
   onClick: (prompt: string) => void;
-}
+}>;
 
 export const PromptCard: React.FC<PromptCardProps> = ({ prompt, onClick }) => {
   const handleClick = (): void => {

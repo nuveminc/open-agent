@@ -1,11 +1,13 @@
 import { Icon } from '@/components/atoms';
 import { MessageType } from '@/types/message.type';
 
-class ButtonEditProps {
-  messageType?: MessageType = MessageType.User;
-}
+type ButtonEditProps = Readonly<{
+  messageType?: MessageType;
+}>;
 
-export const ButtonEdit: React.FC<ButtonEditProps> = ({ messageType }) => {
+export const ButtonEdit: React.FC<ButtonEditProps> = ({
+  messageType = MessageType.User,
+}) => {
   const userMessageClass =
     messageType == MessageType.User ? 'edit-user-message-button' : '';
   return (

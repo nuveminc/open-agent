@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { router } from '@/routes';
 
-export interface TabsProps {
+export type TabsProps = Readonly<{
   label: string;
   view: React.ReactElement;
   href?: string;
-}
-interface AdminTabsProps {
+}>;
+
+type AdminTabsProps = Readonly<{
   tabs: TabsProps[];
-}
+}>;
 
 export const AdminTabs: React.FC<AdminTabsProps> = ({ tabs }) => {
   const [selected, setSelected] = useState<number>(0);

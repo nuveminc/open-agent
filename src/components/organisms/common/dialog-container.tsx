@@ -5,11 +5,11 @@ import { DefaultPermissionsDialog } from '../admin-dashboard/users-groups/groups
 
 export type DialogType = 'settings' | 'groups' | 'permissions';
 
-interface DialogContainerProps {
+type DialogContainerProps = Readonly<{
   type: DialogType;
   isOpen: boolean;
   showModal: (showModal: boolean) => void;
-}
+}>;
 
 export const DialogContainer: React.FC<DialogContainerProps> = ({
   type = 'settings',

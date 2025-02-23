@@ -8,7 +8,7 @@ import { SettingsSwitch } from './settings-switch';
 
 export type ComponentType = 'input' | 'slider' | 'switch' | 'toggle' | 'select';
 
-export interface ControlProps {
+export type ControlProps = Readonly<{
   type: ComponentType;
   defaultValue: ValueType;
   controlName: string;
@@ -19,7 +19,7 @@ export interface ControlProps {
   max?: number;
   step?: number;
   onChange: (name: string, state: ValueType) => void;
-}
+}>;
 /**
  * A SettingsControl component that renders a control based on the type prop.
  * The control can be an input, slider, switch, toggle, or select.

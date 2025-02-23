@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Slider } from '@/components/ui/slider';
 
-export interface SettingsSliderProps {
+export type SettingsSliderProps = Readonly<{
   onValueChange: (name: string, value: number[]) => void;
   defaultValue: number;
   controlName: string;
   min?: number;
   max?: number;
   step?: number;
-}
+}>;
 
 /**
  * Creates a slider component for the settings dialog

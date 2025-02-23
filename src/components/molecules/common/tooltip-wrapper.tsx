@@ -6,10 +6,11 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 
-interface TooltipWrapperProps {
+type TooltipWrapperProps = Readonly<{
   text: string;
   children: React.ReactNode;
-}
+}>;
+
 export const TooltipWrapper: React.FC<TooltipWrapperProps> = ({
   text,
   children,

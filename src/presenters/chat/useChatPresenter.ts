@@ -1,37 +1,20 @@
 // usePresenter.ts (Custom Hook)
 import repository from '@/repositories/chat.repository';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useAppStore } from '@/store/appStore';
-import { ChatPM } from '@/models/chat';
+import { ChatPM, ChatVM } from '@/models/chat';
 import { ChatListVM } from '@/models/chat/chat-list.class.vm';
+import { ChatSession } from '@/models/chat/chat-session.class.pm';
 
 export const useChatPresenter = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [initialized, setInitialized] = useState<boolean>(false);
   const store = useAppStore();
-
-  // useEffect(() => {
-  //   const initializePresenter = async () => {
-  //     try {
-  //       setIsLoading(true);
-  //       await presenter.initialize();
-  //     } catch (error) {
-  //       console.error('Failed to initialize presenter:', error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
-
-  //   if (!presenter.isInitialized()) {
-  //     initializePresenter();
-  //   } else {
-  //     setIsLoading(false);
-  //   }
-
-  //   return () => presenter.cleanup();
-  // }, [presenter]);
 
   useEffect(() => {
     const initialize = async (): Promise<void> => {
+      if (initialized) return;
+      setInitialized(true);
       console.log('Initializing ChatPresenter...');
       try {
         const items = await repository.getItems();
@@ -44,7 +27,7 @@ export const useChatPresenter = () => {
       }
     };
     initialize();
-  }, [isLoading, store]);
+  }, [initialized]);
 
   const _createChatList = (items: ChatPM[]): ChatListVM => {
     return new ChatListVM(items);
@@ -53,7 +36,9 @@ export const useChatPresenter = () => {
   const getItem = async (id: string) => {
     setIsLoading(true);
     try {
-      await repository.getItem(id);
+      const item: ChatSession = await repository.getItem(id);
+      console.log('Chat Item:', item.chat.messages);
+      store.setCurrentChat(item);
     } catch (error) {
       console.error('Failed to get chat by ID:', error);
     } finally {
@@ -73,6 +58,7 @@ export const useChatPresenter = () => {
     getChatList: () => getChatList,
     getItem,
     isTemporaryChat,
+    currentChat: store.currentChat,
     isLoading,
   };
 

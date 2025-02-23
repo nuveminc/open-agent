@@ -2,13 +2,14 @@ import { ButtonCopy } from './button/button-copy';
 import { ButtonDelete } from './button/button-delete';
 import { ButtonEdit } from './button/button-edit';
 
-export class ChatMessageProps {
-  text: string = '';
-  showDeleteButton?: boolean = false;
-}
+export type ChatMessageProps = Readonly<{
+  text: string;
+  showDeleteButton?: boolean;
+}>;
+
 export const ChatMessage: React.FC<ChatMessageProps> = ({
-  text,
-  showDeleteButton,
+  text = '',
+  showDeleteButton = false,
 }) => {
   return (
     <div className="w-full ">

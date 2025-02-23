@@ -1,7 +1,10 @@
 import { AnyType } from '@/types';
 
+export type HttpConfig = {
+  isFile: boolean;
+};
 export interface IHttpProvider {
-  get<T>(path: string): Promise<Partial<HttpResponse<T>>>;
+  get<T>(path: string, config?: HttpConfig): Promise<Partial<HttpResponse<T>>>;
   post<T>(path: string, data: T): Promise<Partial<HttpResponse<T>>>;
   put<T>(path: string, data: T): Promise<Partial<HttpResponse<T>>>;
   delete<T>(path: string): Promise<Partial<HttpResponse<T>>>;

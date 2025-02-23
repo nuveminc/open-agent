@@ -1,4 +1,5 @@
 import {
+  HttpConfig,
   HttpResponse,
   IHttpProvider,
 } from '@/api/types/http-provider.interface';
@@ -26,7 +27,10 @@ export class MockProvider implements IHttpProvider {
     config,
   };
 
-  public async get<T>(path: string): Promise<Partial<MockResponse<T | T[]>>> {
+  public async get<T>(
+    path: string,
+    config: HttpConfig
+  ): Promise<Partial<MockResponse<T>>> {
     const { entityName, id } = this._handlePath(path);
 
     const entities = this._getEntities(entityName);
@@ -38,31 +42,48 @@ export class MockProvider implements IHttpProvider {
       entity = entities;
     }
 
-    return new Promise<MockResponse<T>>((resolve, reject) => {
-      if (id || entity) {
-        if (entity) {
-          setTimeout(() => {
-            resolve(new MockResponse<T>(entity as T));
-          }, SIMULATED_API_LATENCY);
-        } else {
+    if (config && config.isFile && id) {
+      return new Promise<MockResponse<T>>((resolve, reject) => {
+        try {
+          import(`../mock/data/${entityName}/${id}.json`).then((data) => {
+            const entity = data.default;
+            setTimeout(() => {
+              resolve(new MockResponse<T>(entity as T));
+            }, SIMULATED_API_LATENCY);
+          });
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch (error: any) {
+          console.log(error);
           reject(new Error('Not Found'));
         }
-      } else {
-        const entity = (entities as []).find(
-          (item: { id: string }) => item.id === id
-        );
-        if (entity) {
-          setTimeout(() => {
-            resolve(new MockResponse<T>(entity as T));
-          }, SIMULATED_API_LATENCY);
+      });
+    } else {
+      return new Promise<MockResponse<T>>((resolve, reject) => {
+        if (id || entity) {
+          if (entity) {
+            setTimeout(() => {
+              resolve(new MockResponse<T>(entity as T));
+            }, SIMULATED_API_LATENCY);
+          } else {
+            reject(new Error('Not Found'));
+          }
         } else {
-          reject(new Error('Not Found'));
+          const entity = (entities as []).find(
+            (item: { id: string }) => item.id === id
+          );
+          if (entity) {
+            setTimeout(() => {
+              resolve(new MockResponse<T>(entity as T));
+            }, SIMULATED_API_LATENCY);
+          } else {
+            reject(new Error('Not Found'));
+          }
         }
-      }
-      setTimeout(() => {
-        resolve(new MockResponse<T>(entities as T));
-      }, SIMULATED_API_LATENCY);
-    });
+        setTimeout(() => {
+          resolve(new MockResponse<T>(entities as T));
+        }, SIMULATED_API_LATENCY);
+      });
+    }
   }
 
   public async put<T>(path: string, data: T): Promise<MockResponse<T>> {

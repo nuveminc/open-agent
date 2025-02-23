@@ -2,6 +2,10 @@ import { IHttpProvider } from '@/api/types/http-provider.interface';
 import { GatewayProvider } from '@/api/gateway/gatewayProvider';
 import { GatewayType } from '@/types';
 import { ChatDTO, ChatPM } from '@/models/chat';
+import {
+  ChatSession,
+  ChatSessionDTO,
+} from '@/models/chat/chat-session.class.pm';
 
 const CHAT_HISTORY = '/chat-history';
 const CHATS = '/chats';
@@ -33,10 +37,13 @@ export class ChatRepository {
     return chats;
   }
 
-  public async getItem(id: string): Promise<ChatPM> {
-    const response = await this.provider.get<ChatDTO>(`${CHATS}/${id}`);
-    const chatPM = new ChatPM(response.data!);
-    return chatPM;
+  public async getItem(id: string): Promise<ChatSession> {
+    const response = await this.provider.get<ChatSessionDTO>(`${CHATS}/${id}`, {
+      isFile: true,
+    });
+    const chatSession = new ChatSession(response.data!);
+    console.log('ChatSession:', chatSession);
+    return chatSession;
   }
 
   public async addItem(item: ChatPM): Promise<ChatPM> {

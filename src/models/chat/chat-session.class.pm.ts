@@ -1,92 +1,21 @@
 import { format } from 'date-fns';
-
-export interface ChatSessionDTO {
-  id: string;
-  user_id: string;
-  title: string;
-  chat: ChatThreadDTO;
-  updated_at: number;
-  created_at: number;
-  share_id: string | null;
-  archived: boolean;
-  pinned: unknown;
-  meta: Record<string, unknown>;
-  folder_id: string | null;
-}
-
-export interface ChatThreadDTO {
-  id: string;
-  title: string;
-  models: string[];
-  params: Record<string, unknown>;
-  messages: ChatMessageDTO[];
-  history: ChatHistory;
-  tags: string[];
-  timestamp: number;
-  files: File[];
-}
-
-export interface ChatMessageDTO {
-  id: string;
-  parentId: string | null;
-  childrenIds: string[];
-  role: string;
-  content: string;
-  timestamp: number;
-  models: string[];
-}
-
-export interface ChatHistoryDTO {
-  messages: Record<string, ChatMessageDetails>;
-  currentId: string;
-}
-
-export interface ChatMessageDetailsDTO {
-  id: string;
-  parentId: string | null;
-  childrenIds: string[];
-  role: string;
-  content: string;
-  timestamp: number;
-  models: string[];
-}
-
-export interface FileDTO {
-  type: string;
-  file: FileInfoDTO;
-  id: string;
-  url: string;
-  name: string;
-  collectionName: string;
-  status: string;
-  size: number;
-  error: string | null;
-  itemId: string;
-}
-
-export interface FileInfoDTO {
-  id: string;
-  userId: string;
-  hash: string;
-  filename: string;
-  data: FileDataDTO;
-}
-
-export interface FileDataDTO {
-  content: string;
-  meta: {
-    name: string;
-    contentType: string;
-    size: number;
-    collectionName: string;
-  };
-}
+import {
+  ChatHistoryDTO,
+  ChatMessageDetailDTO,
+  ChatMessageDTO,
+  ChatSessionDTO,
+  ChatThreadDTO,
+  FileDataDTO,
+  FileDTO,
+  FileInfoDTO,
+  ModelUsageDTO,
+} from './chat-session.class.dto';
 
 export class ChatSession {
   id: string;
   userId: string;
   title: string;
-  chat: ChatThread;
+  chatThread: ChatThread;
   updatedAt: number;
   createdAt: number;
   shareId: string | null;
@@ -99,7 +28,7 @@ export class ChatSession {
     this.id = item.id;
     this.userId = item.user_id;
     this.title = item.title;
-    this.chat = new ChatThread(item.chat);
+    this.chatThread = new ChatThread(item.chat);
     this.updatedAt = item.updated_at;
     this.createdAt = item.created_at;
     this.shareId = item.share_id;
@@ -119,7 +48,7 @@ export class ChatThread {
   history: ChatHistory;
   tags: string[];
   timestamp: number;
-  files: File[];
+  files: DataFile[];
 
   constructor(chat: ChatThreadDTO) {
     this.id = chat.id;
@@ -132,7 +61,11 @@ export class ChatThread {
     this.history = new ChatHistory(chat.history);
     this.tags = chat.tags || [];
     this.timestamp = chat.timestamp;
-    this.files = chat.files || [];
+    this.files = this._createFileList(chat.files);
+  }
+
+  private _createFileList(files: FileDTO[]): DataFile[] {
+    return files.map((item) => new DataFile(item));
   }
 }
 
@@ -144,6 +77,11 @@ export class ChatMessage {
   content: string;
   time: string;
   models: string[];
+  modelName: string;
+  modelIdx: number;
+  userContext: string | null;
+  lastSentence: string;
+  usage: ModelUsage;
 
   constructor(msg: ChatMessageDTO) {
     this.id = msg.id;
@@ -153,6 +91,34 @@ export class ChatMessage {
     this.content = msg.content;
     this.time = format(msg.timestamp, 'h:mm aaa');
     this.models = msg.models || [];
+    this.modelName = this.models[0] || '';
+    this.modelIdx = msg.modelIdx || 0;
+    this.userContext = msg.userContext || null;
+    this.lastSentence = msg.lastSentence || '';
+    this.usage = new ModelUsage(msg.usage);
+  }
+}
+
+export class ModelUsage {
+  responseTokens: number;
+  promptTokens: number;
+  totalDuration: number;
+  loadDuration: number;
+  promptEvalCount: number;
+  promptEvalDuration: number;
+  evalCount: number;
+  evalDuration: number;
+  approximate_total: string;
+  constructor(usage: ModelUsageDTO) {
+    this.responseTokens = usage?.response_tokens || 0;
+    this.promptTokens = usage?.prompt_tokens || 0;
+    this.totalDuration = usage?.total_duration || 0;
+    this.loadDuration = usage?.load_duration || 0;
+    this.promptEvalCount = usage?.prompt_eval_count || 0;
+    this.promptEvalDuration = usage?.prompt_eval_duration || 0;
+    this.evalCount = usage?.eval_count || 0;
+    this.evalDuration = usage?.eval_duration || 0;
+    this.approximate_total = usage?.approximate_total || '';
   }
 }
 
@@ -178,7 +144,7 @@ export class ChatMessageDetails {
   timestamp: number;
   models: string[];
 
-  constructor(msg: ChatMessageDetailsDTO) {
+  constructor(msg: ChatMessageDetailDTO) {
     this.id = msg.id;
     this.parentId = msg.parentId;
     this.childrenIds = msg.childrenIds || [];
@@ -189,7 +155,7 @@ export class ChatMessageDetails {
   }
 }
 
-export class File {
+export class DataFile {
   type: string;
   file: FileInfo;
   id: string;
@@ -201,15 +167,22 @@ export class File {
   error: string | null;
   itemId: string;
 
+  FileType: { [key: string]: string } = {
+    image: 'Image',
+    video: 'Video',
+    audio: 'Audio',
+    file: 'File',
+  };
+
   constructor(item: FileDTO) {
-    this.type = item.type;
+    this.type = this.FileType[item.type];
     this.file = new FileInfo(item.file);
     this.id = item.id;
     this.url = item.url;
     this.name = item.name;
     this.collectionName = item.collectionName;
     this.status = item.status;
-    this.size = item.size;
+    this.size = item.size / 1024;
     this.error = item.error;
     this.itemId = item.itemId;
   }

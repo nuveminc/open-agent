@@ -1,13 +1,7 @@
-// import { useParams } from 'react-router-dom';
-// import { usePresenter } from '@/presenters/usePresenter';
-
 import { useChatPresenter } from '@/presenters/chat/useChatPresenter';
 import { ChatMessageUser } from '../../molecules/chat-message-user';
 import { ChatMessageAgent } from '../../molecules/chat-message-agent';
-import {
-  ChatMessage,
-  ChatMessage as ChatMessagePM,
-} from '@/models/chat/chat-session.class.pm';
+import { ChatMessage, ChatThread } from '@/models/chat/chat-session.class.pm';
 import { ChatContainer } from '@/components/organisms/chat-container';
 
 export const ChatSession: React.FC<object> = () => {
@@ -17,37 +11,51 @@ export const ChatSession: React.FC<object> = () => {
     return <div>Loading...</div>;
   }
 
-  const getMessage = (message: ChatMessagePM) => {
-    return message.role === 'user' ? (
-      <ChatMessageUser
-        key={message.id}
-        text={message.content}
-        showDeleteButton={true}
-      />
-    ) : (
-      <ChatMessageAgent
-        key={`message-response-${message.id}`}
-        id={message.id}
-        text={message.content}
-        model={presenter.currentChat.chat.models[0]}
-        time={message.time}
-      />
-    );
+  const getMessage = (
+    message: ChatMessage,
+    thread: ChatThread,
+    index: number
+  ) => {
+    let control = <></>;
+    if (message.role === 'user') {
+      control = (
+        <ChatMessageUser
+          key={message.id}
+          index={index}
+          text={message.content}
+          showDeleteButton={true}
+          files={thread.files}
+        />
+      );
+    }
+    if (message.role === 'assistant') {
+      control = (
+        <ChatMessageAgent
+          key={`message-response-${message.id}`}
+          id={message.id}
+          text={message.content}
+          model={presenter.currentChat.chatThread.models[0]}
+          time={message.time}
+          usage={message.usage}
+        />
+      );
+    }
+    return control;
   };
-  // Add your chat loading logic here using the chatId
-  // const data = presenter.getItem(chatId!);
-  // console.log('Chat Data:', data);
+
   return (
     <ChatContainer>
       <div className="h-full w-full flex flex-col py-4">
         {/* Your chat messages content */}
         <div className="h-full flex">
-          <div className="w-full pt-2">
+          <div className="w-full gap-2">
             {presenter.currentChat &&
-              presenter.currentChat.chat &&
-              presenter.currentChat.chat.messages.map((message: ChatMessage) =>
-                getMessage(message)
+              presenter.currentChat.chatThread &&
+              presenter.currentChat.chatThread.messages.map(
+                (message: ChatMessage, index: number) =>
+                  getMessage(message, presenter.currentChat.chatThread, index)
               )}
+            <div className="pb-12 md:pb-12 sm:pb-12 xs:pb-12"></div>
           </div>
         </div>
       </div>

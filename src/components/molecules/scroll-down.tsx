@@ -6,7 +6,7 @@ export const ScrollDown: React.FC<ScrollDownProps> = ({ onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="-mb-0.5 mx-auto inset-x-0 bg-transparent flex justify-center"
+      className="-mb-0.5 bg-transparent flex justify-center"
     >
       <div className="flex flex-col max-w-6xl px-2.5 md:px-6 w-full">
         <div className="relative">

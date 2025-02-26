@@ -17,7 +17,7 @@ type UserTableProps = Readonly<{
 export const UserTable: React.FC<UserTableProps> = ({ users }) => {
   return (
     <>
-      <div className="scrollbar-hidden relative whitespace-nowrap overflow-x-auto max-w-full svelte-3g4avz">
+      <div className="scrollbar-hidden relative whitespace-nowrap overflow-x-auto max-w-full">
         <Table>
           <TableHeader>
             <TableRow
@@ -27,9 +27,9 @@ export const UserTable: React.FC<UserTableProps> = ({ users }) => {
               <TableHead className="w-[100px]">ROLE</TableHead>
               <TableHead>NAME</TableHead>
               <TableHead>EMAIL</TableHead>
-              <TableHead>OAUTH ID</TableHead>
-              <TableHead>LAST ACTIVE</TableHead>
-              <TableHead>CREATED AT</TableHead>
+              {/* <TableHead>OAUTH ID</TableHead>
+              <TableHead>LAST ACTIVE</TableHead> */}
+              {/* <TableHead>CREATED AT</TableHead> */}
               <TableHead></TableHead>
             </TableRow>
           </TableHeader>
@@ -37,8 +37,8 @@ export const UserTable: React.FC<UserTableProps> = ({ users }) => {
             {users.map((user, idx) => (
               <TableRow key={`user-${idx}`}>
                 <TableCell className="font-medium">
-                  <button className="flex items-center gap-2 text-xs px-3 py-0.5 rounded-lg text-sky-600 dark:text-sky-200 bg-sky-200/30 false false svelte-3g4avz">
-                    <div className="w-1 h-1 rounded-full bg-sky-600 dark:bg-sky-300 false false svelte-3g4avz"></div>
+                  <button className="flex items-center gap-2 text-xs px-3 py-0.5 rounded-lg text-sky-600 dark:text-sky-200 bg-sky-200/30 false false">
+                    <div className="w-1 h-1 rounded-full bg-sky-600 dark:bg-sky-300 false false"></div>
                     {user.role}
                   </button>
                 </TableCell>
@@ -53,9 +53,9 @@ export const UserTable: React.FC<UserTableProps> = ({ users }) => {
                   </div>
                 </TableCell>
                 <TableCell>{user.email}</TableCell>
-                <TableCell>{user.oauth_sub}</TableCell>
-                <TableCell>{user.last_active_at}</TableCell>
-                <TableCell>{user.created_at}</TableCell>
+                {/* <TableCell>{user.oauth_sub}</TableCell> */}
+                {/* <TableCell>{user.last_active_at}</TableCell>
+                <TableCell>{user.created_at}</TableCell> */}
                 <TableCell className="text-right">
                   <div aria-label="Edit User">
                     <button className="text-sm px-2 py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-xl">

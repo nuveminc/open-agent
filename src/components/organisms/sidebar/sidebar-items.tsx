@@ -1,10 +1,10 @@
-import { ChatHistory } from './chat/chat-history';
+import { ChatSessionHistory } from './chat/chat-session-history';
 
 export const SidebarItems = () => {
   return (
-    <div className="pl-2 my-2 flex-1 flex flex-col space-y-1 overflow-auto hover:overflow-y-scroll svelte-141e0sl">
+    <div className="pl-2 my-2 flex-1 flex flex-col space-y-1 overflow-auto hover:overflow-y-scroll">
       {/* timeline title */}
-      <ChatHistory />
+      <ChatSessionHistory />
       {/* <div className="w-full pl-2.5 text-xs text-gray-500 dark:text-gray-500 font-medium pt-5 pb-0.5">
         Yesterday
       </div>

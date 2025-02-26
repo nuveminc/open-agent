@@ -34,7 +34,7 @@ export const ChatInput: React.FC<object> = () => {
                 </div>
                 <textarea
                   id="chat-textarea"
-                  className="scrollbar-hidden bg-gray-50 dark:bg-gray-850 dark:text-gray-100 outline-none w-full py-3 px-1 rounded-xl resize-none h-[48px] svelte-141e0sl"
+                  className="scrollbar-hidden bg-gray-50 dark:bg-gray-850 dark:text-gray-100 outline-none w-full py-3 px-1 rounded-xl resize-none h-[48px]"
                   placeholder="Send a Message"
                   rows={1}
                 ></textarea>

@@ -1,33 +1,38 @@
-import { useRef, useState, useEffect, UIEventHandler } from 'react';
+import repository from '@/repositories/chat.repository';
+import { useEffect, useState } from 'react';
+import { useAppStore } from '@/store/appStore';
+import { useParams } from 'react-router-dom';
+import { ChatSession } from '@/models/chat/chat-session.class.pm';
 
-export const useChatSessionPresenter = (children: React.ReactNode) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [showScrollDown, setShowScrollDown] = useState(false);
+export const useChatSessionPresenter = () => {
+  const { chatId } = useParams<{ chatId: string }>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const store = useAppStore();
 
-  // Scroll to bottom whenever children change
   useEffect(() => {
-    scrollToBottom();
-  }, [children]);
+    if (chatId) {
+      getItem(chatId);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chatId]);
 
-  const scrollToBottom = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollTop = containerRef.current.scrollHeight;
-      setShowScrollDown(false);
+  const getItem = async (id: string) => {
+    setIsLoading(true);
+    try {
+      const item: ChatSession = await repository.getItem(id);
+      store.setCurrentChat(item);
+    } catch (error) {
+      console.error('Failed to get chat by ID:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  // Handle scrolling: show the "ScrollDown" if user is NOT scrolled to bottom
-  const handleScroll: UIEventHandler<HTMLDivElement> = () => {
-    if (!containerRef.current) return;
-    const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
-    const nearBottom = scrollHeight - clientHeight - scrollTop <= 10;
-    setShowScrollDown(!nearBottom);
+  const presenter = {
+    getItem,
+    currentChat: store.currentChat,
+    isLoading,
   };
 
-  return {
-    containerRef,
-    showScrollDown,
-    scrollToBottom,
-    handleScroll,
-  };
+  return { presenter };
 };

@@ -2,16 +2,16 @@ import React from 'react';
 import { ScrollDown } from '../molecules/scroll-down';
 import { ChatInput } from '../molecules/chat-input';
 import { Navbar } from './navbar';
-import { useChatSessionPresenter } from '../../presenters/chat/useChatSessionPresenter';
-import { useAppPresenter } from '@/presenters/app/useAppPresenter';
+import { useChatSessionHandler } from '../../presenters/chat/useChatSessionHandler';
+import { useModalPresenter } from '@/presenters/app/useModalPresenter';
 import { Control } from './control-panel';
 
 export const ChatContainer: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const { presenter } = useAppPresenter();
+  const { presenter } = useModalPresenter();
   const { containerRef, showScrollDown, scrollToBottom, handleScroll } =
-    useChatSessionPresenter(children);
+    useChatSessionHandler(children);
 
   const handleClick = () => {
     const showPanel = !presenter.controlPanelOpen;

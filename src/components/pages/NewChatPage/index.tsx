@@ -3,13 +3,13 @@ import { WelcomeMessage } from '@/components/molecules/welcome-message';
 import { SuggestedPrompts } from '../../organisms/suggested-prompts';
 import { ChatContainer } from '@/components/organisms/chat-container';
 import { Control } from '@/components/organisms/control-panel';
-import { useAppPresenter } from '@/presenters/app/useAppPresenter';
 import { SystemHelp } from '@/components/molecules/system-help';
 import { useAuthPresenter } from '@/presenters/auth/useAuthPresenter';
 import { suggestedPrompts } from '@/constants/suggested-prompts';
+import { useControlPanelPresenter } from '@/presenters/app/useControlPanellPresenter';
 
 export const NewChat: React.FC<object> = () => {
-  const { presenter } = useAppPresenter();
+  const { presenter } = useControlPanelPresenter();
   const { user } = useAuthPresenter();
 
   const handleClick = () => {

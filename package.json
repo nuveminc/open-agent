@@ -7,7 +7,7 @@
     "dev": "vite --mode development",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:unit": "npm test useAppPResenter.test.ts -- --no-coverage",
+    "test:unit": "npm test useAppPresenter.test.ts -- --no-coverage",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

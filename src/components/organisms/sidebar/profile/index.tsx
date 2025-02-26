@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
 import React from 'react';
-import { useAppPresenter } from '@/presenters/app/useAppPresenter';
+import { useModalPresenter } from '@/presenters/app/useModalPresenter';
 import { router } from '@/routes';
 
 export interface MenuItem {
@@ -19,7 +19,7 @@ export interface MenuItem {
 }
 
 export const ProfileMenu = () => {
-  const { presenter } = useAppPresenter();
+  const { presenter } = useModalPresenter();
 
   const openSettings = () => {
     presenter.setModal('settings');

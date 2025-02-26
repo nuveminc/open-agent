@@ -1,10 +1,17 @@
+import React from 'react';
 import { NavButtonItem } from '../navbar/nav-button-item';
 import { ProfileMenu } from './profile';
 import { SidebarHeader } from './header/sidebar-header';
-import { SidebarItems } from './sidebar-items';
 import { SidebarSearch } from './header/sidebar-search';
+import { ChatSessionHistory } from './chat/chat-session-history';
+import { ChatListVM } from '@/models/chat/chat-list.class.vm';
 
-export const Sidebar = () => {
+type SidebarProps = Readonly<{
+  chatList: ChatListVM;
+  isLoading: boolean;
+}>;
+
+export const Sidebar: React.FC<SidebarProps> = ({ chatList, isLoading }) => {
   return (
     <div
       id="sidebar"
@@ -16,7 +23,9 @@ export const Sidebar = () => {
         {/* <NavButtonItem title="Flow" link="/flow" /> */}
         <div className="relative flex flex-col flex-1 overflow-y-auto">
           <SidebarSearch />
-          <SidebarItems />
+          <div className="pl-2 my-2 flex-1 flex flex-col space-y-1 overflow-auto hover:overflow-y-scroll">
+            <ChatSessionHistory chatList={chatList} isLoading={isLoading} />
+          </div>
         </div>
         <ProfileMenu />
       </div>

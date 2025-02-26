@@ -13,21 +13,6 @@ export class NavPresenter {
     private store: typeof useAppStore
   ) {}
 
-  // async initialize(): Promise<void> {
-  //   if (this.initialized) return;
-
-  //   console.log('Initializing ChatPresenter...');
-  //   try {
-  //     const items = await this.repository.getItems();
-  //     const chatList = this._createChatList(items);
-  //     this.store.getState().setChatList(chatList);
-  //     this.initialized = true;
-  //   } catch (error) {
-  //     console.error('Failed to initialize ChatPresenter:', error);
-  //     throw error;
-  //   }
-  // }
-
   isInitialized(): boolean {
     return this.initialized;
   }
@@ -40,13 +25,13 @@ export class NavPresenter {
     return this.store.getState().chatList;
   }
 
-  async addItem(item: ChatVM): Promise<ChatVM> {
-    const itemPM = ChatPMFactory.toPM(item);
-    const newItem = await this.repository.addItem(itemPM);
-    const itemVM = new ChatVM(newItem);
-    this.store.getState().addChat(itemVM);
-    return itemVM;
-  }
+  // async addItem(item: ChatVM): Promise<ChatVM> {
+  //   const itemPM = ChatPMFactory.toPM(item);
+  //   const newItem = await this.repository.addItem(itemPM);
+  //   const itemVM = new ChatVM(newItem);
+  //   this.store.getState().addChat(itemVM);
+  //   return itemVM;
+  // }
 
   cleanup(): void {
     this.initialized = false;

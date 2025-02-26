@@ -2,7 +2,7 @@
 
 import { renderHook, act } from '@testing-library/react';
 import { useSettingsStore } from '@/store/settingsStore';
-import { useAppPresenter } from '../app/useAppPresenter';
+import { useAppPresenter } from '../app/useModalPresenter';
 
 describe('useAppPresenter', () => {
   // beforeEach(() => {

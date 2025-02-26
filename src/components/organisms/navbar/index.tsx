@@ -4,12 +4,10 @@ import { ControlsMenuButton } from './controls-menu-button';
 import { NewChatButton } from '../sidebar/header/new-chat-button';
 import { UserMenu } from './user-menu';
 import { ModelDropdown } from './model-selector/model-dropdown';
-import { useAppPresenter } from '@/presenters/app/useAppPresenter';
-
-// import { useState } from 'react';
+import { useModalPresenter } from '@/presenters/app/useModalPresenter';
 
 export const Navbar = () => {
-  const { presenter } = useAppPresenter();
+  const { presenter } = useModalPresenter();
 
   const handleClick = () => {
     const isOpen = presenter.controlPanelOpen;

@@ -1,11 +1,11 @@
-import { useChatPresenter } from '@/presenters/chat/useChatPresenter';
 import { ChatMessageUser } from '../../molecules/chat-message-user';
 import { ChatMessageAgent } from '../../molecules/chat-message-agent';
 import { ChatMessage, ChatThread } from '@/models/chat/chat-session.class.pm';
 import { ChatContainer } from '@/components/organisms/chat-container';
+import { useChatSessionPresenter } from '@/presenters/chat/useChatSessionPresenter';
 
 export const ChatSession: React.FC<object> = () => {
-  const { presenter } = useChatPresenter();
+  const { presenter } = useChatSessionPresenter();
 
   if (presenter.isLoading) {
     return <div>Loading...</div>;

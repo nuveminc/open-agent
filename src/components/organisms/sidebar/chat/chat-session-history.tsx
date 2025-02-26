@@ -2,13 +2,16 @@ import React from 'react';
 import { ChatTimeRange } from './chat-timerange';
 import { ChatItem } from './chat-item';
 import { ChatListVM } from '@/models/chat/chat-list.class.vm';
-import { useChatPresenter } from '@/presenters/chat/useChatPresenter';
 
-export const ChatSessionHistory: React.FC<object> = () => {
-  const { presenter } = useChatPresenter();
-  const chatList: ChatListVM = presenter.getChatList();
-
-  if (presenter.isLoading) {
+type ChatSessionHistoryProps = {
+  chatList: ChatListVM;
+  isLoading: boolean;
+};
+export const ChatSessionHistory: React.FC<ChatSessionHistoryProps> = ({
+  chatList,
+  isLoading,
+}) => {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center h-full">
         <div className="text-sm text-gray-500">Loading chats...</div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { useModalPresenter } from '@/presenters/app/useModalPresenter';
 import { DefaultPermissionsButton } from './default-permissions-button';
 import { SearchBar } from '@/components/molecules/common/search-bar';
-import { ButtonAdd } from '@/components/molecules/button/add-button';
+import { ButtonAdd } from '@/components/molecules/button/button-add';
 import { EntityCount } from '../../common/entity-count';
 import CreateGroup from './create-group';
 

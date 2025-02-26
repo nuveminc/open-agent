@@ -14,7 +14,7 @@ export const LeaderboardTable: React.FC = () => {
     { rank: '-', model: 'llama3.1:latest', rating: '-', won: '-', lost: '-' },
   ];
   return (
-    <div className="scrollbar-hidden relative whitespace-nowrap overflow-x-auto max-w-full svelte-3g4avz">
+    <div className="scrollbar-hidden relative whitespace-nowrap overflow-x-auto max-w-full">
       <Table>
         <TableHeader>
           <TableRow

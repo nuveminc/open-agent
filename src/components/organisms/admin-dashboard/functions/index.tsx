@@ -3,7 +3,7 @@ import { router } from '@/routes';
 import { Icon } from '@/components/atoms';
 import { EntityCount } from '../common/entity-count';
 import { SearchBar } from '../../../molecules/common/search-bar';
-import { ButtonAdd } from '@/components/molecules/button/add-button';
+import { ButtonAdd } from '@/components/molecules/button/button-add';
 
 export const Functions: React.FC = () => {
   const onAddClick = () => {

@@ -3,7 +3,7 @@ import { EntityCount } from '../../common/entity-count';
 import { UserTable } from './user-table';
 import { users } from '@/constants/users';
 import { SearchBar } from '@/components/molecules/common/search-bar';
-import { ButtonAdd } from '@/components/molecules/button/add-button';
+import { ButtonAdd } from '@/components/molecules/button/button-add';
 
 export const AllUsers: React.FC = () => {
   const onAddClick = () => {

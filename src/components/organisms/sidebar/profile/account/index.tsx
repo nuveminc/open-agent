@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { SettingsToggleDisplay } from '../../../../molecules/settings/settings-toggle-display';
 import { NameSetting } from './name-setting';
 import { PasswordSetting } from './password-setting';
-import { InputHiddenControl } from '@/components/molecules/common/input-hidden-control';
+import { InputHiddenControl } from '@/components/molecules/input/input-hidden-control';
 
 export const AccountSettings: React.FC = () => {
   const [avatarType, setAvatarType] = useState<

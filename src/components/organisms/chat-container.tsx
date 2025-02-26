@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollDown } from '../molecules/scroll-down';
-import { ChatInput } from '../molecules/chat-input';
+import { ChatInput } from './chat/chat-input';
 import { Navbar } from './navbar';
 import { useChatSessionHandler } from '../../presenters/chat/useChatSessionHandler';
 import { useModalPresenter } from '@/presenters/app/useModalPresenter';

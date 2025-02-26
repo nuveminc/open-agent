@@ -1,4 +1,4 @@
-import { Password } from '@/components/molecules/password';
+import { Password } from '@/components/molecules/input/password';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
 

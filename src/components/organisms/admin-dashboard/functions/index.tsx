@@ -1,9 +1,9 @@
 import React from 'react';
-import { EntityCount } from '../common/entity-count';
-import { SearchBar } from '../../../molecules/common/search-bar';
-import { AddButton } from '../../../molecules/common/add-button';
 import { router } from '@/routes';
 import { Icon } from '@/components/atoms';
+import { EntityCount } from '../common/entity-count';
+import { SearchBar } from '../../../molecules/common/search-bar';
+import { ButtonAdd } from '@/components/molecules/button/add-button';
 
 export const Functions: React.FC = () => {
   const onAddClick = () => {
@@ -15,7 +15,7 @@ export const Functions: React.FC = () => {
         <EntityCount title="Functions" count={0} />
         <div className="flex gap-2">
           <SearchBar />
-          <AddButton text={'Create Function'} onClick={onAddClick} />
+          <ButtonAdd tooltip={'Create Function'} onClick={onAddClick} />
         </div>
       </div>
       <div className="mb-5"></div>

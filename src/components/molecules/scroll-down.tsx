@@ -11,7 +11,7 @@ export const ScrollDown: React.FC<ScrollDownProps> = ({ onClick }) => {
       <div className="flex flex-col max-w-6xl px-2.5 md:px-6 w-full">
         <div className="relative">
           <div className="absolute -top-12 left-0 right-0 flex justify-center z-30 pointer-events-none">
-            <button className="bg-white border border-gray-100 dark:border-none dark:bg-white/20 p-1.5 rounded-full pointer-events-auto">
+            <button className="bg-white border border-gray-100 dark:border-none dark:bg-gray-800 p-1.5 rounded-full pointer-events-auto">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -27,7 +27,6 @@ export const ScrollDown: React.FC<ScrollDownProps> = ({ onClick }) => {
             </button>
           </div>
         </div>
-        <div className="w-full relative"></div>
       </div>
     </div>
   );

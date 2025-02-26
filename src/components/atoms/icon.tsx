@@ -93,13 +93,13 @@ export const icons = {
 
 export type IconName = keyof typeof icons;
 
-export interface IconProps {
+export type IconProps = Readonly<{
   name: IconName;
   className?: string;
   fill?: string;
   stroke?: string;
   strokeWidth?: string;
-}
+}>;
 
 export const Icon: React.FC<IconProps> = ({
   name,

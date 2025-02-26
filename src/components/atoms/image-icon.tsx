@@ -1,8 +1,10 @@
-interface ImageIconProps {
-  className: string;
-}
+import React from 'react';
 
-export const ImageIcon = ({ className }: ImageIconProps) => {
+type ImageIconProps = Readonly<{
+  className: string;
+}>;
+
+export const ImageIcon: React.FC<ImageIconProps> = ({ className }) => {
   return (
     // flex-shrink-0 mr-3
     <div className={className}>

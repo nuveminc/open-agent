@@ -3,7 +3,7 @@ import { EntityCount } from '../../common/entity-count';
 import { UserTable } from './user-table';
 import { users } from '@/constants/users';
 import { SearchBar } from '@/components/molecules/common/search-bar';
-import { AddButton } from '@/components/molecules/common/add-button';
+import { ButtonAdd } from '@/components/molecules/button/add-button';
 
 export const AllUsers: React.FC = () => {
   const onAddClick = () => {
@@ -17,7 +17,7 @@ export const AllUsers: React.FC = () => {
         <EntityCount title="All Users" count={users.length} />
         <div className="flex gap-2">
           <SearchBar />
-          <AddButton text={'Create User'} onClick={onAddClick} />
+          <ButtonAdd tooltip={'Create User'} onClick={onAddClick} />
         </div>
       </div>
       {/* TABLE */}

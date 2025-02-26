@@ -1,5 +1,5 @@
-import { Icon } from '../atoms';
-import { Disclaimer } from './disclaimer';
+import { Icon } from '../../atoms';
+import { Disclaimer } from '../../molecules/disclaimer';
 
 export const ChatInput: React.FC<object> = () => {
   return (

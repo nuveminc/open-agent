@@ -1,13 +1,13 @@
-import { Icon } from '@/components/atoms';
 import React from 'react';
-import ShadTooltip from './shad-tooltip';
+import { Icon } from '@/components/atoms';
+import ShadTooltip from '../common/shad-tooltip';
 
-type AddButtonProps = Readonly<{
+type ButtonAddProps = Readonly<{
   tooltip: string;
   onClick: () => void;
 }>;
 
-export const AddButton: React.FC<AddButtonProps> = ({ tooltip, onClick }) => {
+export const ButtonAdd: React.FC<ButtonAddProps> = ({ tooltip, onClick }) => {
   return (
     <div aria-label={tooltip} className="flex">
       <ShadTooltip content={tooltip}>

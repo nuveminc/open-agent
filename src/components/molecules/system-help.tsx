@@ -1,4 +1,6 @@
-export const SystemHelp = () => {
+import React from 'react';
+
+export const SystemHelp: React.FC<object> = () => {
   return (
     <div className="hidden lg:flex fixed bottom-0 right-0 px-2 py-2 z-20">
       <button id="show-shortcuts-button" className="hidden"></button>
@@ -17,7 +19,7 @@ export const SystemHelp = () => {
             ?
           </button>
         </div>
-      </button>{' '}
+      </button>
       <div slot="content"></div>
     </div>
   );

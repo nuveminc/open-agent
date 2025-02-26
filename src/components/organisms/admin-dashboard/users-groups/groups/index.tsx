@@ -1,10 +1,10 @@
 import React from 'react';
-import CreateGroup from './create-group';
 import { useModalPresenter } from '@/presenters/app/useModalPresenter';
 import { DefaultPermissionsButton } from './default-permissions-button';
 import { SearchBar } from '@/components/molecules/common/search-bar';
-import { AddButton } from '@/components/molecules/common/add-button';
+import { ButtonAdd } from '@/components/molecules/button/add-button';
 import { EntityCount } from '../../common/entity-count';
+import CreateGroup from './create-group';
 
 export const Groups: React.FC = () => {
   const { presenter } = useModalPresenter();
@@ -22,7 +22,7 @@ export const Groups: React.FC = () => {
             <div className="flex w-full space-x-2">
               <div className="flex gap-2">
                 <SearchBar />
-                <AddButton tooltip="Create Group" onClick={onAddClick} />
+                <ButtonAdd tooltip="Create Group" onClick={onAddClick} />
               </div>
             </div>
           </div>

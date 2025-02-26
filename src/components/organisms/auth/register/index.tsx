@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { InputEmail } from '@/components/molecules/common/input-email';
-import { InputPassword } from '@/components/molecules/common/input-password';
+import { InputEmail } from '@/components/molecules/input/input-email';
+import { InputPassword } from '@/components/molecules/input/input-password';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';

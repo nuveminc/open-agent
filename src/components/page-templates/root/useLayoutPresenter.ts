@@ -4,7 +4,7 @@ import { useAppStore } from '@/store/appStore';
 import { ChatPM } from '@/models/chat';
 import { ChatListVM } from '@/models/chat/chat-list.class.vm';
 
-export const useChatPresenter = () => {
+export const useLayoutPresenter = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [initialized, setInitialized] = useState<boolean>(false);
   const store = useAppStore();

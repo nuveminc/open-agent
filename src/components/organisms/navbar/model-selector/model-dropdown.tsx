@@ -1,16 +1,16 @@
+import { useState } from 'react';
+import { cn } from '@/lib/utils';
 import { Icon } from '@/components/atoms';
 import { DropdownSeparator } from '@/components/molecules/dropdown/dropdown-separator';
 import { DropdownControl } from '@/components/molecules/dropdown/dropdown-control';
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { Switch } from '@/components/ui/switch';
-import { cn } from '@/lib/utils';
-import { useChatPresenter } from '@/presenters/chat/useChatPresenter';
-import { useState } from 'react';
+import { useLayoutPresenter } from '@/components/page-templates/root/useLayoutPresenter';
 
 export const ModelDropdown: React.FC<{
   text: string;
 }> = ({ text }: { text: string }) => {
-  const { presenter } = useChatPresenter();
+  const { presenter } = useLayoutPresenter();
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [open, setOpen] = useState(false);

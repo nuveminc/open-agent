@@ -1,8 +1,8 @@
 import { ChatMessageUser } from '../../molecules/chat-message-user';
 import { ChatMessageAgent } from '../../molecules/chat-message-agent';
 import { ChatMessage, ChatThread } from '@/models/chat/chat-session.class.pm';
-import { ChatContainer } from '@/components/organisms/chat-container';
-import { useChatSessionPresenter } from '@/presenters/chat/useChatSessionPresenter';
+import { ChatContainer } from '@/components/page-templates/chat/chat-container';
+import { useChatSessionPresenter } from '@/components/pages/ChatSession/useChatSessionPresenter';
 
 export const ChatSession: React.FC<object> = () => {
   const { presenter } = useChatSessionPresenter();

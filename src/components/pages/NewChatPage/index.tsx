@@ -1,7 +1,7 @@
 import { ButtonLogo } from '@/components/molecules/button/button-logo';
 import { WelcomeMessage } from '@/components/molecules/welcome-message';
 import { SuggestedPrompts } from '../../organisms/suggested-prompts';
-import { ChatContainer } from '@/components/organisms/chat-container';
+import { ChatContainer } from '@/components/page-templates/chat/chat-container';
 import { Control } from '@/components/organisms/control-panel';
 import { SystemHelp } from '@/components/molecules/system-help';
 import { useAuthPresenter } from '@/presenters/auth/useAuthPresenter';

@@ -1,9 +1,9 @@
 import { useGetAutoLogin } from '@/repositories/AuthRepository/use-get-autologin';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { LoadingPage } from '../Loading';
+import { LoadingPage } from '../../pages/Loading';
 
-type AppInitProps = object;
+type AppInitProps = Readonly<object>;
 
 export const AppInitPage: React.FC<AppInitProps> = () => {
   // const dark = useDarkStore((state) => state.dark);

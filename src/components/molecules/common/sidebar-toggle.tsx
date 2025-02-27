@@ -1,10 +1,18 @@
 import React from 'react';
+import { cn } from '@/lib/utils';
 
-type SidebarToggleProps = object;
+type SidebarToggleProps = Readonly<{
+  onClick: () => void;
+}>;
 
-export const SidebarToggle: React.FC<SidebarToggleProps> = () => {
+export const SidebarToggle: React.FC<SidebarToggleProps> = ({ onClick }) => {
   return (
-    <button className="cursor-pointer px-2 py-2 flex rounded-xl hover:bg-gray-100 dark:hover:bg-gray-900 transition">
+    <button
+      onClick={onClick}
+      className={cn(
+        'cursor-pointer px-2 py-2 flex rounded-xl hover:bg-gray-100 dark:hover:bg-gray-900 transition'
+      )}
+    >
       <div className="m-auto self-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"

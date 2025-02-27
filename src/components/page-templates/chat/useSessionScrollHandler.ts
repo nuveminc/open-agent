@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect, UIEventHandler } from 'react';
 
-export const useChatSessionHandler = (children: React.ReactNode) => {
+export const useSessionScrollHandler = (children: React.ReactNode) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [showScrollDown, setShowScrollDown] = useState(false);
 

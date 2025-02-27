@@ -1,26 +1,21 @@
 import React from 'react';
-import { ScrollDown } from '../molecules/scroll-down';
-import { ChatInput } from './chat/chat-input';
-import { Navbar } from './navbar';
-import { useChatSessionHandler } from '../../presenters/chat/useChatSessionHandler';
-import { useModalPresenter } from '@/presenters/app/useModalPresenter';
-import { Control } from './control-panel';
+import { ScrollDown } from '@/components/molecules/scroll-down';
+import { ChatInput } from '@/components//organisms/chat/chat-input';
+import { Navbar } from '@/components//organisms/navbar';
+import { Control } from '@/components//organisms/control-panel';
+import { useChatContainerPresenter } from './useContainerPresenter';
+import { useSessionScrollHandler } from './useSessionScrollHandler';
 
 export const ChatContainer: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const { presenter } = useModalPresenter();
+  const { navbar } = useChatContainerPresenter();
   const { containerRef, showScrollDown, scrollToBottom, handleScroll } =
-    useChatSessionHandler(children);
-
-  const handleClick = () => {
-    const showPanel = !presenter.controlPanelOpen;
-    presenter.showControlPanel(showPanel);
-  };
+    useSessionScrollHandler(children);
 
   return (
     <div className="flex flex-col h-screen">
-      <Navbar />
+      <Navbar onSidebarToggle={navbar.handleClickSidebarToggle} />
       <div className="flex flex-row w-full h-full overflow-hidden">
         <div className="flex flex-col w-full">
           <div
@@ -37,10 +32,10 @@ export const ChatContainer: React.FC<{
         </div>
         <div
           className={`flex h-full w-[30rem] ${
-            !presenter.controlPanelOpen ? 'hidden' : ''
+            !navbar.controlPanelOpen ? 'hidden' : ''
           }`}
         >
-          <Control onClick={handleClick} />
+          <Control onClick={navbar.handleClickControlPanel} />
         </div>
       </div>
     </div>

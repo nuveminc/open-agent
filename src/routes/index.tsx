@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { NewChat } from '@/components/pages/NewChatPage';
 import { ChatSession } from '@/components/pages/ChatSession';
-import { Layout } from '@/components/page-templates/layout';
+import { Layout } from '@/components/page-templates/root/layout';
 import { UsersGroups } from '@/components/organisms/admin-dashboard/users-groups';
 import { Evaluations } from '@/components/organisms/admin-dashboard/evaluations';
 import { Functions } from '@/components/organisms/admin-dashboard/functions';
@@ -10,7 +10,7 @@ import { SystemSettings } from '@/components/organisms/admin-dashboard/settings'
 import { AdminSettings } from '@/components/pages/AdminSettingsPage';
 import { FlowView } from '@/components/pages/FlowPage';
 import { Login } from '@/components/pages/LoginPage';
-import { AppInitPage } from '@/components/pages/AppInitPage';
+import { AppInitPage } from '@/components/page-templates/app-init';
 import { ProtectedRoute } from './guards/protected-route';
 import { ProtectedLoginRoute } from './guards/protected-login-route';
 
@@ -30,6 +30,7 @@ const routes = [
           {
             index: true,
             element: <NewChat />,
+            // children: [],
           },
           {
             path: '/c/:chatId',

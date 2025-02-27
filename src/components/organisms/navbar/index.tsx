@@ -5,13 +5,30 @@ import { NewChatButton } from '../sidebar/header/new-chat-button';
 import { UserMenu } from './user-menu';
 import { ModelDropdown } from './model-selector/model-dropdown';
 import { useModalPresenter } from '@/presenters/app/useModalPresenter';
+import { SidebarToggle } from '@/components/molecules/common/sidebar-toggle';
+import React, { useEffect } from 'react';
+import { useSidebarStore } from '@/store/sidebarStore';
 
-export const Navbar = () => {
+type NavbarProps = Readonly<{
+  onSidebarToggle: (isSidbarVisible: boolean) => void;
+}>;
+export const Navbar: React.FC<NavbarProps> = ({ onSidebarToggle }) => {
   const { presenter } = useModalPresenter();
+  const { isDisplayed } = useSidebarStore();
+  const [sidebarToggleVisible, setSidebarToggleVisible] = React.useState(true);
 
   const handleClick = () => {
     const isOpen = presenter.controlPanelOpen;
     presenter.showControlPanel(!isOpen);
+  };
+
+  useEffect(() => {
+    setSidebarToggleVisible(!isDisplayed);
+  }, [isDisplayed]);
+
+  const handleSidebarToggle = () => {
+    setSidebarToggleVisible(!isDisplayed);
+    onSidebarToggle(isDisplayed);
   };
 
   return (
@@ -19,17 +36,10 @@ export const Navbar = () => {
       {/* navbar container  */}
       <div className="flex w-full mx-auto px-3 md:px-[1rem]">
         <div className="flex items-center w-full max-w-full">
-          {/* hidden sidebar toggle: display when sidebar closed */}
-          <div className="md:hidden mr-3 self-start flex flex-none items-center text-gray-600 dark:text-gray-400">
-            <button
-              id="sidebar-toggle-button"
-              className="cursor-pointer px-2 py-2 flex rounded-xl hover:bg-gray-50 dark:hover:bg-gray-850 transition"
-              aria-label="Toggle Sidebar"
-            >
-              <div className="m-auto self-center">
-                <Icon name="toggle" strokeWidth="2.0" className="size-5" />
-              </div>
-            </button>
+          {/* hide toggle when sidebar is displayed */}
+          <div className={sidebarToggleVisible ? 'hidden' : ''}>
+            {/* hidden sidebar toggle: display when sidebar closed */}
+            <SidebarToggle onClick={handleSidebarToggle} />
           </div>
           {/* navbar header section: left */}
           <div className="flex-1 overflow-hidden max-w-full">

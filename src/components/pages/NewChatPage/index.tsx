@@ -2,20 +2,13 @@ import { ButtonLogo } from '@/components/molecules/button/button-logo';
 import { WelcomeMessage } from '@/components/molecules/welcome-message';
 import { SuggestedPrompts } from '../../organisms/suggested-prompts';
 import { ChatContainer } from '@/components/page-templates/chat/chat-container';
-import { Control } from '@/components/organisms/control-panel';
 import { SystemHelp } from '@/components/molecules/system-help';
 import { useAuthPresenter } from '@/presenters/auth/useAuthPresenter';
 import { suggestedPrompts } from '@/constants/suggested-prompts';
-import { useControlPanelPresenter } from '@/presenters/app/useControlPanellPresenter';
 
 export const NewChat: React.FC<object> = () => {
-  const { presenter } = useControlPanelPresenter();
   const { user } = useAuthPresenter();
 
-  const handleClick = () => {
-    const showPanel = !presenter.controlPanelOpen;
-    presenter.showControlPanel(showPanel);
-  };
   return (
     <ChatContainer>
       <div className="flex w-full justify-between overflow-hidden">
@@ -31,10 +24,6 @@ export const NewChat: React.FC<object> = () => {
             message="How can I help you today?"
           />
           <SuggestedPrompts suggestedPrompts={suggestedPrompts} />
-        </div>
-        {/* RIGHT CONTROL SECTION */}
-        <div className={`${!presenter.controlPanelOpen ? 'hidden' : ''}`}>
-          <Control onClick={handleClick} />
         </div>
       </div>
       <SystemHelp />

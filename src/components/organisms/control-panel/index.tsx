@@ -8,6 +8,10 @@ import { useSettingsStore } from '@/store/settingsStore';
 import { AdvancedParameters } from '../common/advanced-parameters';
 import { advancedControlSettings } from '@/constants/advanced-control-settings';
 
+type ControlPanelProps = Readonly<{
+  onClick: () => void;
+}>;
+
 const typeOptions = [
   { value: 'tools', name: 'Tools' },
   { value: 'functions', name: 'Functions' },
@@ -26,7 +30,7 @@ const allItems = {
   ],
 };
 
-export const Control: React.FC<{ onClick: () => void }> = ({ onClick }) => {
+export const ControlPanel: React.FC<ControlPanelProps> = ({ onClick }) => {
   const state = useSettingsStore();
   const settings = state.parameters;
   // let advancedSettings;

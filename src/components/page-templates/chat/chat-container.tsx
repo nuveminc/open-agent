@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollDown } from '@/components/molecules/scroll-down';
 import { ChatInput } from '@/components//organisms/chat/chat-input';
 import { Navbar } from '@/components//organisms/navbar';
-import { Control } from '@/components//organisms/control-panel';
+import { ControlPanel } from '@/components//organisms/control-panel';
 import { useChatContainerPresenter } from './useContainerPresenter';
 import { useSessionScrollHandler } from './useSessionScrollHandler';
 
@@ -35,7 +35,7 @@ export const ChatContainer: React.FC<{
             !navbar.controlPanelOpen ? 'hidden' : ''
           }`}
         >
-          <Control onClick={navbar.handleClickControlPanel} />
+          <ControlPanel onClick={navbar.handleClickControlPanel} />
         </div>
       </div>
     </div>

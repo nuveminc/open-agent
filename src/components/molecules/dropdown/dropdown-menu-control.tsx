@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DropdownTrigger } from './dropdown-trigger';
 import {
   DropdownMenu,
@@ -11,17 +11,29 @@ export const DropdownMenuControl: React.FC<{
   triggerClassName: string;
   contentClassName: string;
   contentStyle?: React.CSSProperties;
+  open: boolean;
   children: React.ReactNode;
-}> = ({ text, triggerClassName, contentClassName, contentStyle, children }) => {
-  const [open, setOpen] = useState(false);
+}> = ({
+  text,
+  triggerClassName,
+  contentClassName,
+  contentStyle,
+  open,
+  children,
+}) => {
+  const [isOpen, setIsOpen] = useState(open);
   // const [checkState, setCheckState] = useState(false);
 
+  useEffect(() => {
+    setIsOpen(open);
+  }, [isOpen, open]);
+
   const toggleOpen = () => {
-    console.log(open);
-    setOpen(!open);
+    console.log(isOpen);
+    setIsOpen(!isOpen);
   };
   return (
-    <DropdownMenu modal={false} open={open} onOpenChange={toggleOpen}>
+    <DropdownMenu modal={false} open={isOpen} onOpenChange={toggleOpen}>
       <DropdownTrigger text={text} className={triggerClassName} />
       <DropdownMenuContent
         className={cn(

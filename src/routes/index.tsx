@@ -13,6 +13,7 @@ import { Login } from '@/components/pages/LoginPage';
 import { AppInitPage } from '@/components/page-templates/app-init';
 import { ProtectedRoute } from './guards/protected-route';
 import { ProtectedLoginRoute } from './guards/protected-login-route';
+import { ChatLayout } from '@/components/page-templates/chat/chat-layout';
 
 const routes = [
   {
@@ -28,18 +29,20 @@ const routes = [
         ),
         children: [
           {
-            index: true,
-            element: <NewChat />,
-            // children: [],
+            path: '/',
+            element: <ChatLayout />,
+            children: [
+              {
+                path: '/',
+                element: <NewChat />,
+              },
+              {
+                path: '/c/:chatId',
+                element: <ChatSession />,
+              },
+            ],
           },
-          {
-            path: '/c/:chatId',
-            element: <ChatSession />,
-          },
-          {
-            path: 'flow',
-            element: <FlowView />,
-          },
+          { path: 'flow', element: <FlowView /> },
           {
             path: '/admin',
             element: <AdminSettings />,

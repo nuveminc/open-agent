@@ -4,7 +4,7 @@ import {
 } from '@/api/types/http-provider.interface';
 import axios, { Axios, AxiosError } from 'axios';
 
-const BASE_URL = 'https://localhost:8080'; // Replace with your API base URL
+const BASE_URL = 'http://localhost:8080/api/v1'; // Replace with your API base URL
 
 export class HttpProvider implements IHttpProvider {
   constructor(private client: Axios, private baseUrl: string) {}

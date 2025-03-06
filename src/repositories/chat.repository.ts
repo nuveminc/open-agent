@@ -2,10 +2,8 @@ import { IHttpProvider } from '@/api/types/http-provider.interface';
 import { GatewayProvider } from '@/api/gateway/gatewayProvider';
 import { GatewayType } from '@/types';
 import { ChatDTO, ChatPM } from '@/models/chat';
-import {
-  ChatSession,
-  ChatSessionDTO,
-} from '@/models/chat/chat-session.class.pm';
+import { ChatSession } from '@/models/chat/chat-session.class.pm';
+import { ChatSessionDTO } from '@/models/chat/chat-session.class.dto';
 
 const CHAT_HISTORY = '/chat-history';
 const CHATS = '/chats';

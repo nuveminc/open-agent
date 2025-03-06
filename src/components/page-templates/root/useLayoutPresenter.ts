@@ -1,8 +1,10 @@
-import repository from '@/repositories/chat.repository';
+import chatRepository from '@/repositories/chat.repository';
+import modelRepository from '@/repositories/model.repository';
 import { useEffect, useMemo, useState } from 'react';
 import { useAppStore } from '@/store/appStore';
 import { ChatPM } from '@/models/chat';
 import { ChatListVM } from '@/models/chat/chat-list.class.vm';
+import { ModelCollection } from '@/models/model';
 
 export const useLayoutPresenter = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -10,7 +12,8 @@ export const useLayoutPresenter = () => {
   const store = useAppStore();
 
   useEffect(() => {
-    initialize();
+    getChats();
+    getModels();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialized]);
 
@@ -18,17 +21,37 @@ export const useLayoutPresenter = () => {
     return new ChatListVM(items);
   };
 
-  const initialize = async (): Promise<void> => {
+  const getChats = async (): Promise<void> => {
     if (initialized) return;
     setInitialized(true);
     console.log('Initializing ChatPresenter...');
     try {
-      const items = await repository.getItems();
+      const items = await chatRepository.getItems();
       const chatList = _createChatList(items);
       store.setChatList(chatList);
       setIsLoading(false);
     } catch (error) {
       console.error('Failed to initialize ChatPresenter:', error);
+      throw error;
+    }
+  };
+
+  const getModels = async () => {
+    if (initialized) return;
+    setIsLoading(true);
+    setInitialized(true);
+    console.log('Initializing Models...');
+    try {
+      const items: ModelCollection | null = await modelRepository.getItems();
+      if (items) {
+        store.setModels(items);
+      } else {
+        console.error('Failed to fetch models');
+        return;
+      }
+      setIsLoading(false);
+    } catch (error) {
+      console.error('Failed to initialize Models:', error);
       throw error;
     }
   };
@@ -41,12 +64,17 @@ export const useLayoutPresenter = () => {
     return store.chatList;
   }, [store.chatList]);
 
-  const presenter = {
+  const chat = {
     getChatList: () => getChatList,
+    models: () => store.models,
     isTemporaryChat,
     currentChat: store.currentChat,
     isLoading,
   };
 
-  return { presenter };
+  const presenter = {
+    isTemporaryChat,
+  };
+
+  return { chat, presenter };
 };

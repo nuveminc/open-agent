@@ -1,11 +1,11 @@
-import { ImageIcon } from '../atoms/image-icon';
-import { ButtonEdit } from './button/chat/button-edit';
-import { ButtonReadAloud } from './button/button-read-aloud';
-import { ButtonBadResponse } from './button/chat/button-bad-response';
-import { ButtonInfo } from './button/chat/button-info';
-import { ButtonGoodResponse } from './button/chat/button-good-response';
+import { ImageIcon } from '../../atoms/image-icon';
+import { ButtonEdit } from '../../molecules/button/chat/button-edit';
+import { ButtonReadAloud } from '../../molecules/button/button-read-aloud';
+import { ButtonBadResponse } from '../../molecules/button/chat/button-bad-response';
+import { ButtonInfo } from '../../molecules/button/chat/button-info';
+import { ButtonGoodResponse } from '../../molecules/button/chat/button-good-response';
 import { Remark } from 'react-remark';
-import { ButtonCopy } from './button/chat/button-copy';
+import { ButtonCopy } from '../../molecules/button/chat/button-copy';
 import { ModelUsage } from '@/models/chat/chat-session.class.pm';
 
 type ChatMessageAgentProps = Readonly<{
@@ -27,7 +27,7 @@ export const ChatMessageAgent: React.FC<ChatMessageAgentProps> = ({
     <div className="w-full mb-5">
       <div className="flex flex-col justify-between px-5 mb-3 max-w-5xl mx-auto rounded-lg group">
         <div className="flex w-full" id={`message-${id}`}>
-          <ImageIcon className="flex-shrink-0 mr-3" />
+          <ImageIcon fileName="favicon" className="flex-shrink-0 mr-3" />
           <div className="w-full overflow-hidden pl-1">
             <div className="self-center font-semibold mb-0.5 line-clamp-1 contents">
               {model}

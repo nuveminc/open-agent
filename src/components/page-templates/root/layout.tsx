@@ -7,11 +7,13 @@ import { DialogContainer } from '../../organisms/common/dialog-container';
 import { ChatListVM } from '@/models/chat/chat-list.class.vm';
 import { useSidebarStore } from '@/store/sidebarStore';
 import { useLayoutPresenter } from './useLayoutPresenter';
+import { ModelCollection } from '@/models/model';
 
 export const Layout: React.FC<object> = () => {
   const { presenter } = useModalPresenter();
-  const chatList: ChatListVM = useLayoutPresenter().presenter.getChatList();
-  const isLoading: boolean = useLayoutPresenter().presenter.isLoading;
+  const chatList: ChatListVM = useLayoutPresenter().chat.getChatList();
+  const models: ModelCollection = useLayoutPresenter().chat.models();
+  const isLoading: boolean = useLayoutPresenter().chat.isLoading;
 
   const { isDisplayed, toggle } = useSidebarStore();
   const [sidebarVisible, setSidebarVisible] = useState(isDisplayed);
@@ -41,7 +43,7 @@ export const Layout: React.FC<object> = () => {
           {/* main content area */}
           <div className="h-screen max-h-[100dvh] w-full max-w-full flex flex-col">
             <div className="flex flex-col flex-auto">
-              <Outlet />
+              <Outlet context={models} />
               <DialogContainer
                 type={presenter.currentModal}
                 isOpen={presenter.modalOpen}

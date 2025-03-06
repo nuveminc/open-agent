@@ -5,11 +5,13 @@ import { ChatListVM } from '@/models/chat/chat-list.class.vm';
 import languages from '@/i18n/languages.json'; // Import language data
 import { User } from '@/models/auth';
 import { ChatSession } from '@/models/chat/chat-session.class.pm';
+import { Model } from '@/models/model';
 
 export type AppState = Readonly<{
   user: User;
   isAuthenticated: boolean;
   chatList: ChatListVM;
+  models: Model[];
   chats: ChatVM[];
   currentChat: ChatSession;
   temporaryChat: boolean;
@@ -19,6 +21,7 @@ export type AppState = Readonly<{
 
 export type AppActions = {
   setChatList: (chatList: ChatListVM) => void;
+  setModels: (models: Model[]) => void;
   setCurrentChat: (chat: ChatSession) => void;
   addChat: (chat: ChatVM) => void;
   setTemporaryChat: (isTemporary: boolean) => void;
@@ -30,6 +33,7 @@ export type AppActions = {
 export const useAppStore = create<AppState & AppActions>((set) => ({
   user: {} as User,
   chatList: {} as ChatListVM,
+  models: [] as Model[],
   chats: [],
   currentChat: {} as ChatSession,
   temporaryChat: false,
@@ -41,6 +45,10 @@ export const useAppStore = create<AppState & AppActions>((set) => ({
   setChatList: (chatList: ChatListVM) => {
     console.log('Set ChatList', chatList);
     set({ chatList: chatList });
+  },
+  setModels: (models: Model[]) => {
+    console.log('MODELS SET:', models);
+    set({ models });
   },
   setCurrentChat: (chat: ChatSession) => set({ currentChat: chat }),
   addChat: (chat: ChatVM) =>

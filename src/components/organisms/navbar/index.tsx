@@ -1,21 +1,26 @@
+import React, { useEffect, useState } from 'react';
 import { Icon } from '../../atoms';
 import { ThemeToggle } from '../../molecules/common/theme-toggle';
 import { ControlsMenuButton } from './controls-menu-button';
 import { NewChatButton } from '../sidebar/header/new-chat-button';
 import { UserMenu } from './user-menu';
-import { ModelDropdown } from './model-selector/model-dropdown';
 import { useModalPresenter } from '@/presenters/app/useModalPresenter';
 import { SidebarToggle } from '@/components/molecules/common/sidebar-toggle';
-import React, { useEffect } from 'react';
 import { useSidebarStore } from '@/store/sidebarStore';
+import { ModelVM } from '@/models/model';
+import { ModelSelectorDropdwon } from './model-selector/model-selector-dropdown';
 
 type NavbarProps = Readonly<{
+  models: ModelVM[];
   onSidebarToggle: (isSidbarVisible: boolean) => void;
 }>;
-export const Navbar: React.FC<NavbarProps> = ({ onSidebarToggle }) => {
+export const Navbar: React.FC<NavbarProps> = ({ models, onSidebarToggle }) => {
   const { presenter } = useModalPresenter();
   const { isDisplayed } = useSidebarStore();
-  const [sidebarToggleVisible, setSidebarToggleVisible] = React.useState(true);
+  const [sidebarToggleVisible, setSidebarToggleVisible] = useState(true);
+  const [selectedModel, setSelectedModel] = useState<ModelVM>(
+    models && models[0]
+  );
 
   const handleClick = () => {
     const isOpen = presenter.controlPanelOpen;
@@ -24,11 +29,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onSidebarToggle }) => {
 
   useEffect(() => {
     setSidebarToggleVisible(!isDisplayed);
-  }, [isDisplayed]);
+    setSelectedModel(models && models[0]);
+  }, [isDisplayed, models]);
 
   const handleSidebarToggle = () => {
     setSidebarToggleVisible(!isDisplayed);
     onSidebarToggle(isDisplayed);
+  };
+
+  const handleModelSelect = (model: ModelVM) => {
+    console.log('Selected Model:', model);
+    setSelectedModel(model);
   };
 
   return (
@@ -47,7 +58,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onSidebarToggle }) => {
               {/* select model section */}
               <div className="flex w-full max-w-fit">
                 {/* model selector dropdown */}
-                <ModelDropdown text="llama3.1:latest" />
+                {/* <ModelDropdown models={models} text="llama3.1:latest" /> */}
+                <ModelSelectorDropdwon
+                  defaultValue={selectedModel}
+                  models={models}
+                  onClick={handleModelSelect}
+                />
                 {/* add new model button: + */}
                 <div className="self-center mx-1 disabled:text-gray-600 disabled:hover:text-gray-600 -translate-y-[0.5px]">
                   <div aria-label="Add Model" className="flex">

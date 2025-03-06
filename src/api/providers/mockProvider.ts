@@ -4,7 +4,7 @@ import {
   IHttpProvider,
 } from '@/api/types/http-provider.interface';
 // Import mock data
-import { auth, chats, config } from '../mock/data';
+import { auth, chats, config, models } from '../mock/data';
 
 export class MockResponse<T> implements HttpResponse<T> {
   data: T;
@@ -25,6 +25,7 @@ export class MockProvider implements IHttpProvider {
     chats,
     auth,
     config,
+    models,
   };
 
   public async get<T>(

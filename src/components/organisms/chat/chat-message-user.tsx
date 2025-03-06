@@ -1,8 +1,8 @@
+import { ButtonCopy } from '@/components/molecules/button/chat/button-copy';
+import { ButtonEdit } from '@/components/molecules/button/chat/button-edit';
 import { DataFile } from '@/models/chat/chat-session.class.pm';
-import { FileDisplayCard } from '../organisms/file-display-card';
-import { ButtonCopy } from './button/chat/button-copy';
-import { ButtonDelete } from './button/chat/button-delete';
-import { ButtonEdit } from './button/chat/button-edit';
+import { FileDisplayCard } from '../file-display-card';
+import { ButtonDelete } from '@/components/molecules/button/chat/button-delete';
 
 export type ChatMessageUserProps = Readonly<{
   text: string;

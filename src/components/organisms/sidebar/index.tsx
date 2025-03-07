@@ -11,12 +11,14 @@ type SidebarProps = Readonly<{
   chatList: ChatListVM;
   isLoading: boolean;
   onClick: (isDisplayed: boolean) => void;
+  onMenuItemClick: (id: string, action: string) => void;
 }>;
 
 export const Sidebar: React.FC<SidebarProps> = ({
   chatList,
   isLoading,
   onClick,
+  onMenuItemClick,
 }) => {
   return (
     <div
@@ -33,7 +35,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="relative flex flex-col flex-1 overflow-y-auto">
           <SidebarSearch />
           <div className="pl-2 my-2 flex-1 flex flex-col space-y-1 overflow-auto hover:overflow-y-scroll">
-            <ChatSessionHistory chatList={chatList} isLoading={isLoading} />
+            <ChatSessionHistory
+              chatList={chatList}
+              isLoading={isLoading}
+              onMenuItemClick={onMenuItemClick}
+            />
           </div>
         </div>
         <ProfileMenu />

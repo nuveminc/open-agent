@@ -7,12 +7,14 @@ export type ChatItemProps = Readonly<{
   title: string;
   id: string;
   isSelected: boolean;
+  onMenuClick: (action: string) => void;
 }>;
 
 export const ChatItem: React.FC<ChatItemProps> = ({
   title,
   id,
   isSelected = false,
+  onMenuClick,
 }) => {
   const [isItemSelected, setIsItemSelected] = useState(isSelected);
   const selectedStyle = 'bg-gray-200 dark:bg-gray-800 bg-transparent';
@@ -20,14 +22,15 @@ export const ChatItem: React.FC<ChatItemProps> = ({
     ? selectedStyle
     : 'bg-gray-200 dark:bg-gray-950 bg-transparent';
   return (
-    <div className="w-full pr-2 relative group">
+    <div className="flex w-full pr-2 relative group">
       <Link
         to={`/c/${id}`}
         className={cn(
-          'w-full flex justify-between rounded-xl px-3 py-2 whitespace-nowrap hover:bg-gray-200 dark:hover:bg-gray-800 bg-transparent',
+          'w-full flex rounded-xl px-3 py-2 whitespace-nowrap group-hover:bg-gray-200 dark:group-hover:bg-gray-800 bg-transparent',
           selected
         )}
         onClick={() => setIsItemSelected(!isItemSelected)}
+        draggable={true}
       >
         <div className="flex self-center flex-1 w-full">
           <div className="text-left self-center overflow-hidden w-full h-[20px]">
@@ -35,7 +38,7 @@ export const ChatItem: React.FC<ChatItemProps> = ({
           </div>
         </div>
       </Link>
-      <ChatMenu />
+      <ChatMenu onClick={onMenuClick} />
     </div>
   );
 };

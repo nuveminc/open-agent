@@ -28,6 +28,11 @@ export const Layout: React.FC<object> = () => {
     toggle();
   };
 
+  const handleMenuItemClick = (id: string, action: string) => {
+    console.log('LAYOUT MENU ITEM CLICK', id, action);
+    // presenter.showModal(action);
+  };
+
   return (
     <>
       <div className="flex-1 w-screen">
@@ -37,6 +42,7 @@ export const Layout: React.FC<object> = () => {
               chatList={chatList}
               isLoading={isLoading}
               onClick={handleSidebarDisplay}
+              onMenuItemClick={handleMenuItemClick}
             />
             <audio id="audioElement" />
           </div>

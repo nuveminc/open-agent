@@ -1,48 +1,72 @@
-export const ChatMenu: React.FC<object> = () => {
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
+import ShadTooltip from '@/components/molecules/common/shad-tooltip';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Ellipsis } from 'lucide-react';
+import { menuItems } from '@/constants/chat-menu-items';
+
+type ChatMenuProps = Readonly<{
+  onClick: (action: string) => void;
+}>;
+export const ChatMenu: React.FC<ChatMenuProps> = ({ onClick }) => {
+  const [open, setOpen] = useState(false);
+  const [trigger, setTrigger] = useState('invisible');
+  const [tooltip, setTooltip] = useState('');
+
+  useEffect(() => {
+    const showTooltip = open ? 'hidden' : '';
+    const showTrigger = open ? '' : 'invisible';
+    setTooltip(showTooltip);
+    setTrigger(showTrigger);
+  }, [open]);
+
+  const handleMenuOpen = () => {
+    setOpen(!open);
+  };
+
+  const handleClick = (item: string): void => {
+    setOpen(!open);
+    onClick(item);
+  };
+
   return (
-    // default: invisible group-hover:bg-gray-100 dark:group-hover:bg-gray-950
-    // hover: from-gray-200 dark:from-gray-900
-    // invisible group-hover:visible from-gray-100 dark:from-gray-950 absolute right-[10px] top-[6px] py-1 pr-2 pl-5 bg-gradient-to-l from-80% to-transparent
-    <div className="invisible group-hover:visible from-gray-100 dark:from-gray-950 absolute right-[10px] top-[6px] py-1 pr-2 pl-5 bg-gradient-to-l from-80% to-transparent">
-      <div className="flex self-center space-x-1 z-10">
-        <button
-          aria-controls="M0RzV4QrUk"
-          aria-expanded="false"
-          data-state="closed"
-          id="ZpSkSgofKI"
-          tabIndex={0}
-          data-melt-dropdown-menu-trigger=""
-          data-menu-trigger=""
-          type="button"
-        >
-          <div aria-label="More" className="flex">
-            <button
-              aria-label="Chat Menu"
-              className="self-center dark:hover:text-white transition"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                className="w-4 h-4"
+    <ShadTooltip
+      content="More"
+      styleClasses={cn(tooltip, 'border-0 bg-transparent')}
+    >
+      <div
+        className={cn(
+          trigger,
+          'group-hover:visible group-hover:from-gray-800 from-gray-100 dark:from-gray-950',
+          'absolute border-r-md right-[10px] top-[.7rem] bg-gradient-to-l from-80% to-transparent'
+        )}
+      >
+        <DropdownMenu open={open} onOpenChange={handleMenuOpen}>
+          <DropdownMenuTrigger className="focus:outline-none focus:ring-0">
+            <Ellipsis className="h-4 border-0" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="text-white bg-white dark:bg-gray-850 border-0 relative left-[3.5rem]">
+            {menuItems.map((item, index) => (
+              <DropdownMenuItem
+                key={index}
+                id={item.label}
+                className="hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg cursor-pointer"
+                onClick={() => handleClick(item.action)}
               >
-                <path d="M2 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM6.5 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM12.5 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"></path>
-              </svg>
-            </button>
-          </div>
-        </button>
-        <div slot="content"></div>
-        <button id="delete-chat-button" className="hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            className="w-4 h-4"
-          >
-            <path d="M2 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM6.5 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM12.5 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"></path>
-          </svg>
-        </button>
+                <div className="flex items-center">
+                  {item.icon}
+                  <span className="ml-2">{item.label}</span>
+                </div>
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
-    </div>
+    </ShadTooltip>
   );
 };

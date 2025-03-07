@@ -6,10 +6,12 @@ import { ChatListVM } from '@/models/chat/chat-list.class.vm';
 type ChatSessionHistoryProps = {
   chatList: ChatListVM;
   isLoading: boolean;
+  onMenuItemClick: (id: string, action: string) => void;
 };
 export const ChatSessionHistory: React.FC<ChatSessionHistoryProps> = ({
   chatList,
   isLoading,
+  onMenuItemClick,
 }) => {
   if (isLoading) {
     return (
@@ -27,6 +29,10 @@ export const ChatSessionHistory: React.FC<ChatSessionHistoryProps> = ({
     );
   }
 
+  const handleMenuClick = (id: string, action: string) => {
+    onMenuItemClick(id, action);
+  };
+
   return (
     <>
       {chatList.ranges.map((range: string, idx: number) => (
@@ -38,6 +44,7 @@ export const ChatSessionHistory: React.FC<ChatSessionHistoryProps> = ({
               id={item.id}
               title={item.title}
               isSelected={false}
+              onMenuClick={(action) => handleMenuClick(item.id, action)}
             />
           ))}
         </React.Fragment>

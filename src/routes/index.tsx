@@ -10,16 +10,22 @@ import { SystemSettings } from '@/components/organisms/admin-dashboard/settings'
 import { AdminSettings } from '@/components/pages/AdminSettingsPage';
 // import { FlowView } from '@/components/pages/FlowPage';
 import { Login } from '@/components/pages/LoginPage';
-import { AppInitPage } from '@/components/page-templates/app-init';
+// import { AppInitPage } from '@/components/page-templates/app-init';
 import { ProtectedRoute } from './guards/protected-route';
 import { ProtectedLoginRoute } from './guards/protected-login-route';
 import { ChatLayout } from '@/components/page-templates/chat/chat-layout';
+import { InstallerRoute } from './installer';
+import { RootRoute } from './root';
 
 const routes = [
   {
     path: '/',
-    element: <AppInitPage />,
+    element: <RootRoute />,
     children: [
+      {
+        path: 'installer',
+        element: <InstallerRoute />,
+      },
       {
         path: '/',
         element: (

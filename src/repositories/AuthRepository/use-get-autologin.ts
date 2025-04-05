@@ -30,6 +30,7 @@ export const useGetAutoLogin = () => {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const isLoginPage = location.pathname.includes('login');
   const [isFetched, setIsFetched] = useState(false);
+  console.log('AUTO LOGIN');
 
   useEffect(() => {
     getAutoLoginFn();
@@ -45,23 +46,19 @@ export const useGetAutoLogin = () => {
         console.log('user', user);
         login(user.token);
         setUser(user);
-        // setAutoLogin(true);
-        setIsFetched(true);
       }
     } catch (e) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const error: any = e;
+      console.log('error', error);
       if (error.name !== 'CanceledError') {
-        // setAutoLogin(false);
         if (!isLoginPage) {
           if (!isAuthenticated) {
             // await mutationLogout();
             const currentPath = window.location.pathname;
             const isHomePath = currentPath === '/' || currentPath === '/flows';
-            navigate(
-              '/login' +
-                (!isHomePath && !isLoginPage ? '?redirect=' + currentPath : '')
-            );
+            const redirect = (!isHomePath && !isLoginPage) ? '?redirect=' + currentPath : '';
+            navigate('/login' + redirect);
           } else {
             getUser();
           }

@@ -9,6 +9,7 @@ export const LoadingPage: React.FC<LoadingPageProps> = () => {
       <div className="mb-0.5 items-center">
         <ButtonLogo size="h-20 w-20" />
       </div>
+      <div className="mb-10">Welcome to Open Agent</div>
     </div>
   );
 };

@@ -2,7 +2,7 @@
   "name": "open-agentui",
   "private": true,
   "version": "0.1.0",
-  "type": "module",
+  "main": "dist/electron/main.js",
   "scripts": {
     "dev": "vite --mode development",
     "test": "jest",
@@ -12,7 +12,34 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "electron:dev": "concurrently \"vite\" \"tsc -p electron/tsconfig.electron.json -w\" \"wait-on tcp:5173 && electron .\"",
+    "electron:compile": "tsc -p electron/tsconfig.electron.json",
+    "electron:build": "npm run build && npm run electron:compile && electron-builder",
+    "start-api": "python backend/main.py"
+  },
+  "build": {
+    "appId": "com.openagent.app",
+    "productName": "Open Agent",
+    "files": [
+      "dist/**/*"
+    ],
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "extraResources": [
+      {
+        "from": "dist/electron",
+        "to": "app/dist/electron",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
@@ -45,7 +72,6 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.9.0",
-    "@eslint/js": "^9.13.0",
     "@storybook/addon-essentials": "^8.3.6",
     "@storybook/addon-interactions": "^8.3.6",
     "@storybook/addon-links": "^8.3.6",
@@ -59,15 +85,21 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
+    "@types/electron": "^1.6.10",
     "@types/file-saver": "^2.0.7",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.8.1",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
     "@vitejs/plugin-react": "^4.3.3",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.13.0",
+    "concurrently": "^9.1.2",
+    "electron": "^35.0.2",
+    "electron-builder": "^25.1.8",
+    "eslint": "^8.57.1",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.13",
     "eslint-plugin-storybook": "^0.10.1",
@@ -83,7 +115,8 @@
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.10.0",
     "vite": "^5.4.10",
-    "vite-plugin-svgr": "^4.3.0"
+    "vite-plugin-svgr": "^4.3.0",
+    "wait-on": "^8.0.3"
   },
   "eslintConfig": {
     "extends": [

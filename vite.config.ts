@@ -15,5 +15,9 @@ export default defineConfig(({ mode }) => {
     define: {
       __APP_ENV__: JSON.stringify(mode),
     },
+    build: {
+      outDir: 'dist',
+      assetsDir: 'assets',
+    },
   };
 });

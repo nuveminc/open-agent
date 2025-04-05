@@ -5,8 +5,23 @@ export interface User {
   role: string;
   profile_image_url: string;
   token?: string;
-  token_type: string;
-  expires_at: string | null;
+  last_active_at: number;
+  created_at: number;
+  updated_at: number;
+  api_key: string;
+  settings: {
+    ui: {
+      models: string[];
+      chatBubble: boolean;
+      widescreenMode: boolean;
+      splitLargeChunks: boolean;
+      speechAutoSend: boolean;
+      requestFormat: string;
+      chatDirection: string;
+      memory: boolean;
+      responseAutoPlayback: boolean;
+    };
+  };
   permissions: {
     workspace: {
       models: boolean;
@@ -20,5 +35,6 @@ export interface User {
       edit: boolean;
       temporary: boolean;
     };
+    oauth_sub: string | null;
   };
 }

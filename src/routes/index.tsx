@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createHashRouter, Navigate } from 'react-router-dom';
 import { NewChat } from '@/components/pages/NewChatPage';
 import { ChatSession } from '@/components/pages/ChatSession';
 import { Layout } from '@/components/page-templates/root/layout';
@@ -8,7 +8,7 @@ import { Functions } from '@/components/organisms/admin-dashboard/functions';
 import { FunctionEditor } from '@/components/organisms/admin-dashboard/functions/function-editor';
 import { SystemSettings } from '@/components/organisms/admin-dashboard/settings';
 import { AdminSettings } from '@/components/pages/AdminSettingsPage';
-import { FlowView } from '@/components/pages/FlowPage';
+// import { FlowView } from '@/components/pages/FlowPage';
 import { Login } from '@/components/pages/LoginPage';
 import { AppInitPage } from '@/components/page-templates/app-init';
 import { ProtectedRoute } from './guards/protected-route';
@@ -42,7 +42,7 @@ const routes = [
               },
             ],
           },
-          { path: 'flow', element: <FlowView /> },
+          // { path: 'flow', element: <FlowView /> },
           {
             path: '/admin',
             element: <AdminSettings />,
@@ -87,4 +87,5 @@ const routes = [
   },
 ];
 
-export const router = createBrowserRouter(routes);
+// export const router = createBrowserRouter(routes);
+export const router = createHashRouter(routes);

@@ -31,5 +31,5 @@ export class AuthRepository {
   }
 }
 
-const provider = GatewayProvider.getProvider(GatewayType.MOCK);
+const provider = GatewayProvider.getProvider(GatewayType.HTTP);
 export default new AuthRepository(provider);

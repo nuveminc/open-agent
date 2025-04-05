@@ -1,7 +1,5 @@
-import { ChatRepository } from '@/repositories/chat.repository';
 import { ChatVM } from '@/models/chat/chat.class.vm';
 import { useAppStore } from '@/store/appStore';
-import { ChatPM } from '@/models/chat';
 import { ChatListVM } from '@/models/chat/chat-list.class.vm';
 // import { ChatPMFactory } from '@/repositories/factories';
 
@@ -9,7 +7,6 @@ export class NavPresenter {
   private initialized: boolean = false;
 
   constructor(
-    private repository: ChatRepository,
     private store: typeof useAppStore
   ) {}
 
@@ -37,7 +34,4 @@ export class NavPresenter {
     this.initialized = false;
   }
 
-  private _createChatList(items: ChatPM[]): ChatListVM {
-    return new ChatListVM(items);
-  }
 }

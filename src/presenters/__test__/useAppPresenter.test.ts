@@ -2,7 +2,7 @@
 
 import { renderHook, act } from '@testing-library/react';
 import { useSettingsStore } from '@/store/settingsStore';
-import { useAppPresenter } from '../app/useModalPresenter';
+import { useModalPresenter } from '../app/useModalPresenter';
 
 describe('useAppPresenter', () => {
   // beforeEach(() => {
@@ -20,7 +20,7 @@ describe('useAppPresenter', () => {
   });
 
   it('should initialize with correct default values', () => {
-    const { result } = renderHook(() => useAppPresenter());
+    const { result } = renderHook(() => useModalPresenter());
     const { presenter } = result.current;
 
     expect(presenter.modalOpen).toBe(false);
@@ -28,7 +28,7 @@ describe('useAppPresenter', () => {
   });
 
   it('should update modal state when showModal is called', async () => {
-    const { result } = renderHook(() => useAppPresenter());
+    const { result } = renderHook(() => useModalPresenter());
     const { presenter } = result.current;
 
     act(() => {
@@ -36,7 +36,7 @@ describe('useAppPresenter', () => {
     });
 
     // Don't know why we need to render again. Should be handled by act?
-    const { result: after } = renderHook(() => useAppPresenter());
+    const { result: after } = renderHook(() => useModalPresenter());
     expect(after.current.presenter.modalOpen).toBe(true);
   });
 });

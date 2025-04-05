@@ -63,7 +63,7 @@ export const ModelSelector: React.FC<{
       text={defaultValue.name}
       triggerClassName="w-[31.25rem]"
       contentClassName="w-[31.25rem]"
-    >
+      open={false}>
       {options.map((item, idx) => setItem(item, idx))}
     </DropdownMenuControl>
   );

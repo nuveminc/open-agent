@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 type SidebarProps = Readonly<{
   chatList: ChatListVM;
   isLoading: boolean;
-  onClick: (isDisplayed: boolean) => void;
+  onClick: () => void;
   onMenuItemClick: (id: string, action: string) => void;
 }>;
 

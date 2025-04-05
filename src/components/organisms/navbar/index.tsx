@@ -67,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({ models, onSidebarToggle }) => {
                 {/* add new model button: + */}
                 <div className="self-center mx-1 disabled:text-gray-600 disabled:hover:text-gray-600 -translate-y-[0.5px]">
                   <div aria-label="Add Model" className="flex">
-                    <button className="" aria-label="Add Model">
+                    <div className="" aria-label="Add Model">
                       <Icon
                         name="plus"
                         stroke="none"
@@ -75,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({ models, onSidebarToggle }) => {
                         strokeWidth="2"
                         fill="currentColor"
                       />
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>

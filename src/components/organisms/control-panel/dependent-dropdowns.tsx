@@ -35,7 +35,7 @@ export const DependentDropdowns: React.FC<DependentDropdownsProps> = ({
     }
   }, [allItems, selectedType]);
 
-  const handleTypeChange = (name: string, value: string) => {
+  const handleTypeChange = (value: string) => {
     setSelectedType(value);
     const items = allItems[value] || [];
     setAvailableItems(items);
@@ -47,7 +47,7 @@ export const DependentDropdowns: React.FC<DependentDropdownsProps> = ({
     onTypeChange?.(value);
   };
 
-  const handleItemChange = (name: string, value: string) => {
+  const handleItemChange = (value: string) => {
     setSelectedItem(value);
     onItemChange?.(value);
   };

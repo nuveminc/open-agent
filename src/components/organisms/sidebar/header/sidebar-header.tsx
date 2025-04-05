@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { SidebarToggle } from '@/components/molecules/common/sidebar-toggle';
 
 type SidebarHeaderProps = Readonly<{
-  onClick: (isVisible: boolean) => void;
+  onClick: () => void;
 }>;
 
 export const SidebarHeader: React.FC<SidebarHeaderProps> = ({ onClick }) => {
   return (
     <div className="px-2.5 flex justify-between space-x-1 text-gray-600 dark:text-gray-400">
-      <SidebarToggle isDisplayed={true} onClick={onClick} />
+      <SidebarToggle onClick={onClick} />
       <Link
         to={'/'}
         className="flex flex-1 justify-between rounded-xl px-2 h-full hover:bg-gray-100 dark:hover:bg-gray-900 transition"

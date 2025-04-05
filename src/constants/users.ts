@@ -25,7 +25,20 @@ export const users: User[] = [
         responseAutoPlayback: false,
       },
     },
-    info: null,
-    oauth_sub: null,
+    permissions: {
+      workspace: {
+        models: true,
+        knowledge: true,
+        prompts: true,
+        tools: true,
+      },
+      chat: {
+        file_upload: true,
+        delete: true,
+        edit: true,
+        temporary: true,
+      },
+      oauth_sub: null,
+    },
   },
 ];

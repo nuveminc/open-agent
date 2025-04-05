@@ -72,6 +72,7 @@ export const ModelSelectorDropdwon: React.FC<{
         {models &&
           models.map((model, index) => (
             <MenuItemModel
+              key={`menu-item-${index}`}
               index={index}
               selected={getSelected(index)}
               model={model}

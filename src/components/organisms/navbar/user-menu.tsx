@@ -5,16 +5,7 @@
  */
 export const UserMenu = () => {
   return (
-    <button
-      aria-controls="xPb7FnQGKT"
-      aria-expanded="false"
-      data-state="closed"
-      id="KW4Y1kdcJB"
-      tabIndex={0}
-      data-melt-dropdown-menu-trigger=""
-      data-menu-trigger=""
-      type="button"
-    >
+    <div tabIndex={0} >
       <button
         className="select-none flex rounded-xl p-1.5 w-full hover:bg-gray-50 dark:hover:bg-gray-850 transition"
         aria-label="User Menu"
@@ -28,6 +19,6 @@ export const UserMenu = () => {
           />
         </div>
       </button>
-    </button>
+    </div>
   );
 };

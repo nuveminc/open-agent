@@ -1,7 +1,12 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import { app, BrowserWindow, nativeTheme } from 'electron';
-import { registerHandlers } from './ipc/handlers';
+import { cleanupFastAPI, registerHandlers } from './ipc/handlers';
 import path from 'path';
+
+// Set NODE_ENV if not already set
+if (!process.env.NODE_ENV) {
+  process.env.NODE_ENV = app.isPackaged ? 'production' : 'development';
+}
 
 const isDev = !app.isPackaged;
 
@@ -28,7 +33,7 @@ async function createWindow(): Promise<void> {
     mainWindow.setBackgroundColor(nativeTheme.shouldUseDarkColors ? dark : light);
   });
 
-  registerHandlers(app, mainWindow);
+  registerHandlers(mainWindow);
 
   // Show window when it's ready to prevent flickering
   mainWindow.once('ready-to-show', () => {
@@ -56,3 +61,16 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+  // Ensure cleanup on app quit
+  app.on('quit', async () => {
+    await cleanupFastAPI();
+  });
+
+  // Handle cleanup on app exit
+app.on('before-quit', async (e) => {
+  e.preventDefault(); // Prevent immediate quit
+  await cleanupFastAPI();
+  app.exit();
+});
+

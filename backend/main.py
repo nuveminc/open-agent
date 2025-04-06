@@ -15,6 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+base_url = "/api/v1"   # TODO: change this to the base URL of your API
 def init_db():
     conn = sqlite3.connect('app.db')
     conn.close()
@@ -31,7 +32,7 @@ async def lifespan(app: FastAPI):
 # async def startup_event():
 #     init_db()
 
-@app.get("/health")
+@app.get(base_url + "/health")
 async def health_check():
     return {"status": "Running", "version": "0.1.0"}
 
